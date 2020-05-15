@@ -1,17 +1,17 @@
-# FM Global 
+# FM Global
 
 ### Test Summary
 Three repeated pyrolysis tests were conducted to measure the mass loss and front surface temperature of pyrolysis tests in nitrogen environment at external heat flux of 25 and 65 kW/m2, respectively. The sample has a circular shape, with a diameter of 9.52 cm (3.75 in.) and thickness of 0.6 cm. The sample was insulated both on the side and bottom.
 [what type of apparatus? // heater type/temperature?]
 
 
-#### Experimental Conditions
+#### Experimental Conditions: Gasification
 * Extraction/N2 flow rate: [??] L/s
 * Sample Surface Area: 0.00712 m2 (nominal)
 * Sample holder dimensions:
     - at least 9.5 cm... [??]
 * Backing Insulation: [thickness? / type?]
-* Thermocouple locations 
+* Thermocouple locations
     - Sample front surface temperature was measured with [TC, radiometer, IR camera?] at [location; center?]
 
 ###### Sample Mass and Test Heating Conditions  

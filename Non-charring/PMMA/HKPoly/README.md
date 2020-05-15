@@ -1,6 +1,6 @@
 # The Hong Kong Polytechnic University (HKPoly)
 
-### Experimental Conditions, TGA
+### Experimental Conditions: TGA
 A TA Instruments SDT Q600 (V20.9 Build 20) was used to conduct Simultaneous Thermal Analysis (TGA + DSC) experiments. STA experiments performed in Nitrogen and in Air. Although tests were conducted simultaneously, TGA and DSC measurement data presented here are separated into two files, for consistency with other datasets.
 
 * Heating Rate: 10 K/min
@@ -11,12 +11,12 @@ A TA Instruments SDT Q600 (V20.9 Build 20) was used to conduct Simultaneous Ther
 * Sample mass: ~4 mg
 * Sample geometry: powdered
 * Calibration type: Annual internal mass calibration  [?]
-* Crucible type: 6.8? / 85 µL, Al2O3 crucibles        [?]
+* Crucible type: 6.8? / 85 ï¿½L, Al2O3 crucibles        [?]
 * Carrier Gas
   - Air or Nitrogen
   - Flow rate = 100 ml/min
- 
-| Test Name | O2 vol % |  Initial Sample Mass (mg) | 
+
+| Test Name | O2 vol % |  Initial Sample Mass (mg) |
 | --------- | :----: | :------------------------:|
 |HKPolyU\_STA\_N2\_1 |  0  | 4.104|  
 |HKPolyU\_STA\_N2\_2 |  0  | 4.1896|  
@@ -24,7 +24,7 @@ A TA Instruments SDT Q600 (V20.9 Build 20) was used to conduct Simultaneous Ther
 |HKPolyU\_STA\_Air\_2 | 21? |3.8808|  
 
 
-### Experimental Conditions, Cone calorimeter
+### Experimental Conditions: Cone Calorimeter
 * Extraction flow rate: 7.14L/s
 * Sample Surface Area: 0.01 m2 (nominal)
 * Sample holder dimensions:
@@ -34,13 +34,9 @@ A TA Instruments SDT Q600 (V20.9 Build 20) was used to conduct Simultaneous Ther
     - Back surface [center?]
 
 ###### Test Heating Conditions  
-|Test Name | Heat Flux (kW/m2)| Heater Temperature (K) 
+|Test Name | Heat Flux (kW/m2)| Heater Temperature (K)
 |----------|:------:| :---: |
 |HKPolyU\_Cone\_25KW\_1 | 25| 900  |
 |HKPolyU\_Cone\_25KW\_2 | 25| 900  |
 |HKPolyU\_Cone\_65KW\_1 | 65| 1188 |
 |HKPolyU\_Cone\_65KW\_2 | 65| 1188 |
-
-
-
-

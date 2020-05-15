@@ -1,7 +1,7 @@
-# Laboratoire Central de la Préfecture de Police (LCPP)
+# Laboratoire Central de la Prï¿½fecture de Police (LCPP)
 
-### Experimental Conditions, TGA
-Four repeats were performed but only the best three were selected. 
+### Experimental Conditions: TGA
+Four repeats were performed but only the best three were selected.
 Pleae note: TGA Measurements received from LCPP from tests conducted at 10 and 20 K/min appear to be identical. LCPP has been contacted in an effort to resolve this issue: when possible, the offending dataset will be edited accordingly.
 
 * Heating Rate: 2.5, 5, 10, or 20 K/min
@@ -17,8 +17,8 @@ Pleae note: TGA Measurements received from LCPP from tests conducted at 10 and 2
 * Carrier Gas
   - Nitrogen
   - Flow rate = 80 ml/min
- 
-| Test Name | Heating Rate (K/min) |  Initial Sample Mass (mg) | 
+
+| Test Name | Heating Rate (K/min) |  Initial Sample Mass (mg) |
 | --------- | :----: | :------------------------:|
 |LCPP\_STA\_N2\_2.5K\_1 |  2.5  | 3.00723|  
 |LCPP\_STA\_N2\_2.5K\_2 |  2.5  | 3.12678|  
@@ -38,8 +38,8 @@ Pleae note: TGA Measurements received from LCPP from tests conducted at 10 and 2
 
 
 
-### Experimental Conditions, Cone calorimeter
-For three out of four samples for each heat flux, no mass information is available. Measurements of temperature and HRR for these 6 samples are however made available for estimation of HRR repeatability. A single thermocouple was used to measure temperature at the center of the sample back surface. Prior to testing, samples were wrapped with aluminum foil. Distance between sample side and the conical heater resistance = 25 mm. 
+### Experimental Conditions: Cone calorimeter
+For three out of four samples for each heat flux, no mass information is available. Measurements of temperature and HRR for these 6 samples are however made available for estimation of HRR repeatability. A single thermocouple was used to measure temperature at the center of the sample back surface. Prior to testing, samples were wrapped with aluminum foil. Distance between sample side and the conical heater resistance = 25ï¿½mm.
 
 * Extraction flow rate: 24L/s
 * Sample holder dimensions:
@@ -48,18 +48,15 @@ For three out of four samples for each heat flux, no mass information is availab
     - Retaining grid: None
 * Backing Insulation: Monolith substrates (3x, each 12 mm thick) [material type/thermal conductivity / thermophysical properties?]
 * Thermocouple location: Central on sample back surface
-    
+
 ###### Test Heating Conditions  
-|Test Name | Heat Flux (kW/m2)| Heater Temperature (K) 
+|Test Name | Heat Flux (kW/m2)| Heater Temperature (K)
 |----------|:------:| :---: |
 |LCCP\_Cone\_25kW\_1 | 25| 310?  |
 |LCCP\_Cone\_25kW\_2 | 25| 310?|
 |LCCP\_Cone\_25kW\_3 | 25| 310?|
 |LCCP\_Cone\_25kW\_4 | 25| 310?|
-|LCCP\_Cone\_65kW\_1 | 65| 559? | 
+|LCCP\_Cone\_65kW\_1 | 65| 559? |
 |LCCP\_Cone\_65kW\_2 | 65| 559?|
-|LCCP\_Cone\_65kW\_3 | 65| 558? | 
+|LCCP\_Cone\_65kW\_3 | 65| 558? |
 |LCCP\_Cone\_65kW\_4 | 65| 558?|
-
-
-

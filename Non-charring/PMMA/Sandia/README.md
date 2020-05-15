@@ -12,20 +12,16 @@ A Netzsch F3 Jupiter using a DSC sample carrier with S-type thermocouples, and a
 * Sample geometry: powdered
 * Calibration type: The instrument is calibrated at least once per 6 months, or sooner (as needed), using melting point standards for both temperature and DSC sensitivity.  The calibration standards used are In, Sn, Bi, Zn, Al, Ag, Au, and Ni.
 
-* Crucible type: 85 µL, Al2O3 crucibles (no lids)
+* Crucible type: 85 ï¿½L, Al2O3 crucibles (no lids)
 * Carrier Gas
   - ultra-high-purity argon  (0% O2)
   - Flow rate = 100  ml/min  
 
-| Test Name | Heating Rate (K/min)|  Initial Sample Mass (mg) | 
+| Test Name | Heating Rate (K/min)|  Initial Sample Mass (mg) |
 | --------- | :---------: | :------------------------: |
 |SANDIA\_STA\_Ar\_1 | 1  | 4.903|  
 |SANDIA\_STA\_Ar\_2 | 10 | 4.917|  
 |SANDIA\_STA\_Ar\_3 | 10 | 4.828|  
 |SANDIA\_STA\_Ar\_4 | 50 | 5.376|  
-|SANDIA\_STA\_Ar\_5 | 50 | 4.835| 
+|SANDIA\_STA\_Ar\_5 | 50 | 4.835|
 |SANDIA\_STA\_Ar\_6 | 50 | 4.682|  
-
-
-
-

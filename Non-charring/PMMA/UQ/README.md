@@ -1,6 +1,6 @@
 # University of Queensland (UQ)
 
-### Experimental Conditions, TGA
+### Experimental Conditions: TGA
 
 * Heating Rate: 10 K/min
 * Temperature program
@@ -10,15 +10,15 @@
 * Sample mass: 5.1-5.6 mg
 * Sample geometry: powdered
 * Calibration type: Annual internal mass calibration  
-* Crucible type: 6.8? / 85 µL, Al2O3 crucibles  
+* Crucible type: 6.8? / 85 ï¿½L, Al2O3 crucibles  
 * Carrier Gas
   - Air or Nitrogen
   - Flow rate = 150 ml/min
 
 ###### Tests Conducted in Air (flow rate = 150 ml/min)  
 
- 
-| Test Name | Initial Sample Mass (mg) | 
+
+| Test Name | Initial Sample Mass (mg) |
 | --------- | :------------------------:|
 |UQ\_TGA\_Air\_1 | 5.1|  
 |UQ\_TGA\_Air\_2 | 5.2|  
@@ -32,7 +32,7 @@
 |UQ\_TGA\_N2\_2 | 5.1|  
 |UQ\_TGA\_N2\_3 | 5.6|  
 
-### Experimental Conditions, Cone calorimeter
+### Experimental Conditions: Cone Calorimeter
 * Extraction flow rate: 24L/s
 * Sample holder dimensions:
     - Square pan: 106mm x 106mm x 25mm
@@ -45,7 +45,7 @@
     - Back surface 3: 25mm right from central thermocouple
 
 ###### Test Heating Conditions  
-|Test Name | Heat Flux (kW/m2)| Heater Temperature (K) 
+|Test Name | Heat Flux (kW/m2)| Heater Temperature (K)
 |----------|:------:| :---: |
 |UQ\_Cone\_25KW\_1 | 25| 856  
 |UQ\_Cone\_25KW\_2 | 25| 856
