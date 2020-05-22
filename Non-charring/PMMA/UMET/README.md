@@ -1,20 +1,30 @@
-# University of Lille - ENSCL - Unit� Mat�riaux et Transformations (UMET)
+# University of Lille - ENSCL - Unité Matériaux et Transformations (UMET)
 
 ### Experimental Conditions: TGA
 
 * Heating Rates: 1, 2, 5, 10, 20, 50, and 100 K/min
 * Temperature program
-  - Initial temperature 313.15 K
-  - Isotherm: None
-  - Maximum Temperature 1273.15 K
-* Sample mass: 3.93 � 5.98 mg
+  - Initial Temperature: 313.15 K
+  - Initial Isotherm: None
+  - Maximum Temperature: 1273.15 K
+  - Final Isotherm: None
+* Sample mass: 3.93 – 5.98 mg
 * Sample geometry: powdered
 * Calibration type: Temperature calibration was performed every 6 months using a set of 5 reference materials with melting temperatures between 156.6 - 660 C
-* Crucible type: 85 �L Al2O3 crucibles  
+* Crucible
+  - Type: Al2O3
+  - Volume: 85 µL
+  - Diameter: None
+  - Mass: None
+  - Lid: None
+  - Note: None
 * Carrier Gas
-  - Nitrogen (Vacuuming and filling according to the desired atmosphere)
-  - Flow rate = 40 ml/min
-* Instrument type: Netzsch TG 209 Libra
+  - Type: Nitrogen
+  - Flow rate: 40 ml/min
+  - Note: Nitrogen (Vacuuming and filling according to the desired atmosphere)
+* Instrument
+  - Type: Netzsch TG 209 Libra
+  - Note: None
 
 
 |Test Name | Heating Rate (K/min) | Initial Sample Mass (mg)|  
@@ -55,7 +65,7 @@
 ### Diffusivity (LFA 467 Hyperflash- Netzsch):
 * Laser flash analysis
 * 3 flash for each temperature
-* Square sample 25.4*25.4cm�
+* Square sample 25.4*25.4cm²
 * Both sides of the sample coated with graphite paint
 
 ### Conductivity (TPS 2500S-Hot Disk):
@@ -65,6 +75,6 @@
 * 2 plates for measurement
 * Isotropic material
 * The material is considered as semi-infinite when using the appropriate size of the sensor.
-*Energy pulse:
+* Energy pulse:
   - Power: 35 mW
   - Duration: 20 s
