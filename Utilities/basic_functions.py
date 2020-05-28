@@ -51,7 +51,7 @@ def read_test_condition_table(table_lines):
     Pandas DataFrame.
 
     :param table_lines: list of strings of a markdown table
-    
+
     :return: Pandas DataFrame of said table
     """
 
@@ -93,3 +93,33 @@ def read_test_condition_table(table_lines):
 
     # Return table as Pandas DataFrame.
     return pd.DataFrame.from_dict(table_content)
+
+
+def get_institute(readme_lines):
+    """
+    Takes a list of strings of the README-file content and extract the first
+    line, which contains the institute label and name. Label and name are both
+    are returned as a list of string.
+
+    :param readme_lines: list of strings of the README-file content
+
+    :return: list of string with institute label and name
+    """
+
+    # Read the institute line (skip markdown marker for heading).
+    institute_line = readme_lines[0][2:]
+
+    # Split the institute line into individual elements.
+    institute_line_parts = institute_line.split(" ")
+
+    # Get the institute label and its length (amount of characters).
+    institute_label_raw = institute_line_parts[-1]
+    label_raw_len = len(institute_label_raw)
+    institute_label = institute_label_raw[1:-1]
+
+    # From the institute line remove the institute label
+    # to get the institute name.
+    institute_name = institute_line[:-(label_raw_len + 1)]
+
+    # Return institute label and name as a list.
+    return [institute_label, institute_name]
