@@ -45,12 +45,14 @@ def read_experiment_lines(readme_lines, start_marker_a="TGA",
     return experiment_lines
 
 
-def read_test_condition_table(table_lines):
+def read_test_condition_table(experiment_lines):
     """
-    Takes a list of strings of a markdown table and transforms them into a
-    Pandas DataFrame.
+    Takes a list of strings of information on an experiment that also
+    includes a markdown table with a summary of the experiment. It finds
+    the table lines and transforms them into a Pandas DataFrame.
 
-    :param table_lines: list of strings of a markdown table
+    :param experiment_lines: list of strings containing information on an
+    experiment including a markdown table
 
     :return: Pandas DataFrame of said table
     """
@@ -60,7 +62,7 @@ def read_test_condition_table(table_lines):
     table_content = dict()
 
     # Find and read table.
-    for line in table_lines:
+    for line in experiment_lines:
         if "|:-" in line:
             # Skip lines containing visual markers (horizontal lines).
             continue
