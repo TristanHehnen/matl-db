@@ -25,14 +25,16 @@ def read_experiment_lines(readme_lines, start_marker_a="TGA",
 
     # Iterate over all the lines of the file content.
     for line in readme_lines:
+
         # Skip empty lines.
         if line == '':
             continue
-            
+
         if end_marker in line:
-            # Stop collecting lines after the TGA experiment 
-            # description concluded and a new section starts.
-            collect_entry = False
+            if "####" not in line:
+                # Stop collecting lines after the TGA experiment
+                # description concluded and a new section starts.
+                collect_entry = False
 
         if start_marker_a in line and start_marker_b in line:
             # Allow collection of lines.
