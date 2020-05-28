@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 def read_experiment_lines(readme_lines, start_marker_a="TGA",
                           start_marker_b="###", end_marker="###"):
     """
@@ -40,3 +43,53 @@ def read_experiment_lines(readme_lines, start_marker_a="TGA",
             experiment_lines.append(line)
 
     return experiment_lines
+
+
+def read_test_condition_table(table_lines):
+    """
+    Takes a list of strings of a markdown table and transforms them into a
+    Pandas DataFrame.
+
+    :param table_lines: list of strings of a markdown table
+    
+    :return: Pandas DataFrame of said table
+    """
+
+    # Initialise data collection.
+    preprocess_content = list()
+    table_content = dict()
+
+    # Find and read table.
+    for line in table_lines:
+        if "|:-" in line:
+            # Skip lines containing visual markers (horizontal lines).
+            continue
+
+        elif "|" in line:
+            # Read table lines and seperate by columns.
+            # Ignore first and last character per line, they are empty.
+            preprocess_content.append(line.split("|")[1:-1])
+            # print(line.split("|")[1:-1])
+
+    # Process content by column.
+    for col_id, col_label in enumerate(preprocess_content[0]):
+        # Initialise column.
+        col_content = list()
+
+        # Get all cells per column.
+        for line_id, line in enumerate(preprocess_content[1:]):
+
+            if "Test Label" not in col_label and "File Name" not in col_label:
+                # Transform string to float.
+                cell_content = line[col_id].replace("\\", "")
+                col_content.append(float(cell_content))
+            else:
+                # Remove "\\" from file names and experiment labels.
+                cell_content = line[col_id].replace("\\", "")
+                col_content.append(cell_content)
+
+        # Collect columns.
+        table_content[col_label[1:-1]] = col_content
+
+    # Return table as Pandas DataFrame.
+    return pd.DataFrame.from_dict(table_content)

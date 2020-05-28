@@ -1,6 +1,6 @@
 # University of Lille - ENSCL - Unité Matériaux et Transformations (UMET)
 
-### Experimental Conditions: TGA
+### Experimental Conditions, TGA
 
 * Heating Rates: 1, 2, 5, 10, 20, 50, and 100 K/min
 * Temperature program
@@ -26,18 +26,19 @@
   - Type: Netzsch TG 209 Libra
   - Note: None
 
+###### Test Condition Summary
 
-|Test Name | Heating Rate (K/min) | Initial Sample Mass (mg)|  
-|----------|:------:|  :------:|
-|UMET\_TGA\_N2\_1 | 1 | 4.336 |
-|UMET\_TGA\_N2\_2 | 2 | 4.845 |
-|UMET\_TGA\_N2\_3 | 5 | 4.093 |
-|UMET\_TGA\_N2\_4 | 10 | 5.339  |
-|UMET\_TGA\_N2\_5 | 20 | 3.929  |
-|UMET\_TGA\_N2\_6 | 50 | 5.980 |
-|UMET\_TGA\_N2\_7 | 100 | 5.364 |
+| Test Label | Heating Rate (K/min) | Initial Sample Mass (mg) | Oxygen Concentration (vol %) | File Name |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|:---------:|
+| UMET\_TGA\_N2\_1 |   1 | 4.336 | 0 | UMET\_TGA\_1K\_N2\_0\_1 |
+| UMET\_TGA\_N2\_2 |   2 | 4.845 | 0 | UMET\_TGA\_2K\_N2\_0\_2 |
+| UMET\_TGA\_N2\_3 |   5 | 4.093 | 0 | UMET\_TGA\_5K\_N2\_0\_3 |
+| UMET\_TGA\_N2\_4 |  10 | 5.339 | 0 | UMET\_TGA\_10K\_N2\_0\_4 |
+| UMET\_TGA\_N2\_5 |  20 | 3.929 | 0 | UMET\_TGA\_20K\_N2\_0\_5 |
+| UMET\_TGA\_N2\_6 |  50 | 5.980 | 0 | UMET\_TGA\_50K\_N2\_0\_6 |
+| UMET\_TGA\_N2\_7 | 100 | 5.364 | 0 | UMET\_TGA\_100K\_N2\_0\_7 |
 
-### Experimental Conditions: DSC
+### Experimental Conditions, DSC
 
 * Measurement of cp was made by comparison with sapphire and using modulation
 * Heating Rates: 3, 10, 20 K/min
@@ -53,6 +54,7 @@
   - Flow rate = 50 ml/min
 * Instrument type: Discovery TA
 
+###### Test Condition Summary
 
 |Test Name | Heating Rate (K/min) |
 |----------|:------:|  
