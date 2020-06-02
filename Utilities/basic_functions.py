@@ -90,6 +90,8 @@ def read_test_condition_table(experiment_lines):
             else:
                 # Remove "\\" from file names and experiment labels.
                 cell_content = line[col_id].replace("\\", "")
+                # Remove surrounding " " of test label.
+                cell_content = cell_content.replace(" ", "")
                 col_content.append(cell_content)
 
         # Collect columns.
