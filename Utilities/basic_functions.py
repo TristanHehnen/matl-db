@@ -127,3 +127,33 @@ def get_institute(readme_lines):
 
     # Return institute label and name as a list.
     return [institute_label, institute_name]
+
+
+# Collection of experiment description templates.
+experiment_template = {
+    "TGA_base": {
+        'laboratory': {},
+        'heating_rate': {},
+        'temperature_program': {
+            'initial_temperature': {},
+            'initial_isotherm': {},
+            'maximum_temperature': {},
+            'final_isotherm': {}},
+        'sample_mass': {},
+        'sample_geometry': {},
+        'calibration_type': {},
+        'crucible': {
+            'type': {},
+            'volume': {},
+            'diameter': {},
+            'mass': {},
+            'lid': {},
+            'note': {}},
+        'carrier_gas': {
+            'type': {},
+            'flow_rate': {},
+            'note': {}},
+        'instrument': {
+            'type': {},
+            'note': {}},
+        'path': {}}}
