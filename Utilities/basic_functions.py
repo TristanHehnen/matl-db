@@ -1,4 +1,12 @@
 import pandas as pd
+import re
+
+
+# Pattern to match numbers in strings with regular expressions.
+# From: John Machin; https://stackoverflow.com/questions/4703390/how-to-extract-a-floating-number-from-a-string
+numeric_const_pattern = '[-+]? (?: (?: \d* \. \d+ ) | (?: \d+ \.? ) )(?: [Ee] [+-]? \d+ ) ?'
+rx = re.compile(numeric_const_pattern, re.VERBOSE)
+# rx.findall("Some example: Jr. it. was .23 between 2.3 and 42.31 seconds")
 
 
 def read_experiment_lines(readme_lines, start_marker_a="TGA",
