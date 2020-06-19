@@ -28,6 +28,6 @@
 
 ###### Test Condition Summary
 
-| Test Label | Heating Rate (K/min) | Initial Sample Mass (mg) | Oxygen Concentration (vol %) | File Name |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|:---------:|
-| [None] |   [None] | [None] | [None] | [None] |
+| Test Label | Heating Rate (K/min) | Initial Sample Mass (mg) | Oxygen Concentration (vol %) |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+| [None] |   [None] | [None] | [None] |
