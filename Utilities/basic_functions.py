@@ -15,11 +15,12 @@ def read_experiment_lines(readme_lines, start_marker_a="TGA",
     This function iterates over a list of strings and searches for information
     about a desired experiment. The information is found by looking for
     sub-strings (markers) that encapsulate the desired information. A
-    shortend list is returned containing the experiment information.
+    shortened list is returned containing the experiment information.
 
     :param readme_lines: List of string containing text file content
     :param start_marker_a: Marker to find the desired experiment
-    :param start_marker_b: Additional marker to make sure the correct line is chosen
+    :param start_marker_b: Additional marker to make sure the correct
+           line is chosen
     :param end_marker: Marker to indicate when to stop collecting lines.
 
     :return: list, containing lines of string related to a desired experiment
@@ -59,10 +60,10 @@ def read_test_condition_table(experiment_lines):
     """
     Takes a list of strings of information on an experiment that also
     includes a markdown table with a summary of the experiment. It finds
-    the table lines and transforms them into a Pandas DataFrame.
+    the table lines and translates them into a Pandas DataFrame.
 
     :param experiment_lines: list of strings containing information on an
-    experiment including a markdown table
+           experiment including a markdown table
 
     :return: Pandas DataFrame of said table
     """
@@ -113,7 +114,7 @@ def get_institute(readme_lines):
     """
     Takes a list of strings of the README-file content and extract the first
     line, which contains the institute label and name. Label and name are both
-    are returned as a list of string.
+    returned as a list of string.
 
     :param readme_lines: list of strings of the README-file content
 
@@ -154,7 +155,7 @@ def readme_items(md_lines, items):
     :param items: dictionary with expected bullet points as keys.
 
     :return: Nothing; the existing dictionary is simply filled with the
-    appropriate  values for the keys.
+             appropriate values for the keys.
     """
 
     # Read bullet points of markdown list and transform them
