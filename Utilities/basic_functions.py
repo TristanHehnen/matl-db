@@ -400,9 +400,67 @@ def readme_items(md_lines, items):
                 items[recent_main_key][new_key] = new_val
 
 
+def build_major_bullet_point(exp_dict, bullet_point):
+    """
+    This function takes a desired major bullet point and its minor bullet
+    points from an experiment description dictionary and translates it into
+    a string. This string is a series of markdown items and can be written to a
+    text file to be human-readable.
+
+    :param exp_dict: dictionary containing the experiment description
+    :param bullet_point: key (string) for the desired major bullet point
+
+    :return: list of string
+    """
+
+    # Define string nuclei to build README lines.
+    major_nucleus = "* {}"
+    minor_nucleus = "  - {}: {}"
+
+    # Initialise collection of README lines as list of string.
+    new_lines = list()
+
+    # Define major bullet point (heading).
+    major_bullet = bullet_point.replace('_', ' ').title()
+    major_bullet = major_nucleus.format(major_bullet)
+    new_lines.append(major_bullet)
+
+    # Define minor bullet points.
+    for key in exp_dict[bullet_point].keys():
+        if type(exp_dict[bullet_point][key]) is str:
+            # Get bullet points that only hold a string, e.g. a note.
+            value = exp_dict[bullet_point][key]
+
+        elif type(exp_dict[bullet_point][key]) is None:
+            # Get bullet points that contain no information, i.e. None.
+            value = "None"
+
+        else:
+            if key is 'note':
+                # Get the text of the note.
+                value = exp_dict[bullet_point][key]
+
+            elif exp_dict[bullet_point][key]['value'] is not None:
+                # Concatenate value and measurement unit.
+                value = "{} {}".format(exp_dict[bullet_point][key]['value'],
+                                       exp_dict[bullet_point][key]['unit'])
+
+            else:
+                # Write only a single "None", instead one for the value
+                # and one for the measurement unit.
+                value = "None"
+
+        # Construct and collect bullet point.
+        new_bullet_point = key.replace('_', ' ').title()
+        new_line = minor_nucleus.format(new_bullet_point, value)
+        new_lines.append(new_line)
+
+    return new_lines
+
+
 def build_medium_bullet_point(exp_dict, bullet_point):
     """
-    This function takes the desired medium bullet point from an
+    This function takes a desired medium bullet point from an
     experiment description dictionary and translates it into a string. This
     string is a markdown item and can be written to a text file to be
     human-readable.
