@@ -1,4 +1,5 @@
 import pandas as pd
+from pandas.core.common import flatten as pd_flatten
 import re
 
 
@@ -495,6 +496,94 @@ def build_medium_bullet_point(exp_dict, bullet_point):
     new_lines.append(new_line)
 
     return new_lines
+
+
+def build_tga(tga_exp):
+    """
+    This functions builds the README lines for the TGA experiments. Heating
+    rate and sample masses are summarised. 
+
+    :param tga_exp: dictionary, containing the description of the different
+                    repetitions of the TGA experiments
+
+    :return: list of string for a new README file
+    """
+
+    # Initialise collection of README lines as list of string.
+    tga_readme_lines = list()
+
+    # Define string nuclei to build README lines.
+    exp_header_nucleus = "### Experimental Conditions, TGA"
+    tga_readme_lines.append(exp_header_nucleus)
+
+    # Get keys of the different experiments.
+    exp_keys = list(tga_exp.keys())
+
+    # Heating Rates.
+    heating_rates = list()
+    # Get all heating rates.
+    for exp_key in exp_keys:
+        heating_rates.append(tga_exp[exp_key]["heating_rate"]["value"])
+    # Remove duplicates.
+    heating_rates = list(dict.fromkeys(heating_rates))
+    # Build the summary of different heating rates.
+    part_one = "{}".format(heating_rates[0])
+    for heating_rate in heating_rates[1:-1]:
+        part_one += ", {}".format(heating_rate)
+    part_two = heating_rates[-1]
+    unit = tga_exp[exp_key]["heating_rate"]["unit"]
+    readme_lines = "* Heating Rates: {} and {} {}".format(part_one,
+                                                          part_two,
+                                                          unit)
+    tga_readme_lines.append(readme_lines)
+
+    # Temperature program.
+    readme_lines = build_major_bullet_point(tga_exp[exp_keys[0]],
+                                            "temperature_program")
+    tga_readme_lines.append(readme_lines)
+
+    # Sample mass.
+    sample_masses = list()
+    # Get all sample masses.
+    for exp_key in exp_keys:
+        sample_masses.append(tga_exp[exp_key]["sample_mass"]["value"])
+    # Remove duplicates.
+    sample_masses = list(dict.fromkeys(sample_masses))
+    # Build the summary of different sample masses.
+    unit = tga_exp[exp_key]["sample_mass"]["unit"]
+    readme_lines = "* Sample Mass: {} - {} {}".format(min(sample_masses),
+                                                      max(sample_masses),
+                                                      unit)
+    tga_readme_lines.append(readme_lines)
+
+    # Sample geometry.
+    readme_lines = build_medium_bullet_point(tga_exp[exp_keys[0]],
+                                             "sample_geometry")
+    tga_readme_lines.append(readme_lines)
+
+    # Calibration type
+    readme_lines = build_medium_bullet_point(tga_exp[exp_keys[0]],
+                                             "calibration_type")
+    tga_readme_lines.append(readme_lines)
+
+    # Crucible
+    readme_lines = build_major_bullet_point(tga_exp[exp_keys[0]],
+                                            "crucible")
+    tga_readme_lines.append(readme_lines)
+
+    # Carrier Gas
+    readme_lines = build_major_bullet_point(tga_exp[exp_keys[0]],
+                                            "carrier_gas")
+    tga_readme_lines.append(readme_lines)
+
+    # Instrument
+    readme_lines = build_major_bullet_point(tga_exp[exp_keys[0]],
+                                            "instrument")
+    tga_readme_lines.append(readme_lines)
+
+    # Flatten list of new README lines.
+    tga_readme_lines = list(pd_flatten(tga_readme_lines))
+    return tga_readme_lines
 
 
 # Collection of experiment description templates.
