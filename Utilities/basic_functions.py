@@ -498,10 +498,57 @@ def build_medium_bullet_point(exp_dict, bullet_point):
     return new_lines
 
 
+def build_test_condition_table(test_condition_table_df):
+    """
+    Function to create a markdown table from a Pandas DataFrame.
+
+    :param test_condition_table_df: DataFrame to be translated
+
+    :return: list of string
+    """
+
+    # Initialise collection of README lines as list of string.
+    new_lines = list()
+
+    # Define string nucleus to build markdown table lines.
+    table_line_nucleus = "|"
+    table_entry_nucleus = "{}|"
+
+    # Get column headers.
+    column_headers = list(test_condition_table_df)
+    n_columns = len(column_headers)
+
+    # Build table header.
+    table_line = "" + table_line_nucleus
+    for column_header in column_headers:
+        table_line += table_entry_nucleus.format(" " + column_header + " ")
+    new_lines.append(table_line)
+
+    # Build table divider.
+    table_line = "" + table_line_nucleus
+    for n_column in range(n_columns):
+        table_line += table_entry_nucleus.format(":---:")
+    new_lines.append(table_line)
+
+    # Build table body.
+    n_rows = len(test_condition_table_df[column_headers[0]])
+    # Iterate over lines.
+    for line in range(n_rows):
+        table_line = "" + table_line_nucleus
+        # Iterate over columns.
+        for column_header in column_headers:
+            entry = str(test_condition_table_df.iloc[line][column_header])
+            #             entry = entry.replace("_", "\\_")
+            table_line += table_entry_nucleus.format(" " + entry + " ")
+        new_lines.append(table_line)
+
+    return new_lines
+
+
 def build_tga(tga_exp):
     """
     This functions builds the README lines for the TGA experiments. Heating
-    rate and sample masses are summarised. 
+    rate and sample masses are summarised.
 
     :param tga_exp: dictionary, containing the description of the different
                     repetitions of the TGA experiments
