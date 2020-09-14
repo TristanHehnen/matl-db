@@ -545,13 +545,15 @@ def build_test_condition_table(test_condition_table_df):
     return new_lines
 
 
-def build_tga(tga_exp):
+def build_tga(tga_exp, exp_table_df=None):
     """
     This functions builds the README lines for the TGA experiments. Heating
     rate and sample masses are summarised.
 
     :param tga_exp: dictionary, containing the description of the different
                     repetitions of the TGA experiments
+    :param exp_table_df: Pandas DataFrame containing the
+                         test condition summary table
 
     :return: list of string for a new README file
     """
@@ -560,8 +562,8 @@ def build_tga(tga_exp):
     tga_readme_lines = list()
 
     # Define string nuclei to build README lines.
-    exp_header_nucleus = "### Experimental Conditions, TGA"
-    tga_readme_lines.append(exp_header_nucleus)
+    exp_header = "### Experimental Conditions, TGA"
+    tga_readme_lines.append(exp_header)
 
     # Get keys of the different experiments.
     exp_keys = list(tga_exp.keys())
@@ -627,6 +629,13 @@ def build_tga(tga_exp):
     readme_lines = build_major_bullet_point(tga_exp[exp_keys[0]],
                                             "instrument")
     tga_readme_lines.append(readme_lines)
+
+    # Test condition summary table
+    if exp_table_df is not None:
+        table_header = "###### Test Condition Summary"
+        tga_readme_lines.append(table_header)
+        table_lines = build_test_condition_table(exp_table_df)
+        tga_readme_lines.append(table_lines)
 
     # Flatten list of new README lines.
     tga_readme_lines = list(pd_flatten(tga_readme_lines))
