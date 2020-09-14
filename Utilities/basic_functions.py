@@ -400,6 +400,45 @@ def readme_items(md_lines, items):
                 items[recent_main_key][new_key] = new_val
 
 
+def build_medium_bullet_point(exp_dict, bullet_point):
+    """
+    This function takes the desired medium bullet point from an
+    experiment description dictionary and translates it into a string. This
+    string is a markdown item and can be written to a text file to be
+    human-readable.
+
+    :param exp_dict: dictionary containing the experiment description
+    :param bullet_point: key (string) for the desired medium bullet point
+
+    :return: list of string
+    """
+
+    # Define string nucleus to build README lines.
+    medium_nucleus = "* {}: {}"
+    value_unit_nucleus = "{} {}"
+
+    # Read the content of the bullet point.
+    exp_content = exp_dict[bullet_point]
+
+    # Initialise collection of README lines as list of string.
+    new_lines = list()
+
+    # Check if the content is a value with a unit or a description.
+    if type(exp_content) is dict:
+        value = exp_content["value"]
+        unit = exp_content["unit"]
+        new_bullet_content = value_unit_nucleus.format(value, unit)
+    else:
+        new_bullet_content = exp_dict[bullet_point]
+
+    # Define medium bullet point (heading).
+    new_bullet_point = bullet_point.replace('_', ' ').title()
+    new_line = medium_nucleus.format(new_bullet_point, new_bullet_content)
+    new_lines.append(new_line)
+
+    return new_lines
+
+
 # Collection of experiment description templates.
 experiment_template = {
     "TGA_base": {
