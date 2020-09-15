@@ -70,7 +70,7 @@ def read_test_condition_table(experiment_lines):
     """
 
     # Initialise data collection.
-    preprocess_content = list()
+    pre_process_content = list()
     table_content = dict()
 
     # Find and read table.
@@ -80,18 +80,18 @@ def read_test_condition_table(experiment_lines):
             continue
 
         elif "|" in line:
-            # Read table lines and seperate by columns.
+            # Read table lines and separate by columns.
             # Ignore first and last character per line, they are empty.
-            preprocess_content.append(line.split("|")[1:-1])
+            pre_process_content.append(line.split("|")[1:-1])
             # print(line.split("|")[1:-1])
 
     # Process content by column.
-    for col_id, col_label in enumerate(preprocess_content[0]):
+    for col_id, col_label in enumerate(pre_process_content[0]):
         # Initialise column.
         col_content = list()
 
         # Get all cells per column.
-        for line_id, line in enumerate(preprocess_content[1:]):
+        for line_id, line in enumerate(pre_process_content[1:]):
 
             if "Test Label" not in col_label and "File Name" not in col_label:
                 # Transform string to float.
@@ -139,6 +139,75 @@ def get_institute(readme_lines):
 
     # Return institute label and name as a list.
     return [institute_label, institute_name]
+
+
+def utility_build_base_dict(md_lines):
+    """
+    Utility function to build a dictionary from points found in the README
+    lines. This is intended to process the descriptions of the same
+    experiment provided by the various contributors to easily find the
+    different items used in the description. This helps to unify the README
+    for a specific experiment across all contributors. It is not meant to be
+    used  on a regular basis, but rather during the definition of the
+    dictionaries for the different experiments during the early stages of the
+    repository. After the definition of said dictionaries is settled, README
+    templates are to be created and new contributions should follow that
+    guidance.
+    This functions is merely collected for completeness and might be useful
+    if new types of experiments are included into the repo.
+
+    :param md_lines: list of strings of the README-file content for a desired
+                     experiment
+
+    :return: dictionary with the different markdown items
+    """
+
+    # Initialise dictionary to collect the different README items.
+    exp_data_info = dict()
+
+    recent_main_key = None
+
+    # Read bullet points of markdown list and transform them
+    # to dictionary keys.
+    for line in md_lines:
+        # Get medium items.
+        if "* " in line and ": " in line:
+            new_key = line[2:].split(':')[0].replace(' ', '_').lower()
+            new_info = line[4:].split(':')[1]
+            exp_data_info[new_key] = dict()
+        #             print(line)
+
+        # Get major items.
+        elif "* " in line and not ": " in line:
+            new_key = line[2:].replace(' ', '_').lower()
+            recent_main_key = new_key
+            exp_data_info[new_key] = dict()
+        #             print(line)
+
+        # Get minor items.
+        elif "  - " in line and ": " in line:
+            new_key = line[4:].split(':')[0].replace(' ', '_').lower()
+            new_info = line[4:].split(':')[1]
+            #             print(new_info)
+
+            # Add a dictionary to store the item info.
+            exp_data_info[recent_main_key][new_key] = dict()
+
+        elif "  - " in line and not ": " in line:
+            print(' * ERROR - check README layout! * ')
+
+        else:
+            # Catch cases that aren't expected keywords, e.g. empty lines.
+            new_key = None
+
+        # Select for expected keywords.
+        if new_key is not None:
+            if "heating_rate" in new_key:
+                rx.findall(line)
+                print(rx.findall(line))
+                print(new_info)
+
+    return exp_data_info
 
 
 def readme_items(md_lines, items):
