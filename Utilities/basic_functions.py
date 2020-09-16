@@ -13,6 +13,59 @@ rx = re.compile(numeric_const_pattern, re.VERBOSE)
 # rx.findall("Some example: Jr. it. was .23 between 2.3 and 42.31 seconds")
 
 
+def get_exp_readme_files(institutes, base_path, experiment_key="TGA"):
+    """
+    This function needs a list of institute labels, e.g. abbreviations of the
+    institute names, that doubles as the directory names containing the
+    contributed data by said institute. The base path to where these
+    directories are located needs to be provided as well. An experiment
+    keyword needs to be specified that is used in the title of the
+    section of the README file that describes the desired experiment,
+    e.g. TGA.
+    This function iterates over all the institutes and checks if the README
+    file contains the experiment keyword. If that is the case, the whole
+    README content is extracted as a list of string and stored in a
+    dictionary, where the institute labels are the keys to access the
+    respective lists.
+
+    :param institutes: list of institute labels that doubles as directory names
+    :param base_path: path to the institute directories
+    :param experiment_key: string, experiment keyword to look for in the
+                           README files
+
+    :return: dictionary populated with the README markdown bullet points of a
+             desired experiment (experiment_key)
+    """
+
+    print("* Institutes that contributed {} data:".format(experiment_key))
+    # Initialise collection of README files with desired experiments.
+    exp_readme_files = dict()
+
+    # Iterate over all contributions by institute.
+    for institute in institutes:
+        # Build path to each individual README file.
+        readme_path = os.path.join(base_path,
+                                   institute,
+                                   "README.md")
+        print("  " + institute)
+
+        # Open the README file and check if it contains
+        # the experiment keyword in a markdown title line.
+        with open(readme_path, encoding='utf8') as f:
+            for line in f:
+                if experiment_key in line and "###" in line:
+                    # Read the complete file content.
+                    with open(readme_path, encoding='utf8') as f:
+                        # Create list of string, line by line.
+                        readme_lines = [line.rstrip() for line in f]
+
+                    # Collect README file content.
+                    exp_readme_files[institute] = readme_lines
+                    continue  # Skip to next file.
+
+    return exp_readme_files
+
+
 def read_experiment_lines(readme_lines, start_marker_a="TGA",
                           start_marker_b="###", end_marker="###"):
     """
