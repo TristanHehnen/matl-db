@@ -33,13 +33,13 @@ def get_exp_readme_files(institutes, base_path, experiment_key="TGA"):
     :param experiment_key: string, experiment keyword to look for in the
                            README files
 
-    :return: dictionary populated with the README markdown bullet points of a
-             desired experiment (experiment_key)
+    :return: dictionary populated with the content of the README markdown
+             bullet points of a desired experiment (experiment_key)
     """
 
     print("* Institutes that contributed {} data:".format(experiment_key))
     # Initialise collection of README files with desired experiments.
-    exp_readme_files = dict()
+    exp_readme_contents = dict()
 
     # Iterate over all contributions by institute.
     for institute in institutes:
@@ -60,10 +60,10 @@ def get_exp_readme_files(institutes, base_path, experiment_key="TGA"):
                         readme_lines = [line.rstrip() for line in f]
 
                     # Collect README file content.
-                    exp_readme_files[institute] = readme_lines
+                    exp_readme_contents[institute] = readme_lines
                     continue  # Skip to next file.
 
-    return exp_readme_files
+    return exp_readme_contents
 
 
 def read_experiment_lines(readme_lines, start_marker_a="TGA",
