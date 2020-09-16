@@ -268,9 +268,9 @@ def build_tga_dict(experiment_lines, institute_name_info,
         repetition_info[institute_label][test_label] = test_info
         print(data_file_path)
 
-    experiment_info[experiment_type] = repetition_info
+    # experiment_info[experiment_type] = repetition_info
 
-    return test_info
+    return repetition_info  # test_info
 
 
 def utility_build_base_dict(md_lines):
