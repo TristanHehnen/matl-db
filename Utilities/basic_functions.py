@@ -156,7 +156,17 @@ def read_test_condition_table(experiment_lines):
                 # after the number, thus the number is the first
                 # element in the returned list.
                 cell_content = line[col_id].split()[0]
-                col_content.append(float(cell_content))
+                # Check if the cell can be transformed to a float
+                # otherwise set it to None.
+                try:
+                    cell_content = float(cell_content)
+                except:
+                    print(
+                        "* An exception occurred: '{}' will be set to None.\n".format(
+                            cell_content))
+                    cell_content = None
+
+                col_content.append(cell_content)
             else:
                 # Remove "\\" from file names and experiment labels.
                 cell_content = line[col_id].replace("\\", "")
