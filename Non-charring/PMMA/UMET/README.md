@@ -1,6 +1,6 @@
 # University of Lille - ENSCL - Unite Materiaux et Transformations (UMET)
 
-### Experimental Conditions, TGA
+### Experimental Conditions: TGA
 
 * Heating Rates: 1, 2, 5, 10, 20, 50, and 100 K/min
 * Temperature program
@@ -28,17 +28,18 @@
 
 ###### Test Condition Summary
 
-| Test Label | Heating Rate (K/min) | Initial Sample Mass (mg) | Oxygen Concentration (vol %) | File Name |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|:---------:|
-| UMET\_TGA\_N2\_1 |   1 | 4.336 | 0 | UMET\_TGA\_N2\_1K\_1 |
-| UMET\_TGA\_N2\_2 |   2 | 4.845 | 0 | UMET\_TGA\_N2\_2K\_1 |
-| UMET\_TGA\_N2\_3 |   5 | 4.093 | 0 | UMET\_TGA\_N2\_5K\_1 |
-| UMET\_TGA\_N2\_4 |  10 | 5.339 | 0 | UMET\_TGA\_N2\_10K\_1 |
-| UMET\_TGA\_N2\_5 |  20 | 3.929 | 0 | UMET\_TGA\_N2\_20K\_1 |
-| UMET\_TGA\_N2\_6 |  50 | 5.980 | 0 | UMET\_TGA\_N2\_50K\_1 |
-| UMET\_TGA\_N2\_7 | 100 | 5.364 | 0 | UMET\_TGA\_N2\_100K\_1 |
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+| UMET\_TGA\_N2\_1K\_1   |   1 | 4.336 | 0 |
+| UMET\_TGA\_N2\_2K\_1   |   2 | 4.845 | 0 |
+| UMET\_TGA\_N2\_5K\_1   |   5 | 4.093 | 0 |
+| UMET\_TGA\_N2\_10K\_1  |  10 | 5.339 | 0 |
+| UMET\_TGA\_N2\_20K\_1  |  20 | 3.929 | 0 |
+| UMET\_TGA\_N2\_50K\_1  |  50 | 5.980 | 0 |
+| UMET\_TGA\_N2\_100K\_1 | 100 | 5.364 | 0 |
 
 NOTE: TGA time data was reported as [s] but appeared to be in units of [min]. Values were scaled by a factor of 60, accordingly.
+
 ### Experimental Conditions, DSC
 
 * Measurement of cp was made by comparison with sapphire and using modulation

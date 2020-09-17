@@ -13,7 +13,7 @@ Note: DSC heat flow data was rescaled (multiplied by -1)such that endothermic he
 * Sample mass: 2-6 mg
 * Sample geometry: powdered
 * Calibration type: Before each experiment, a baseline test was performed using an empty crucible. Internal mass calibration are performed before each experimental campaigns. [Heat/Temperature calibration?]
-* Crucible 
+* Crucible
   - Type: Al2O3 [Not Pt or Al for DSC?]
   - Volume: 85 µL
   - Diameter: 6.8 mm
@@ -28,16 +28,18 @@ Note: DSC heat flow data was rescaled (multiplied by -1)such that endothermic he
   - Type: Netzsch F3 Jupiter
   - Note: Simultaneous Thermal Analysis (TGA + DSC), measurement data presented as two separated files
 
-| Test Name | O2 volume % |  Initial Sample Mass (mg) | 
-| --------- | :---------: | :------------------------: |
-|GIDAZE+\_STA\_N2\_10K\_1 | 0 | 2.015|  
-|GIDAZE+\_STA\_N2\_10K\_2 | 0 | 1.978|  
-|GIDAZE+\_STA\_O2\-10\_10K\_1 | 10.5 | 1.976|  
-|GIDAZE+\_STA\_O2\-10\_10K\_2 | 10.5 | 1.993|  
-|GIDAZE+\_STA\_O2\-21\_10K\_1 | 21 | 2.04| 
-|GIDAZE+\_STA\_O2\-21\_10K\_2 | 21 | 2.039|  
-|GIDAZE+\_STA\_O2\-21\_10K\_3 | 21 | 6.044|  
-|GIDAZE+\_STA\_O2\-21\_10K\_4 | 21 | 6.019|   
+###### Test Condition Summary
+
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+|GIDAZE+\_STA\_N2\_10K\_1     | 10 | 2.015|  0   |  
+|GIDAZE+\_STA\_N2\_10K\_2     | 10 | 1.978|  0   |  
+|GIDAZE+\_STA\_O2\-10\_10K\_1 | 10 | 1.976| 10.5 |  
+|GIDAZE+\_STA\_O2\-10\_10K\_2 | 10 | 1.993| 10.5 |  
+|GIDAZE+\_STA\_O2\-21\_10K\_1 | 10 | 2.04 | 21   |
+|GIDAZE+\_STA\_O2\-21\_10K\_2 | 10 | 2.039| 21   |  
+|GIDAZE+\_STA\_O2\-21\_10K\_3 | 10 | 6.044| 21   |  
+|GIDAZE+\_STA\_O2\-21\_10K\_4 | 10 | 6.019| 21   |   
 
 
 ### Experimental Conditions: Cone Calorimeter
@@ -55,7 +57,7 @@ Cone calorimeter tests were conducted using a configuration similar to the Torer
     - T_4: central on sample back surface
 
 ###### Test Heating Conditions  
-|Test Name | Heat Flux (kW/m2)| Heater Temperature (K) 
+|Test Name | Heat Flux (kW/m2)| Heater Temperature (K)
 |----------|:------:| :---: |
 |GIDAZE+_Cone_25kW_1| 25 | 589 |
 |GIDAZE+_Cone_25kW_2| 25 | 589 |
@@ -76,7 +78,7 @@ Although Mass and Temperature were measured simultaneously during experiments, m
     - Back Surface Temperature: central on sample back surface
 
 ###### Test Heating Conditions  
-|Test Name | Heat Flux (kW/m2)| Heater Temperature (K) 
+|Test Name | Heat Flux (kW/m2)| Heater Temperature (K)
 |----------|:------:| :---: |
 |GIDAZE+_FPA_25kW_1| 25 | ? |
 |GIDAZE+_FPA_25kW_2| 25 | ? |

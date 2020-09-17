@@ -26,22 +26,16 @@
   - Type: None [?]
   - Note: None
 
-###### Tests Conducted in Air (flow rate = 150 ml/min)  
+###### Test Condition Summary
 
-
-| Test Name | Initial Sample Mass (mg) |
-| --------- | :------------------------:|
-|UQ\_TGA\_O2-21\_10K\_1 | 5.1|  
-|UQ\_TGA\_O2-21\_10K\_2 | 5.2|  
-|UQ\_TGA\_O2-21\_10K\_3 | 5.4|  
-
-###### Tests Conducted in Nitrogen (flow rate = 150 ml/min)  
-
-|Test Name | Initial Sample Mass (mg)|  
-|----------|:------:|  
-|UQ\_TGA\_N2\_10K\_1 | 5.3|  
-|UQ\_TGA\_N2\_10K\_2 | 5.1|  
-|UQ\_TGA\_N2\_10K\_3 | 5.6|  
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+| UQ\_TGA\_O2-21\_10K\_1 | 10 | 5.1 | 21 |
+| UQ\_TGA\_O2-21\_10K\_2 | 10 | 5.2 | 21 |
+| UQ\_TGA\_O2-21\_10K\_3 | 10 | 5.4 | 21 |
+| UQ\_TGA\_N2\_10K\_1    | 10 | 5.3 |  0 |
+| UQ\_TGA\_N2\_10K\_2    | 10 | 5.1 |  0 |
+| UQ\_TGA\_N2\_10K\_3    | 10 | 5.6 |  0 |
 
 ### Experimental Conditions: Cone Calorimeter
 * Extraction flow rate: 24L/s

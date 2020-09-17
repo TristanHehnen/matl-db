@@ -8,7 +8,7 @@
   - Initial Isotherm: None
   - Maximum Temperature: 973 K
   - Final Isotherm: None
-* Sample mass: 2-6 mg
+* Sample mass: 2-6 mg [?]
 * Sample geometry: powdered
 * Calibration: Method of temperature calibration: Onset temperature, 5 calibration points; Temperature range of the calibration Indium - 100-200C, Zinc - 360-480C; Frequency of calibration: Known samples run every three months, full calibration only then performed if these are out of tolerance. Otherwise yearly or after maintenance and/or config change
 * Crucible
@@ -26,6 +26,11 @@
   - Type: None [?]
   - Note: None
 
+###### Test Condition Summary
+
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+| UClan_STA_N2_10K | 10 | [?] | 0 |
 
 ### Experimental Conditions: Cone Calorimeter
 Note: Cone HRR data was provided as HRR [kW] as originally requested. This dataset was then scaled to provide [kW/m2] assuming a sample surface area of 0.0088m2 (standard for cone calorimeter tests with a sample holder cover)
@@ -44,5 +49,3 @@ Additionally, back surface temperature measurements were originally output at 2H
 |----------|:------:| :---: |
 |UClan_Cone_25| 25 | 898 |
 |UClan_Cone_65| 65 | 1083 |
-
-

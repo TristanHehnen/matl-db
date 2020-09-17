@@ -1,6 +1,6 @@
 # The Hong Kong Polytechnic University (HKPoly)
 
-### Experimental Conditions: TGA
+### Experimental Conditions: TGA, DSC
 A TA Instruments SDT Q600 (V20.9 Build 20) was used to conduct Simultaneous Thermal Analysis (TGA + DSC) experiments. STA experiments performed in Nitrogen and in Air. Although tests were conducted simultaneously, TGA and DSC measurement data presented here are separated into two files, for consistency with other datasets.
 
 * Heating Rate: 10 K/min
@@ -27,12 +27,14 @@ A TA Instruments SDT Q600 (V20.9 Build 20) was used to conduct Simultaneous Ther
   - Type: TA Instruments SDT Q600 (V20.9 Build 20)
   - Note: Simultaneous Thermal Analysis (TGA + DSC), measurement data presented as two separated files
 
-| Test Name | O2 vol % |  Initial Sample Mass (mg) |
-| --------- | :----: | :------------------------:|
-|HKPolyU\_STA\_N2\_10K\_1 |  0  | 4.104|  
-|HKPolyU\_STA\_N2\_10K\_2 |  0  | 4.1896|  
-|HKPolyU\_STA\_O2-21\_10K\_1 | 21? |3.9309|  
-|HKPolyU\_STA\_O2-21\_10K\_2 | 21? |3.8808|  
+###### Test Condition Summary
+
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+| HKPolyU\_STA\_N2\_10K\_1    | 10 | 4.104  |  0     |  
+| HKPolyU\_STA\_N2\_10K\_2    | 10 | 4.1896 |  0     |  
+| HKPolyU\_STA\_O2-21\_10K\_1 | 10 | 3.9309 | 21 [?] |  
+| HKPolyU\_STA\_O2-21\_10K\_2 | 10 | 3.8808 | 21 [?] |  
 
 
 ### Experimental Conditions: Cone Calorimeter

@@ -1,7 +1,7 @@
 # Technical Institute of Fire Protection in Prague (TIFP)
 
 ### Experimental Conditions: TGA, DSC
-TGA and DSC were performed simultaneously using an STA appartus.
+TGA and DSC were performed simultaneously using an STA apparatus.
 STA experiments performed both in nitrogen and in air. Although tests were conducted simultaneously, TGA and DSC measurement data presented here are separated into two files, for consistency with other datasets.
 Note: DSC heat flow data was rescaled (multiplied by -1)such that endothermic heat flow events are positive (endo up)
 
@@ -30,11 +30,15 @@ Note: DSC heat flow data was rescaled (multiplied by -1)such that endothermic he
   - Type: STA apparatus
   - Note: Simultaneous Thermal Analysis (TGA + DSC), measurement data presented as two separated files
 
-| Test Name | O2 volume % |  Initial Sample Mass (mg) | 
-| --------- | :---------: | :------------------------: |
-|TIFP\_STA\_N2\_10K\_1 | 0 | 5.4338|  
-|TIFP\_STA\_N2\_10K\_2 | 0 | 5.3668|  
+###### Test Condition Summary
 
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+| TIFP\_STA\_N2\_10K\_1 | 10 | 5.4338| 0 |  
+| TIFP\_STA\_N2\_10K\_2 | 10 | 5.3668| 0 |  
+
+### Experimental Conditions: STA
+The above heading is here to divide the README file for when it is automatically processed until we have decided on a way to deal with the different experimental conditions for the automatic processing.
 
 ##### STA Tests in Air
 * Heating Rate: 10 K/min
@@ -50,28 +54,30 @@ Note: DSC heat flow data was rescaled (multiplied by -1)such that endothermic he
   - Air (vol % O2 = ambient)
   - Flow rate = purge flow 50 ml/min + protective 10 ml/min
 
-| Test Name | O2 volume % |  Initial Sample Mass (mg) | 
-| --------- | :---------: | :------------------------: |
-|TIFP\_STA\_O2-21\_10K\_1 | Ambient | 4.4790|  
-|TIFP\_STA\_O2-21\_10K\_2 | Ambient | 5.2040|  
+###### Test Condition Summary
+
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+| TIFP\_STA\_O2-21\_10K\_1 | 10 | 4.4790 | 21 (Ambient) |  
+| TIFP\_STA\_O2-21\_10K\_2 | 10 | 5.2040 | 21 (Ambient) |  
 
 
 
 ### Experimental Conditions: Cone Calorimeter
-* Radiant heat flux 25 and 65 kW/m2, three runs were performed for each heat flux. Backside tempereature measured by K type thermocouples glued to the sample in the middle (x=0, y=0) and at location x=-25 mm, y=0. 
+* Radiant heat flux 25 and 65 kW/m2, three runs were performed for each heat flux. Backside temperature measured by K type thermocouples glued to the sample in the middle (x=0, y=0) and at location x=-25 mm, y=0.
 * Extraction flow rate: 24L/s
 * Sample Surface Area: 0.0084 m2
 * Sample holder dimensions:
     - according to ISO 5660-1, stainless steel
     - Retainer frame/grid: frame was used
-* Backing Insulation: earth-alkali silicate wool, [thickness?], thermal conductivity at 600K 0.16 kW/m/K 
+* Backing Insulation: earth-alkali silicate wool, [thickness?], thermal conductivity at 600K 0.16 kW/m/K
 * Thermocouple location:
     - Temperature1: glued to back surface of sample, at center
     - Temperature2: glued to back surface of sample, x=-25 mm, y=0
 * Note: For consistency with datasets submitted by other institutions, cone calorimeter HRR measurements submitted by Aalto have been normalized by sample surface area (nominal) to provide HRR per unit area [kW/m2]
 
 ###### Test Heating Conditions [confirm units of Temperature ?]  
-|Test Name | Heat Flux (kW/m2)| Heater Temperature (K) 
+|Test Name | Heat Flux (kW/m2)| Heater Temperature (K)
 |----------|:------:| :---: |
 |TIFP_Cone_25kW_1| 25 | 1134.65 |
 |TIFP_Cone_25kW_2| 25 | 1134.65 |
@@ -88,11 +94,11 @@ Note: DSC heat flow data was rescaled (multiplied by -1)such that endothermic he
 * Sample holder dimensions:
     - according to ISO 5660-1, stainless steel
     - Retainer frame/grid: frame was used
-* Backing Insulation: earth-alkali silicate wool, [thickness?], thermal conductivity at 600K 0.16 kW/m/K 
+* Backing Insulation: earth-alkali silicate wool, [thickness?], thermal conductivity at 600K 0.16 kW/m/K
 * Thermocouple location: None
 
 ###### Test Heating Conditions [confirm units of Temperature ?]  
-|Test Name | Heat Flux (kW/m2)| Heater Temperature (K) 
+|Test Name | Heat Flux (kW/m2)| Heater Temperature (K)
 |----------|:------:| :---: |
 |TIFP_Gasification_65kW_1| 65 | 1403.15 |
 |TIFP_Gasification_65kW_2| 65 | 1403.15 |

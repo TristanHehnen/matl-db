@@ -28,23 +28,25 @@ Pleae note: TGA Measurements received from LCPP from tests conducted at 10 and 2
   - Type: None [?]
   - Note: None
 
-| Test Name | Heating Rate (K/min) |  Initial Sample Mass (mg) |
-| --------- | :----: | :------------------------:|
-|LCPP\_STA\_N2\_2.5K\_1 |  2.5  | 3.00723|  
-|LCPP\_STA\_N2\_2.5K\_2 |  2.5  | 3.12678|  
-|LCPP\_STA\_N2\_2.5K\_3 |  2.5  | 3.18254|  
-|LCPP\_STA\_N2\_5K\_1  |  5  | 3.09388|  
-|LCPP\_STA\_N2\_5K\_2  |  5  | 3.0349|  
-|LCPP\_STA\_N2\_5K\_3  |  5  | 3.06027|  
-|LCPP\_STA\_N2\_10K\_1 |  10  | 3.01186|  
-|LCPP\_STA\_N2\_10K\_2 |  10  | 2.94796|  
-|LCPP\_STA\_N2\_10K\_3 |  10  | 3.15013|  
-|LCPP\_STA\_N2\_15K\_1 |  15  | 3.04276|  
-|LCPP\_STA\_N2\_15K\_2 |  15  | 3.12389|  
-|LCPP\_STA\_N2\_15K\_3 |  15  | 3.06913|  
-|LCPP\_STA\_N2\_20K\_1 |  20  | 3.01186|  
-|LCPP\_STA\_N2\_20K\_2 |  20  | 2.94796|  
-|LCPP\_STA\_N2\_20K\_3 |  20  | 3.15013|  
+###### Test Condition Summary
+
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+| LCPP\_STA\_N2\_2-5K\_1 |  2.5 | 3.00723 | 0 |  
+| LCPP\_STA\_N2\_2-5K\_2 |  2.5 | 3.12678 | 0 |  
+| LCPP\_STA\_N2\_2-5K\_3 |  2.5 | 3.18254 | 0 |  
+| LCPP\_STA\_N2\_5K\_1   |  5   | 3.09388 | 0 |  
+| LCPP\_STA\_N2\_5K\_2   |  5   | 3.0349  | 0 |  
+| LCPP\_STA\_N2\_5K\_3   |  5   | 3.06027 | 0 |  
+| LCPP\_STA\_N2\_10K\_1  |  10  | 3.01186 | 0 |  
+| LCPP\_STA\_N2\_10K\_2  |  10  | 2.94796 | 0 |  
+| LCPP\_STA\_N2\_10K\_3  |  10  | 3.15013 | 0 |  
+| LCPP\_STA\_N2\_15K\_1  |  15  | 3.04276 | 0 |  
+| LCPP\_STA\_N2\_15K\_2  |  15  | 3.12389 | 0 |  
+| LCPP\_STA\_N2\_15K\_3  |  15  | 3.06913 | 0 |  
+| LCPP\_STA\_N2\_20K\_1  |  20  | 3.01186 | 0 |  
+| LCPP\_STA\_N2\_20K\_2  |  20  | 2.94796 | 0 |  
+| LCPP\_STA\_N2\_20K\_3  |  20  | 3.15013 | 0 |  
 
 
 

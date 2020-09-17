@@ -2,7 +2,7 @@
 
 A concise description of the tests done by the division of fire safety engineering at Lund University (Sweden) and DBI (Denmark), is presented here. For more information regarding specific tests please contact: Karlis Livkiss kal@dbigroup.dk
 
-### Experimental Conditions: TGA
+### Experimental Conditions: TGA, DSC
 A Netzsch  STA 449 F3 Jupiter was used to conduct Simultaneous Thermal Analysis (TGA + DSC) experiments. STA experiments performed in Nitrogen at a heating rate of 20 K/min. Although tests were conducted simultaneously, TGA and DSC measurement data presented here are separated into two files, for consistency with other datasets.
 
 * Heating Rate: 20 K/min
@@ -29,11 +29,13 @@ A Netzsch  STA 449 F3 Jupiter was used to conduct Simultaneous Thermal Analysis 
   - Type: Netzsch STA 449 F3 Jupiter
   - Note: Simultaneous Thermal Analysis (TGA + DSC), measurement data presented as two separated files
 
-| Test Name | Heating Rate [K/min] |  Initial Sample Mass [mg] |
-| --------- | :----: | :------------------------:|
-|DBI_Lund\_STA\_N2\_20K\_1 |  20  | 5.8|  
-|DBI_Lund\_STA\_N2\_20K\_2 |  20  | 4.9|  
-|DBI_Lund\_STA\_N2\_20K\_3 |  20  | 5.5|  
+###### Test Condition Summary
+
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+| DBI_Lund\_STA\_N2\_20K\_1 |  20  | 5.8 | 0 |  
+| DBI_Lund\_STA\_N2\_20K\_2 |  20  | 4.9 | 0 |  
+| DBI_Lund\_STA\_N2\_20K\_3 |  20  | 5.5 | 0 |  
 
 ### Experimental Conditions: Gasification Tests
 Slab gasification tests were performed in a controlled atmosphere cone calorimeter at the Lund University division of fire safety engineering using a cone calorimeter made by Fire Testing Technology. An enclosed compartment is added to the test setup for controlling the atmospheric environment around the test sample. The oxygen level inside the compartment is measured with O2 analyser PMA 10 by M&C.

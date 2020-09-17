@@ -1,7 +1,7 @@
 # University of Maryland (UMD)
 
 ### Experimental Conditions: TGA, DSC
-A Netzsch F3 Jupiter was used to conduct Simultaneous Thermal Analysis (TGA + DSC) experiments. Reported measurement data indicates an average of 7 repeated tests; errors are calculated as two standard deviations of the mean. More information is available at G.J. Fiola, D.M. Chaudhari, S.I. Stoliarov, "Comparison of Pyrolysis properties of extruded and cast Poly (methyl methacrylate)," submitted to IAFSS 2020. 
+A Netzsch F3 Jupiter was used to conduct Simultaneous Thermal Analysis (TGA + DSC) experiments. Reported measurement data indicates an average of 7 repeated tests; errors are calculated as two standard deviations of the mean. More information is available at G.J. Fiola, D.M. Chaudhari, S.I. Stoliarov, "Comparison of Pyrolysis properties of extruded and cast Poly (methyl methacrylate)," submitted to IAFSS 2020.
 
 * Heating Rate: 10 K/min
 * Temperature program
@@ -27,8 +27,14 @@ A Netzsch F3 Jupiter was used to conduct Simultaneous Thermal Analysis (TGA + DS
   - Type: Netzsch F3 Jupiter
   - Note: Simultaneous Thermal Analysis (TGA + DSC), measurement data presented as two separated files, average of 7 repeated tests
 
+###### Test Condition Summary
+
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+| UMET\_TGA\_N2\_1K\_1 | 1 | [?] | 0 |
+
 ### Experimental Conditions: MCC
-An FAA microscale combustion calorimeter was used to conduct MCC experiments.  At the end of each test, the residual solid yield was measured and found to be consistent with the TGA results. Reported measurement data indicates an average of four (4) repeated tests; errors are calculated as two standard deviations of the mean. More information is available at G.J. Fiola, D.M. Chaudhari, S.I. Stoliarov, "Comparison of Pyrolysis properties of extruded and cast Poly (methyl methacrylate)," submitted to IAFSS 2020. 
+An FAA microscale combustion calorimeter was used to conduct MCC experiments.  At the end of each test, the residual solid yield was measured and found to be consistent with the TGA results. Reported measurement data indicates an average of four (4) repeated tests; errors are calculated as two standard deviations of the mean. More information is available at G.J. Fiola, D.M. Chaudhari, S.I. Stoliarov, "Comparison of Pyrolysis properties of extruded and cast Poly (methyl methacrylate)," submitted to IAFSS 2020.
 
 * Heating Rate: 60 K/min
 * Temperature program (Pyrolyzer)
@@ -41,7 +47,7 @@ An FAA microscale combustion calorimeter was used to conduct MCC experiments.  A
 * Calibration type: Before each experiment, a baseline test was performed using a 3.5 mg sample of polystyrene as a reference. O2 sensor/flow calibration was checked at the start of each day of testing, Temperature calibration was performed every 4 months.
 * Crucible type: ceramic crucibles (outer diameter 5.74mm / volume 71µL) with no lid
 * Pyrolyzer Carrier Gas
-  - Ultra High Purity (UHP) Nitrogen 
+  - Ultra High Purity (UHP) Nitrogen
   - N2 Flow rate = 80 ml/min
 * Combustor Carrier Gas
   - Ultra High Purity (UHP) Oxygen + Pyrolyzer Carrier Gas
@@ -49,11 +55,11 @@ An FAA microscale combustion calorimeter was used to conduct MCC experiments.  A
 
 
 ### Experimental Conditions: Gasification Tests (CAPA II)
-A custom-built [Controlled Atmosphere Pyrolysis Apparatus II (CAPA II)](https://www.sciencedirect.com/science/article/abs/pii/S0379711217300541) was used to perform anaerobic (02 concentration < 1 vol. %) gasification experiments of PMMA slabs in response to well-characterized radiant heating. 
+A custom-built [Controlled Atmosphere Pyrolysis Apparatus II (CAPA II)](https://www.sciencedirect.com/science/article/abs/pii/S0379711217300541) was used to perform anaerobic (02 concentration < 1 vol. %) gasification experiments of PMMA slabs in response to well-characterized radiant heating.
 
 Reported errors represent two standard deviations of the mean of the respective quantity. The temperature data were collected at 7.5 Hz and presented here without any data processing. The mass data were collected at a frequency of 2 Hz. The mass loss rate (MLR) was computed using a 5 s time differential and normalized by the initial top surface area of the sample. The data were subsequently grouped into 5 s bins for which mean MLR and mean time values were computed. The data is synchronized from the time when the sample is exposed to specific external heat flux. [2 repeat tests]
 
-ore information is available at G.J. Fiola, D.M. Chaudhari, S.I. Stoliarov, Comparison of Pyrolysis properties of extruded and cast Poly (methyl methacrylate), submitted to IAFSS 2020. 
+ore information is available at G.J. Fiola, D.M. Chaudhari, S.I. Stoliarov, Comparison of Pyrolysis properties of extruded and cast Poly (methyl methacrylate), submitted to IAFSS 2020.
 
 * Extraction flow rate (exhaust): 175L/s
 * Nitrogen flow rate: 185 SLPM.
@@ -61,16 +67,16 @@ ore information is available at G.J. Fiola, D.M. Chaudhari, S.I. Stoliarov, Comp
 * Sample holder dimensions:
     - Circular pan: diameter = 0.08 m
     - Insulation thickness around the sample 0.01m
-* Sample dimensions: 
+* Sample dimensions:
   - Diameter: 0.07 m
   - Thickness: 0.0058 m
 * Backing Insulation: None  
 Samples were epoxied to copper foil to reduce swelling, morphing and flowing; as well as to provide a substrate with good thermal contact to measure back surface temperatures. The exposed (back) side of the copper foil was painted with high emissivity paint (alpha = 0.95) allowing for temperature measurements on the backside of the sample using an IR camera.
 * Temperature Measurements:
-    Temperature measurements were made at 12 points representing 4 radial locations (r = 0, 0.01, 163 0.02 and 0.03 m from the center). However, since the temperature distribution was found to be radially uniform, average temperatures are reported here. 
+    Temperature measurements were made at 12 points representing 4 radial locations (r = 0, 0.01, 163 0.02 and 0.03 m from the center). However, since the temperature distribution was found to be radially uniform, average temperatures are reported here.
 
 ##### CAPA II Boundary Conditions
-The boundary conditions were averaged over the test duration for both heat fluxes. External radiation was measured by a Schmidt-Boelter heat flux gauge with a cooling water temperature of 290 K. The convective heat losses from the front and back sample surfaces were quantified through detailed simulations and further validated against experimental measurements. 
+The boundary conditions were averaged over the test duration for both heat fluxes. External radiation was measured by a Schmidt-Boelter heat flux gauge with a cooling water temperature of 290 K. The convective heat losses from the front and back sample surfaces were quantified through detailed simulations and further validated against experimental measurements.
 
 ###### External Heat Flux = 25 kW/m2
 _**Front surface**_  

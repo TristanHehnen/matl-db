@@ -1,6 +1,6 @@
 # University of Dayton Research Institute (UDRI)
 
-### Experimental Conditions, TGA
+### Experimental Conditions: TGA
 
 * Heating Rate: 10 K/min
 * Temperature program
@@ -26,17 +26,17 @@
   - Type: None [?]
   - Note: None
 
-###### Tests Conducted in Nitrogen
+###### Test Condition Summary
 
-|Test Name | Initial Sample Mass (mg)|  
-|----------|:------:|  
-|UDRI\_TGA\_N2\_10K\_1 | 7.157|  
-|UDRI\_TGA\_N2\_10K\_2 | 6.630|  
-|UDRI\_TGA\_N2\_10K\_3 | 6.906|  
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+| UDRI\_TGA\_N2\_10K\_1 | 10 | 7.157| 0 |  
+| UDRI\_TGA\_N2\_10K\_2 | 10 | 6.630| 0 |  
+| UDRI\_TGA\_N2\_10K\_3 | 10 | 6.906| 0 |  
 
 
 
-### Experimental Conditions, Cone calorimeter
+### Experimental Conditions: Cone calorimeter
 * Extraction flow rate: 24L/s
 * Sample Surface Area: 0.00884
 * Sample holder dimensions:

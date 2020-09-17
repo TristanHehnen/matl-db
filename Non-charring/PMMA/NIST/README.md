@@ -27,6 +27,12 @@ A Netzsch F1 Jupiter was used to conduct Thermogravimetric Analysis (TGA) experi
   - Type: Netzsch F1 Jupiter
   - Note: None
 
+###### Test Condition Summary
+
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+| NIST\_TGA\_N2\_10K\_1 | 10 | 4.2 | 0 |
+
 ### Experimental Conditions: MCC
 An FAA microscale combustion calorimeter was used to conduct MCC experiments.  At the end of each test, the residual solid yield was measured and found to be consistent with the TGA results.
 
