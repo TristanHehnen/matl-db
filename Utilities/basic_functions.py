@@ -149,9 +149,13 @@ def read_test_condition_table(experiment_lines):
         # Get all cells per column.
         for line_id, line in enumerate(pre_process_content[1:]):
 
-            if "Test Label" not in col_label and "File Name" not in col_label:
+            if "Test Label" not in col_label:
                 # Transform string to float.
-                cell_content = line[col_id].replace("\\", "")
+                # Split the string at a space to deal with
+                # possible question marks or notes that should be
+                # after the number, thus the number is the first
+                # element in the returned list.
+                cell_content = line[col_id].split()[0]
                 col_content.append(float(cell_content))
             else:
                 # Remove "\\" from file names and experiment labels.
