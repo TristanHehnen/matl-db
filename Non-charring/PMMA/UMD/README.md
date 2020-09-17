@@ -31,7 +31,7 @@ A Netzsch F3 Jupiter was used to conduct Simultaneous Thermal Analysis (TGA + DS
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
 |:----------:|:--------------------:|:------------------------:|:------------------------------:|
-| UMET\_TGA\_N2\_1K\_1 | 1 | [?] | 0 |
+| UMD\_TGA\_N2\_10K\_1 | 1 | [?] | 0 |
 
 ### Experimental Conditions: MCC
 An FAA microscale combustion calorimeter was used to conduct MCC experiments.  At the end of each test, the residual solid yield was measured and found to be consistent with the TGA results. Reported measurement data indicates an average of four (4) repeated tests; errors are calculated as two standard deviations of the mean. More information is available at G.J. Fiola, D.M. Chaudhari, S.I. Stoliarov, "Comparison of Pyrolysis properties of extruded and cast Poly (methyl methacrylate)," submitted to IAFSS 2020.
