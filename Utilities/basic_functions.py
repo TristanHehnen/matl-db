@@ -240,7 +240,7 @@ def build_tga_dict(experiment_lines, institute_name_info,
         test_info['laboratory']['name'] = institute_name
 
         # Get file name
-        data_file_name = exp_table_df['File Name'][test_idx] + ".csv"
+        data_file_name = exp_table_df['Test Label'][test_idx] + ".csv"
         # Build data file path.
         data_file_path = os.path.join(material_path.split("\\")[-2],
                                       material_path.split("\\")[-1],
@@ -254,13 +254,13 @@ def build_tga_dict(experiment_lines, institute_name_info,
                       items=test_info)
 
         # Set heating rate.
-        new_val = exp_table_df['Heating Rate (K/min)'][test_idx]
+        new_val = exp_table_df['Heating Rate [K/min]'][test_idx]
         new_unit = "K/min"
         test_info["heating_rate"] = {'value': new_val,
                                      'unit': new_unit}
 
         # Set initial sample mass.
-        new_val = exp_table_df['Initial Sample Mass (mg)'][test_idx]
+        new_val = exp_table_df['Initial Sample Mass [mg]'][test_idx]
         new_unit = "mg"
         test_info["sample_mass"] = {'value': new_val,
                                     'unit': new_unit}
