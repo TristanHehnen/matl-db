@@ -162,7 +162,7 @@ def read_test_condition_table(experiment_lines):
                     cell_content = float(cell_content)
                 except:
                     print(
-                        "* An exception occurred: '{}' will be set to None.\n".format(
+                        "* An exception occurred: '{}' will be set to 'None'.\n".format(
                             cell_content))
                     cell_content = None
 
@@ -232,10 +232,10 @@ def build_tga_dict(experiment_lines, institute_name_info,
 
     #
     experiment_type = "TGA"
-    experiment_info = {experiment_type: dict()}
+    experiment_info = dict()
+    repetition_info = dict()
     institute_label = institute_name_info[0]
     institute_name = institute_name_info[1]
-    repetition_info = {institute_label: dict()}
 
     for test_label in exp_table_df["Test Label"][:]:
 
@@ -253,8 +253,15 @@ def build_tga_dict(experiment_lines, institute_name_info,
         test_info['laboratory']['label'] = institute_label
         test_info['laboratory']['name'] = institute_name
 
-        # Get file name
+        # Get test label to build file name.
         data_file_name = exp_table_df['Test Label'][test_idx] + ".csv"
+        if "_STA_" in data_file_name:
+            # For simultaneous DSC/TGA tests the '_STA_' part in the test label
+            # needs to be changed to either '_DSC_' oder '_TGA_'.
+            data_file_name = data_file_name.replace("_STA_",
+                                                    "_" + experiment_type + "_")
+        print(data_file_name)
+
         # Build data file path.
         data_file_path = os.path.join(material_path.split("\\")[-2],
                                       material_path.split("\\")[-1],
@@ -279,12 +286,11 @@ def build_tga_dict(experiment_lines, institute_name_info,
         test_info["sample_mass"] = {'value': new_val,
                                     'unit': new_unit}
 
-        repetition_info[institute_label][test_label] = test_info
-        print(data_file_path)
+        repetition_info[test_label] = test_info
 
-    # experiment_info[experiment_type] = repetition_info
+    experiment_info[institute_label] = repetition_info
 
-    return repetition_info  # test_info
+    return repetition_info
 
 
 def utility_build_base_dict(md_lines):
@@ -874,7 +880,6 @@ def get_tga_items(md_lines, items):
                     new_val = None
 
                 items[recent_main_key][new_key] = new_val
-
 
 
 def build_major_bullet_point(exp_dict, bullet_point):
