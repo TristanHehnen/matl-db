@@ -58,21 +58,13 @@ NOTE: TGA time data was reported as [s] but appeared to be in units of [min]. Va
 
 ###### Test Condition Summary
 
-|Test Name | Heating Rate (K/min) |
-|----------|:------:|  
-<<<<<<< HEAD
-|UMET\_DSC\_N2\_1 | 3 |
-|UMET\_DSC\_N2\_2 | 10 |
-|UMET\_DSC\_N2\_3 | 10 |
-|UMET\_DSC\_N2\_4 | 20 |
-|UMET\_DSC\_N2\_5 | 20 |
-=======
-|UMET\_DSC\_N2\_3K\_1 | 3 |
-|UMET\_DSC\_N2\_10K\_1 | 10 |
-|UMET\_DSC\_N2\_10K\_2 | 10 |
-|UMET\_DSC\_N2\_20K\_1 | 20 |
-|UMET\_DSC\_N2\_20K\_2 | 20 |
->>>>>>> upstream/master
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+|:----------:|:--------------------:|:------------------------:|:------------------------------:|  
+| UMET\_DSC\_N2\_3K\_1  |  3 | 5 | 0 |
+| UMET\_DSC\_N2\_10K\_1 | 10 | 5 | 0 |
+| UMET\_DSC\_N2\_10K\_2 | 10 | 5 | 0 |
+| UMET\_DSC\_N2\_20K\_1 | 20 | 5 | 0 |
+| UMET\_DSC\_N2\_20K\_2 | 20 | 5 | 0 |
 
 ### Diffusivity (LFA 467 Hyperflash- Netzsch):
 * Laser flash analysis
