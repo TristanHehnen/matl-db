@@ -59,9 +59,13 @@ def get_exp_readme_files(institutes, base_path, experiment_key="TGA"):
                         # Create list of string, line by line.
                         readme_lines = [line.rstrip() for line in f]
 
+                    print("  " + "+ True")
+
                     # Collect README file content.
                     exp_readme_contents[institute] = readme_lines
                     continue  # Skip to next file.
+
+        print()
 
     return exp_readme_contents
 
