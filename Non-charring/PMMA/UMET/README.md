@@ -2,7 +2,7 @@
 
 ### Experimental Conditions: TGA
 
-* Heating Rates: 1, 2, 5, 10, 20, 50, and 100 K/min
+* Heating Rates: 1, 2, 5, 10, 20, 50 and 100 K/min
 * Temperature program
   - Initial Temperature: 313.15 K
   - Initial Isotherm: None
@@ -40,10 +40,10 @@
 
 NOTE: TGA time data was reported as [s] but appeared to be in units of [min]. Values were scaled by a factor of 60, accordingly.
 
-### Experimental Conditions, DSC
+### Experimental Conditions: DSC
 
 * Measurement of cp was made by comparison with sapphire and using modulation
-* Heating Rates: 3, 10, 20 K/min
+* Heating Rates: 3, 10 and 20 K/min
 * Temperature program
   - Initial temperature 243.15 K
   - Maximum Temperature 433.15 K
