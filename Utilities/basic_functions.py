@@ -335,14 +335,17 @@ def utility_build_base_dict(md_lines, exp_data_info=dict()):
             new_key = line[2:].split(':')[0].replace(' ', '_').lower()
             new_info = line[4:].split(':')[1]
             exp_data_info[new_key] = dict()
-        #             print(line)
 
         # Get major items.
-        elif "* " in line and not ": " in line:
+        elif "* " in line and ": " not in line:
             new_key = line[2:].replace(' ', '_').lower()
             recent_main_key = new_key
-            exp_data_info[new_key] = dict()
-        #             print(line)
+            # Check if a key-value pair of this type already exists,
+            # to avoid overwriting it.
+            if new_key in list(exp_data_info.keys()):
+                continue
+            else:
+                exp_data_info[new_key] = dict()
 
         # Get minor items.
         elif "  - " in line and ": " in line:
@@ -353,7 +356,7 @@ def utility_build_base_dict(md_lines, exp_data_info=dict()):
             # Add a dictionary to store the item info.
             exp_data_info[recent_main_key][new_key] = dict()
 
-        elif "  - " in line and not ": " in line:
+        elif "  - " in line and ": " not in line:
             print(' * ERROR - check README layout! * ')
             print(line)
             print()
