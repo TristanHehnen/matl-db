@@ -1163,4 +1163,31 @@ experiment_template = {
         'instrument': {
             'type': {},
             'note': {}},
-        'path': {}}}
+        'path': {}},
+    "DSC_base": {
+        'laboratory': {},
+        'heating_rate': {},
+        'temperature_program': {
+            'initial_temperature': {},
+            'initial_isotherm': {},
+            'maximum_temperature': {},
+            'final_isotherm': {}},
+        'sample_mass': {},
+        'sample_geometry': {},
+        'calibration_type': {},
+        'crucible': {
+            'type': {},
+            'volume': {},
+            'diameter': {},
+            'mass': {},
+            'lid': {},
+            'note': {}},
+        'carrier_gas': {
+            'type': {},
+            'flow_rate': {},
+            'note': {}},
+        'instrument': {
+            'type': {},
+            'note': {}},
+        'path': {}}
+}
