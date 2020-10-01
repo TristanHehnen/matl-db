@@ -297,7 +297,7 @@ def build_tga_dict(experiment_lines, institute_name_info,
     return repetition_info
 
 
-def utility_build_base_dict(md_lines):
+def utility_build_base_dict(md_lines, exp_data_info=dict()):
     """
     Utility function to build a dictionary from points found in the README
     lines. This is intended to process the descriptions of the same
@@ -314,12 +314,16 @@ def utility_build_base_dict(md_lines):
 
     :param md_lines: list of strings of the README-file content for a desired
                      experiment
+    :param exp_data_info: dictionary that is to be populated with the
+                          different items, makes it possible to provide the
+                          dictionary externally for when multiple files are
+                          to be processed
 
     :return: dictionary with the different markdown items
     """
 
-    # Initialise dictionary to collect the different README items.
-    exp_data_info = dict()
+    # # Initialise dictionary to collect the different README items.
+    # exp_data_info = dict()
 
     recent_main_key = None
 
@@ -351,6 +355,8 @@ def utility_build_base_dict(md_lines):
 
         elif "  - " in line and not ": " in line:
             print(' * ERROR - check README layout! * ')
+            print(line)
+            print()
 
         else:
             # Catch cases that aren't expected keywords, e.g. empty lines.
