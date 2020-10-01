@@ -2,7 +2,7 @@
 
 ### Experimental Conditions: TGA
 
-* Heating Rates: 1, 2, 5, 10, 20, 50 and 100 K/min
+* Heating Rate: 1, 2, 5, 10, 20, 50 and 100 K/min
 * Temperature program
   - Initial Temperature: 313.15 K
   - Initial Isotherm: None
@@ -41,20 +41,31 @@
 NOTE: TGA time data was reported as [s] but appeared to be in units of [min]. Values were scaled by a factor of 60, accordingly.
 
 ### Experimental Conditions: DSC
+Measurement of cp was made by comparison with sapphire and using modulation
 
-* Measurement of cp was made by comparison with sapphire and using modulation
-* Heating Rates: 3, 10 and 20 K/min
+* Heating Rate: 3, 10 and 20 K/min
 * Temperature program
-  - Initial temperature 243.15 K
-  - Maximum Temperature 433.15 K
+  - Initial Temperature: 243.15 K
+  - Initial Isotherm: None
+  - Maximum Temperature: 433.15 K
+  - Final Isotherm: None
 * Sample mass: ~5 mg
 * Sample geometry: powdered
 * Calibration type: Cp, enthalpy, melting point; calibration was performed every 6 months using sapphire (Cp) and Indium (enthalpy, melting point)
-* Crucible type: Aluminum
+* Crucible
+  - Type: Aluminum
+  - Volume: None
+  - Diameter: None
+  - Mass: None
+  - Lid: None
+  - Note: None
 * Carrier Gas
-  - Nitrogen
-  - Flow rate = 50 ml/min
-* Instrument type: Discovery TA
+  - Type: Nitrogen
+  - Flow rate: 50 ml/min
+  - Note: None
+* Instrument
+  - Type: Discovery TA
+  - Note: None
 
 ###### Test Condition Summary
 
@@ -65,6 +76,22 @@ NOTE: TGA time data was reported as [s] but appeared to be in units of [min]. Va
 | UMET\_DSC\_N2\_10K\_2 | 10 | 5 | 0 |
 | UMET\_DSC\_N2\_20K\_1 | 20 | 5 | 0 |
 | UMET\_DSC\_N2\_20K\_2 | 20 | 5 | 0 |
+
+###
+<!-- * Heating Rate: 3, 10 and 20 K/min
+* Temperature program
+  - Initial temperature 243.15 K
+  - Maximum Temperature 433.15 K
+* Sample mass: ~5 mg
+* Sample geometry: powdered
+* Calibration type: Cp, enthalpy, melting point; calibration was performed every 6 months using sapphire (Cp) and Indium (enthalpy, melting point)
+* Crucible type: Aluminum
+* Carrier Gas
+  - Nitrogen
+  - Flow rate = 50 ml/min
+* Instrument type: Discovery TA -->
+###
+
 
 ### Diffusivity (LFA 467 Hyperflash- Netzsch):
 * Laser flash analysis

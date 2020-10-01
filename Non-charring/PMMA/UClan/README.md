@@ -10,7 +10,7 @@
   - Final Isotherm: None
 * Sample mass: 2-6 mg [?]
 * Sample geometry: powdered
-* Calibration: Method of temperature calibration: Onset temperature, 5 calibration points; Temperature range of the calibration Indium - 100-200C, Zinc - 360-480C; Frequency of calibration: Known samples run every three months, full calibration only then performed if these are out of tolerance. Otherwise yearly or after maintenance and/or config change
+* Calibration type: Method of temperature calibration: Onset temperature, 5 calibration points; Temperature range of the calibration Indium - 100-200C, Zinc - 360-480C; Frequency of calibration: Known samples run every three months, full calibration only then performed if these are out of tolerance. Otherwise yearly or after maintenance and/or config change
 * Crucible
   - Type: Alumina
   - Volume: 150 µL
