@@ -297,6 +297,88 @@ def build_tga_dict(experiment_lines, institute_name_info,
     return repetition_info
 
 
+def build_dsc_dict(experiment_lines, institute_name_info,
+                   exp_table_df, dsc_base_dict, material_path):
+    """
+    This function creates a deep copy from a base dictionary of a given
+    experiment and populates it with the respective values from markdown
+    bullet points of the README file content.
+
+    :param experiment_lines: list of string of the TGA README
+    :param institute_name_info: list containing the institute label and the
+                                institute name
+    :param exp_table_df: Pandas DataFrame of the test condition summary table
+    :param dsc_base_dict: dictionary containing the keys for the DSC
+                          experiment, will be (deep) copied and populated
+    :param material_path: path to the material information in the MaCFP repo,
+                          e.g. "Non-charring\PMMA"
+
+    :return: populated (deep) copy of the tga_base_dict
+    """
+
+    #
+    experiment_type = "DSC"
+    experiment_info = dict()
+    repetition_info = dict()
+    institute_label = institute_name_info[0]
+    institute_name = institute_name_info[1]
+
+    for test_label in exp_table_df["Test Label"][:]:
+
+        # Remove unnecessary spaces.
+        test_label = test_label.replace(" ", "")
+
+        # Get line number of test.
+        test_idx = exp_table_df[exp_table_df['Test Label'] == test_label].index[0]
+
+        # Initialise experiment dictionary and fill in a copy of
+        # the experiment description template.
+        test_info = copy.deepcopy(dsc_base_dict)
+
+        # Set institute name and label.
+        test_info['laboratory']['label'] = institute_label
+        test_info['laboratory']['name'] = institute_name
+
+        # Get test label to build file name.
+        data_file_name = exp_table_df['Test Label'][test_idx] + ".csv"
+        if "_STA_" in data_file_name:
+            # For simultaneous DSC/TGA tests the '_STA_' part in the test label
+            # needs to be changed to either '_DSC_' oder '_TGA_'.
+            data_file_name = data_file_name.replace("_STA_",
+                                                    "_" + experiment_type + "_")
+        print(data_file_name)
+
+        # Build data file path.
+        data_file_path = os.path.join(material_path.split("\\")[-2],
+                                      material_path.split("\\")[-1],
+                                      institute_label,
+                                      data_file_name)
+        # Store relative data file path.
+        test_info['path'] = data_file_path
+
+        # Set experiment description items from README.
+        get_dsc_items(md_lines=experiment_lines,
+                      items=test_info)
+
+        # Set heating rate.
+        new_val = exp_table_df['Heating Rate [K/min]'][test_idx]
+        new_unit = "K/min"
+        test_info["heating_rate"] = {'value': new_val,
+                                     'unit': new_unit}
+
+        # Set initial sample mass.
+        new_val = exp_table_df['Initial Sample Mass [mg]'][test_idx]
+        new_unit = "mg"
+        test_info["sample_mass"] = {'value': new_val,
+                                    'unit': new_unit}
+
+        repetition_info[test_label] = test_info
+
+    experiment_info[institute_label] = repetition_info
+
+    return repetition_info
+
+
 def utility_build_base_dict(md_lines, exp_data_info=dict()):
     """
     Utility function to build a dictionary from points found in the README
