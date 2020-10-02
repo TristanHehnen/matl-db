@@ -1,6 +1,6 @@
 # Institute name (institute label)
 
-### Experimental Conditions: TGA
+### Experimental Conditions: DSC
 Some description can be put here...
 
 
