@@ -895,6 +895,266 @@ def get_tga_items(md_lines, items):
                 items[recent_main_key][new_key] = new_val
 
 
+def get_dsc_items(md_lines, items):
+    """
+    Takes a list of markdown lines (string) of a desired experiment,
+    e.g. DSC, and a dictionary of the expected bullet points. It parses the
+    lines and extracts the information of the bullet points and stores them
+    in the dictionary. Bullet points are distinguished between major, medium
+    and minor. Major points are understood as some kind of heading that ties
+    multiple minor points together, e.g. description of crucibles. Medium
+    points stand on their own and only provide a single piece of
+    information, e.g. sample mass.
+
+    :param md_lines: list of strings (markdown file lines)
+    :param items: dictionary with expected bullet points as keys.
+
+    :return: Nothing; the existing dictionary is simply filled with the
+             appropriate values for the keys.
+    """
+
+    # Read bullet points of markdown list and transform them
+    # to dictionary keys.
+    for line in md_lines:
+        # Get medium items.
+        if "* " in line and ": " in line:
+            new_key = line[2:].split(':')[0].replace(' ', '_').lower()
+            new_info = line[4:].split(':')[1]
+        #             print(line)
+
+        # Get major items.
+        elif "* " in line and ": " not in line:
+            new_key = line[2:].replace(' ', '_').lower()
+            recent_main_key = new_key
+        #             print(line)
+
+        # Get minor items.
+        elif "  - " in line and ": " in line:
+            new_key = line[4:].split(':')[0].replace(' ', '_').lower()
+            new_info = line[4:].split(':')[1]
+        #             print(new_info)
+
+        else:
+            # Catch cases that aren't expected keywords, e.g. empty lines.
+            new_key = None
+
+        if new_key is not None:
+            if "heating_rate" in new_key:
+                # Determine how many heating rates were used,
+                # create a new dictionary for each. #TODO
+
+                # Get all heating rates as list.
+                heating_rates = rx.findall(line)
+
+                # Get unit.
+                heating_rate_unit = line[4:].split(' ')[-1]
+        #                 print('hr unit', heating_rate_unit)
+
+        #                 for heating_rate in rx.findall(line):
+        #                     print(heating_rate)
+        #                 print(rx.findall(line))
+        #                 print(new_info)
+
+        if new_key is not None:
+
+            #             # Set the heating rate.
+            #             new_val = 10
+            #             new_unit = "K/min"
+            #             items["heating_rate"] = {'value': new_val,
+            #                                      'unit': new_unit}
+
+            if "initial_temperature" in new_key:
+                if not None:
+                    new_val = new_info.split(" ")[-2]
+                    new_unit = new_info.split(" ")[-1]
+                else:
+                    new_val = None
+                    new_unit = None
+
+                items[recent_main_key][new_key] = {'value': new_val,
+                                                   'unit': new_unit}
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "initial_isotherm" in new_key:
+                if "None" not in new_info:
+                    new_val = new_info.split(" ")[-2]
+                    new_unit = new_info.split(" ")[-1]
+                else:
+                    new_val = None
+                    new_unit = None
+
+                items[recent_main_key][new_key] = {'value': new_val,
+                                                   'unit': new_unit}
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "maximum_temperature" in new_key:
+                if "None" not in new_info:
+                    new_val = new_info.split(" ")[-2]
+                    new_unit = new_info.split(" ")[-1]
+                else:
+                    new_val = None
+                    new_unit = None
+
+                items[recent_main_key][new_key] = {'value': new_val,
+                                                   'unit': new_unit}
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "final_isotherm" in new_key:
+                if "None" not in new_info:
+                    new_val = new_info.split(" ")[-2]
+                    new_unit = new_info.split(" ")[-1]
+                else:
+                    new_val = None
+                    new_unit = None
+
+                items[recent_main_key][new_key] = {'value': new_val,
+                                                   'unit': new_unit}
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "sample_mass" in new_key:
+                if "None" not in new_info:
+                    new_val = new_info.split(" ")[-2]
+                    new_unit = new_info.split(" ")[-1]
+                else:
+                    new_val = None
+                    new_unit = None
+
+                items[new_key] = {'value': new_val,
+                                  'unit': new_unit}
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "sample_geometry" in new_key:
+                if "None" not in new_info:
+                    new_val = new_info[1:]
+                else:
+                    new_val = None
+
+                items[new_key] = new_val
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "calibration_type" in new_key:
+                if "None" not in new_info:
+                    new_val = new_info[1:]
+                else:
+                    new_val = None
+
+                items[new_key] = new_val
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "type" in new_key and "crucible" in recent_main_key:
+                if "None" not in new_info:
+                    new_val = new_info[1:]
+                else:
+                    new_val = None
+
+                items[recent_main_key][new_key] = new_val
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "volume" in new_key and "crucible" in recent_main_key:
+                if "None" not in new_info:
+                    new_val = new_info.split(" ")[-2]
+                    new_unit = new_info.split(" ")[-1]
+                else:
+                    new_val = None
+                    new_unit = None
+
+                items[recent_main_key][new_key] = {'value': new_val,
+                                                   'unit': new_unit}
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "diameter" in new_key and "crucible" in recent_main_key:
+                if "None" not in new_info:
+                    new_val = new_info.split(" ")[-2]
+                    new_unit = new_info.split(" ")[-1]
+                else:
+                    new_val = None
+                    new_unit = None
+
+                items[recent_main_key][new_key] = {'value': new_val,
+                                                   'unit': new_unit}
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "mass" in new_key and "crucible" in recent_main_key:
+                if "None" not in new_info:
+                    new_val = new_info.split(" ")[-2]
+                    new_unit = new_info.split(" ")[-1]
+                else:
+                    new_val = None
+                    new_unit = None
+
+                items[recent_main_key][new_key] = {'value': new_val,
+                                                   'unit': new_unit}
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "lid" in new_key and "crucible" in recent_main_key:
+                if "None" not in new_info:
+                    new_val = new_info.split(" ")[-2]
+                    new_unit = new_info.split(" ")[-1]
+                else:
+                    new_val = None
+                    new_unit = None
+
+                items[recent_main_key][new_key] = {'value': new_val,
+                                                   'unit': new_unit}
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "note" in new_key and "crucible" in recent_main_key:
+                if "None" not in new_info:
+                    new_val = new_info[1:]
+                else:
+                    new_val = None
+
+                items[recent_main_key][new_key] = new_val
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "type" in new_key and "carrier_gas" in recent_main_key:
+                if "None" not in new_info:
+                    new_val = new_info[1:]
+                else:
+                    new_val = None
+
+                items[recent_main_key][new_key] = new_val
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "flow_rate" in new_key and "carrier_gas" in recent_main_key:
+                if "None" not in new_info:
+                    new_val = new_info.split(" ")[-2]
+                    new_unit = new_info.split(" ")[-1]
+                else:
+                    new_val = None
+                    new_unit = None
+
+                items[recent_main_key][new_key] = {'value': new_val,
+                                                   'unit': new_unit}
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "note" in new_key and "carrier_gas" in recent_main_key:
+                if "None" not in new_info:
+                    new_val = new_info[1:]
+                else:
+                    new_val = None
+
+                items[recent_main_key][new_key] = new_val
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "type" in new_key and "instrument" in recent_main_key:
+                if "None" not in new_info:
+                    new_val = new_info[1:]
+                else:
+                    new_val = None
+
+                items[recent_main_key][new_key] = new_val
+            #                 print(new_info.split(" "), recent_main_key)
+
+            elif "note" in new_key and "instrument" in recent_main_key:
+                if "None" not in new_info:
+                    new_val = new_info[1:]
+                else:
+                    new_val = None
+
+                items[recent_main_key][new_key] = new_val
+
+
 def build_major_bullet_point(exp_dict, bullet_point):
     """
     This function takes a desired major bullet point and its minor bullet
