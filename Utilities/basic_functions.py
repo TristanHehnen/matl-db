@@ -1136,6 +1136,103 @@ def build_tga(tga_exp, exp_table_df=None):
     return tga_readme_lines
 
 
+def build_dsc(dsc_exp, exp_table_df=None):
+    """
+    This functions builds the README lines for the DSC experiments. Heating
+    rate and sample masses are summarised.
+
+    :param dsc_exp: dictionary, containing the description of the different
+                    repetitions of the DSC experiments
+    :param exp_table_df: Pandas DataFrame containing the
+                         test condition summary table
+
+    :return: list of string for a new README file
+    """
+
+    # Initialise collection of README lines as list of string.
+    dsc_readme_lines = list()
+
+    # Define string nuclei to build README lines.
+    exp_header = "### Experimental Conditions, DSC"
+    dsc_readme_lines.append(exp_header)
+
+    # Get keys of the different experiments.
+    exp_keys = list(dsc_exp.keys())
+
+    # Heating Rates.
+    heating_rates = list()
+    # Get all heating rates.
+    for exp_key in exp_keys:
+        heating_rates.append(dsc_exp[exp_key]["heating_rate"]["value"])
+    # Remove duplicates.
+    heating_rates = list(dict.fromkeys(heating_rates))
+    # Build the summary of different heating rates.
+    part_one = "{}".format(heating_rates[0])
+    for heating_rate in heating_rates[1:-1]:
+        part_one += ", {}".format(heating_rate)
+    part_two = heating_rates[-1]
+    unit = dsc_exp[exp_key]["heating_rate"]["unit"]
+    readme_lines = "* Heating Rates: {} and {} {}".format(part_one,
+                                                          part_two,
+                                                          unit)
+    dsc_readme_lines.append(readme_lines)
+
+    # Temperature program.
+    readme_lines = build_major_bullet_point(dsc_exp[exp_keys[0]],
+                                            "temperature_program")
+    dsc_readme_lines.append(readme_lines)
+
+    # Sample mass.
+    sample_masses = list()
+    # Get all sample masses.
+    for exp_key in exp_keys:
+        sample_masses.append(dsc_exp[exp_key]["sample_mass"]["value"])
+    # Remove duplicates.
+    sample_masses = list(dict.fromkeys(sample_masses))
+    # Build the summary of different sample masses.
+    unit = dsc_exp[exp_key]["sample_mass"]["unit"]
+    readme_lines = "* Sample Mass: {} - {} {}".format(min(sample_masses),
+                                                      max(sample_masses),
+                                                      unit)
+    dsc_readme_lines.append(readme_lines)
+
+    # Sample geometry.
+    readme_lines = build_medium_bullet_point(dsc_exp[exp_keys[0]],
+                                             "sample_geometry")
+    dsc_readme_lines.append(readme_lines)
+
+    # Calibration type
+    readme_lines = build_medium_bullet_point(dsc_exp[exp_keys[0]],
+                                             "calibration_type")
+    dsc_readme_lines.append(readme_lines)
+
+    # Crucible
+    readme_lines = build_major_bullet_point(dsc_exp[exp_keys[0]],
+                                            "crucible")
+    dsc_readme_lines.append(readme_lines)
+
+    # Carrier Gas
+    readme_lines = build_major_bullet_point(dsc_exp[exp_keys[0]],
+                                            "carrier_gas")
+    dsc_readme_lines.append(readme_lines)
+
+    # Instrument
+    readme_lines = build_major_bullet_point(dsc_exp[exp_keys[0]],
+                                            "instrument")
+    dsc_readme_lines.append(readme_lines)
+
+    # Test condition summary table
+    if exp_table_df is not None:
+        table_header = "###### Test Condition Summary"
+        dsc_readme_lines.append(table_header)
+        table_lines = build_test_condition_table(exp_table_df)
+        dsc_readme_lines.append(table_lines)
+
+    # Flatten list of new README lines.
+    dsc_readme_lines = list(pd_flatten(dsc_readme_lines))
+    return dsc_readme_lines
+
+
 # Collection of experiment description templates.
 experiment_template = {
     "TGA_base": {
