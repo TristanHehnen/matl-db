@@ -32,6 +32,6 @@ Some description can be put here...
 
 ###### Test Condition Summary
 
-| Test Label | Heat Flux (kW/m²) | Initial Sample Mass (mg) | Heater Temperature (K) |
+| Test Label | Heat Flux (kW/m²) | Initial Sample Mass (g) | Heater Temperature (K) |
 |:----------:|:--------------------:|:------------------------:|:------------------------------:|
 | [None] | [None] | [None] | [None] |
