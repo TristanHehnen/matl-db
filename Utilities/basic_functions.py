@@ -745,7 +745,7 @@ def get_tga_items(md_lines, items):
         #             print(line)
 
         # Get major items.
-        elif "* " in line and not ": " in line:
+        elif "* " in line and ": " not in line:
             new_key = line[2:].replace(' ', '_').lower()
             recent_main_key = new_key
         #             print(line)

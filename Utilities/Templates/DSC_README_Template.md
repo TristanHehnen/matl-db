@@ -4,12 +4,12 @@
 Some description can be put here...
 
 
-* Heating Rates: [None] K/min
+* Heating rate: [None] K/min
 * Temperature program
-  - Initial Temperature: [None] K
-  - Initial Isotherm: [None]
+  - Initial temperature: [None] K
+  - Initial isotherm: [None]
   - Maximum Temperature: [None] K
-  - Final Isotherm: [None]
+  - Final isotherm: [None]
 * Sample mass: [None] mg
 * Sample geometry: [None]
 * Calibration type: [None]
@@ -20,7 +20,7 @@ Some description can be put here...
   - Mass: [None]
   - Lid: [None]
   - Note: [None]
-* Carrier Gas
+* Carrier gas
   - Type: [None]
   - Flow rate: [None] ml/min
   - Note: [None]
