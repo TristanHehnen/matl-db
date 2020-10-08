@@ -30,6 +30,6 @@ Some description can be put here...
 
 ###### Test Condition Summary
 
-| Test Label | Heating Rate (K/min) | Initial Sample Mass (mg) | Oxygen Concentration (vol %) |
+| Test Label | Heating Rate (K/min) | Initial Sample Mass (mg) | Oxygen Concentration (vol. %) |
 |:----------:|:--------------------:|:------------------------:|:------------------------------:|
 | [None] | [None] | [None] | [None] |
