@@ -17,13 +17,19 @@ Some description can be put here...
   - Retainer frame: [None]
   - Retaining grid: [None]
   - Note: [None]
-* Thermocouple location
+* Backing
+  - Material: [None]
+  - Thickness: [None] m
+  - Density: [None] kg/m³
+  - Note: [None]
+* Thermocouple
+  - Type: [None]
   - Front temperature 1: [None] m
   - Back temperature 1: [None] m
   - Note: [None]
 * Carrier gas
   - Type: [None]
-  - Flow rate: [None] ml/min
+  - Flow rate: [None] l/s
   - Note: [None]
 * Calibration type: [None]
 * Instrument
