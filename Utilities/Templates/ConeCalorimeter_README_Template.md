@@ -18,15 +18,17 @@ Some description can be put here...
   - Retaining grid: [None]
   - Note: [None]
 * Backing
-  - Material: [None]
-  - Thickness: [None] m
-  - Density: [None] kg/m³
-  - Note: [None]
+  - Material 1: [None]
+  - Thickness 1: [None] m
+  - Density 1: [None] kg/m³
+  - Conductivity 1: [None] W/(m K)
+  - Specific heat capacity: [None] J/(kg K)
+  - Note 1: [None]
 * Thermocouple
-  - Type: [None]
+  - Type 1: [None]
   - Front temperature 1: [None] m
   - Back temperature 1: [None] m
-  - Note: [None]
+  - Note 1: [None]
 * Carrier gas
   - Type: [None]
   - Flow rate: [None] l/s
@@ -38,6 +40,6 @@ Some description can be put here...
 
 ###### Test Condition Summary
 
-| Test Label | Initial Sample Mass (g) | Heat Flux (kW/m²) | Heater Temperature (K) |
-|:------:|:------:|:------:|:------:|
-| [None] | [None] | [None] | [None] |
+| Test Label | Initial Sample Mass (g) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Time to Ignition (s) |
+|:------:|:------:|:------:|:------:|:------:|
+| [None] | [None] | [None] | [None] | [None] |
