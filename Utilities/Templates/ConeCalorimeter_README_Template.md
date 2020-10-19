@@ -10,12 +10,18 @@ Some description can be put here...
   - Mass: [None] g
   - Shape: [None]
   - Diameter or edge length: [None] m
+  - Surface area (nominal): [None] m²
   - Thickness: [None] m
   - Note: [None]
 * Sample holder
   - Shape: [None]
   - Retainer frame: [None]
   - Retaining grid: [None]
+  - Note: [None]
+* Sample chamber
+  - Top opening: [None]
+  - Doors/Windshield: [None]
+  - Bottom opening: [None]
   - Note: [None]
 * Backing
   - Material 1: [None]
