@@ -35,6 +35,7 @@ Some description can be put here...
   - Note 1: [None]
 * Thermocouple
   - Type 1: [None]
+  - Bead diameter 1: [None] m
   - Front temperature 1: [None] m
   - Back temperature 1: [None] m
   - Note 1: [None]
