@@ -15,6 +15,9 @@ Some description can be put here...
   - Note: [None]
 * Sample holder
   - Shape: [None]
+  - Length: [None] m
+  - Width: [None] m
+  - Height: [None] m
   - Retainer frame: [None]
   - Retaining grid: [None]
   - Note: [None]
