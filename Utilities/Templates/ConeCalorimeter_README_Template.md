@@ -36,8 +36,8 @@ Some description can be put here...
 * Thermocouple
   - Type 1: [None]
   - Bead diameter 1: [None] m
-  - Front temperature 1: [None] m
-  - Back temperature 1: [None] m
+  - Location 1: x=[None] m, y=[None] m, z=[None] m
+  - Surface 1: [None]
   - Note 1: [None]
 * Carrier gas
   - Type: [None]
