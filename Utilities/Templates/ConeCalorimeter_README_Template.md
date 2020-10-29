@@ -19,7 +19,11 @@ Some description can be put here...
   - Width: [None] m
   - Height: [None] m
   - Retainer frame: [None]
+  - Retainer frame dimensions: x=[None] m, y=[None] m, z=[None] m
+  - Retainer frame window edge length: [None] m
   - Retaining grid: [None]
+  - Retaining grid wire diameter: [None] m
+  - Retaining grid spacing: [None] m
   - Note: [None]
 * Sample chamber
   - Top opening: [None]
@@ -31,7 +35,7 @@ Some description can be put here...
   - Thickness 1: [None] m
   - Density 1: [None] kg/m³
   - Conductivity 1: [None] W/(m K)
-  - Specific heat capacity: [None] J/(kg K)
+  - Specific heat capacity 1: [None] J/(kg K)
   - Note 1: [None]
 * Thermocouple
   - Type 1: [None]
