@@ -71,7 +71,7 @@ def get_exp_readme_files(institutes, base_path, experiment_key="TGA"):
 
 
 def read_experiment_lines(readme_lines, start_marker_a="TGA",
-                          start_marker_b="###", end_marker="###"):
+                          start_marker_b="### ", end_marker="### "):
     """
     This function iterates over a list of strings and searches for information
     about a desired experiment. The information is found by looking for
@@ -119,6 +119,8 @@ def read_experiment_lines(readme_lines, start_marker_a="TGA",
 
 def read_test_condition_table(experiment_lines):
     """
+    Transforms markdown table into pandas DataFrame.
+
     Takes a list of strings of information on an experiment that also
     includes a markdown table with a summary of the experiment. It finds
     the table lines and translates them into a Pandas DataFrame.
@@ -185,8 +187,62 @@ def read_test_condition_table(experiment_lines):
     return pd.DataFrame.from_dict(table_content)
 
 
+def get_value_unit(exp_info, missing_info="[?]"):
+    """
+    Splits string into pieces to separate value and unit.
+
+    :param exp_info: string containing the value and unit
+    :param missing_info: marker denoting missing information
+
+    :return: value and unit
+    """
+    if "None" not in exp_info:
+        # Split the entry to separate value, unit and missing_info marker,
+        # store them in an list.
+        entry = exp_info.split(" ")
+        # Remove missing_info marker.
+        if missing_info in entry:
+            print("* Missing info: ", entry)
+            del entry[-1]
+        # From the list get the value and the unit, respectively.
+        exp_value = entry[-2]
+        exp_unit = entry[-1]
+    else:
+        # Set both to 'None' if no info is available.
+        exp_value = None
+        exp_unit = None
+
+    return exp_value, exp_unit
+
+
+def get_value(exp_info, missing_info="[?]"):
+    """
+    Get the value of an experiment item.
+
+    :param exp_info: string containing the value
+    :param missing_info: marker denoting missing information
+
+    :return: value
+    """
+    if "None" not in exp_info:
+        # Remove missing_info marker and the leading space.
+        if missing_info in exp_info:
+            print("* Missing info: ", exp_info)
+            exp_value = exp_info[:-3]
+        else:
+            # Take the value and remove the leading space.
+            exp_value = exp_info[:]
+    else:
+        # Set to 'None' if no info is available.
+        exp_value = None
+
+    return exp_value
+
+
 def get_institute(readme_lines):
     """
+    Collects the institute name and label from the README content.
+
     Takes a list of strings of the README-file content and extract the first
     line, which contains the institute label and name. Label and name are both
     returned as a list of string.
@@ -215,9 +271,11 @@ def get_institute(readme_lines):
     return [institute_label, institute_name]
 
 
-def build_tga_dict(experiment_lines, institute_name_info,
-                   exp_table_df, tga_base_dict, material_path):
+def fill_tga_dict(experiment_lines, institute_name_info,
+                  exp_table_df, tga_base_dict, material_path):
     """
+    Populates dictionary with information from the TGA README content.
+
     This function creates a deep copy from a base dictionary of a given
     experiment and populates it with the respective values from markdown
     bullet points of the README file content.
@@ -297,9 +355,11 @@ def build_tga_dict(experiment_lines, institute_name_info,
     return repetition_info
 
 
-def build_dsc_dict(experiment_lines, institute_name_info,
-                   exp_table_df, dsc_base_dict, material_path):
+def fill_dsc_dict(experiment_lines, institute_name_info,
+                  exp_table_df, dsc_base_dict, material_path):
     """
+    Populates dictionary with information from the DSC README content.
+
     This function creates a deep copy from a base dictionary of a given
     experiment and populates it with the respective values from markdown
     bullet points of the README file content.
@@ -369,6 +429,215 @@ def build_dsc_dict(experiment_lines, institute_name_info,
         # Set initial sample mass.
         new_val = exp_table_df['Initial Sample Mass [mg]'][test_idx]
         new_unit = "mg"
+        test_info["sample_mass"] = {'value': new_val,
+                                    'unit': new_unit}
+
+        repetition_info[test_label] = test_info
+
+    experiment_info[institute_label] = repetition_info
+
+    return repetition_info
+
+
+def get_cone_items(md_lines, items,
+                   multi_set=["backing", "thermocouple"]):
+    """
+
+    :param md_lines: list of strings (markdown file lines)
+    :param items: dictionary with expected bullet points as keys.
+    :param multi_set: list of keywords that spawn multiple parameter sets.
+
+    """
+
+    # The parent is used to sort the individual items
+    # into the dictionary.
+    parent = None
+
+    # List of items that are not of the value-unit type (e.g. 5 kg).
+    text_items = ["note", "material", "shape", "retainer_frame",
+                  "retaining_grid", "top_opening", "doors_windshield",
+                  "bottom_opening", "carrier_gas", "type", "frequency",
+                  "manufacturer", "apparatus_and_model_number", "surface"]
+
+    # Read bullet points of markdown list and transform them
+    # to dictionary keys.
+    for line in md_lines:
+        # Get medium items.
+        if "* " in line and ": " in line:
+            new_key = line[2:].split(': ')[0].replace(' ', '_').lower()
+            new_info = line[4:].split(': ')[1]
+            # Reset parent.
+            parent = None
+
+        # Get major items.
+        elif "* " in line and ": " not in line:
+            # Set parent.
+            parent = line[2:].replace(' ', '_').lower()
+
+        # Get minor items.
+        elif "  - " in line and ": " in line:
+            new_key = line[4:].split(': ')[0].replace(' ', '_').lower()
+            new_key = new_key.replace("/", "_")
+            new_info = line[4:].split(': ')[1]
+
+        else:
+            # Catch cases that aren't expected keywords, e.g. empty lines.
+            new_key = None
+
+        if parent is not None:
+            if parent in multi_set and new_key is not None:
+                # Process special cases with multiple parameter sets
+                # of the same kind, like thermocouple locations.
+
+                # Find integer before ':' to determine to which
+                # set the parameter belongs.
+                keyword_number_res = re.findall(r'[0-9]+$',
+                                                new_key)
+
+                # Determine if only a single number is in the string.
+                if len(keyword_number_res) == 1:
+                    # Build new parent key word for the new parameter set.
+                    parent_keyword = '{}_{}'.format(parent,
+                                                    keyword_number_res[0])
+
+                    # Create new dictionary, if the parent key word doesn't
+                    # exist.
+                    if parent_keyword not in items[parent]:
+                        items[parent][parent_keyword] = dict()
+
+                # Remove trailing number from key and check against
+                # the text items.
+                if "location" in new_key:
+                    # Get the coordinate information for the thermocouples.
+                    coordinates_raw = new_info.split(',')
+
+                    # Initialise dictionary to store the coordinate information.
+                    coordinates = dict()
+
+                    # Iterate over the coordinate and split the letter from
+                    # the value.
+                    for coordinate_raw in coordinates_raw:
+                        c_letter = coordinate_raw.split('=')[0]
+                        c_value = coordinate_raw.split('=')[1]
+
+                        # Get value and unit from the coordinate value.
+                        new_val, new_unit = get_value_unit(c_value,
+                                                           missing_info="[?]")
+
+                        # Remove spaces.
+                        c_letter = c_letter.replace(' ', '')
+
+                        # Store the individual coordinates in their dictionary.
+                        coordinates[c_letter] = {"value": new_val,
+                                                 "unit": new_unit}
+
+                    # Store the combined coordinates.
+                    items[parent][parent_keyword][new_key[:-2]] = coordinates
+
+                elif new_key.split('_')[0] not in text_items:
+                    # Process items that are of the value-unit type.
+                    new_val, new_unit = get_value_unit(new_info,
+                                                       missing_info="[?]")
+
+                    # Store value-unit pair in the appropriate dictionary.
+                    items[parent][parent_keyword][new_key[:-2]] = {
+                        "value": new_val,
+                        "unit": new_unit}
+
+                else:
+                    # Process items that are basically text, like notes.
+                    new_val = get_value(new_info,
+                                        missing_info="[?]")
+
+                    # Store information in the appropriate dictionary.
+                    items[parent][parent_keyword][new_key[:-2]] = new_val
+
+            elif new_key is not None:
+                # Process regular items.
+
+                if new_key not in text_items:
+                    # Process items that are of the value-unit type.
+                    new_val, new_unit = get_value_unit(new_info,
+                                                       missing_info="[?]")
+
+                    # Store value-unit pair in the appropriate dictionary.
+                    items[parent][new_key] = {"value": new_val,
+                                              "unit": new_unit}
+                else:
+                    # Process items that are basically text, like notes.
+                    new_val = get_value(new_info,
+                                        missing_info="[?]")
+
+                    # Store information in the appropriate dictionary.
+                    items[parent][new_key] = new_val
+
+        # Reset new_key.
+        new_key = None
+
+
+def fill_cone_dict(experiment_lines, institute_name_info,
+                   exp_table_df, base_dict, material_path):
+    """
+
+
+    :param experiment_lines:
+    :param institute_name_info:
+    :param exp_table_df:
+    :param base_dict:
+    :param material_path:
+
+    :return:
+    """
+
+    #
+    experiment_type = "Cone Calorimeter"
+    experiment_info = dict()
+    repetition_info = dict()
+    institute_label = institute_name_info[0]
+    institute_name = institute_name_info[1]
+
+    for test_label in exp_table_df["Test Label"][:]:
+        # Remove unnecessary spaces.
+        test_label = test_label.replace(" ", "")
+
+        # Get line number of test.
+        test_idx = exp_table_df[exp_table_df['Test Label'] == test_label].index[
+            0]
+
+        # Initialise experiment dictionary and fill in a copy of
+        # the experiment description template.
+        test_info = copy.deepcopy(base_dict)
+
+        # Set institute name and label.
+        test_info['laboratory']['label'] = institute_label
+        test_info['laboratory']['name'] = institute_name
+
+        # Get test label to build file name.
+        data_file_name = exp_table_df['Test Label'][test_idx] + ".csv"
+        print(data_file_name)
+
+        # Build data file path.
+        data_file_path = os.path.join(material_path.split("\\")[-2],
+                                      material_path.split("\\")[-1],
+                                      institute_label,
+                                      data_file_name)
+        # Store relative data file path.
+        test_info['path'] = data_file_path
+
+        # Set experiment description items from README.
+        get_cone_items(md_lines=experiment_lines,
+                       items=test_info,
+                       multi_set=["backing", "thermocouple"])
+
+        # Set heating rate.
+        new_val = exp_table_df['Heat Flux (kW/m²)'][test_idx]
+        new_unit = "kW/m²"
+        test_info["heat_flux"] = {'value': new_val,
+                                  'unit': new_unit}
+
+        # Set initial sample mass.
+        new_val = exp_table_df['Initial Sample Mass (g)'][test_idx]
+        new_unit = "g"
         test_info["sample_mass"] = {'value': new_val,
                                     'unit': new_unit}
 
@@ -1627,6 +1896,54 @@ experiment_template = {
             'note': {}},
         'instrument': {
             'type': {},
+            'note': {}},
+        'path': {}},
+    "Cone_base": {
+        'laboratory': {},
+        'heat_flux': {},
+        'sample': {
+            'material': {},
+            'mass': {},
+            'shape': {},
+            'diameter_or_edge_length': {},
+            'exposed_surface_area_(nominal)': {},
+            'thickness': {},
+            'note': {}},
+        'sample_holder': {
+            'shape': {},
+            'retainer_frame': {},
+            'retaining_grid': {},
+            'note': {}},
+        'sample_chamber': {
+            'top_opening': {},
+            'doors_windshield': {},
+            'bottom_opening': {},
+            'note': {}},
+        'backing': {
+            # 'material_1': {},
+            # 'thickness_1': {},
+            # 'density_1': {},
+            # 'conductivity_1': {},
+            # 'specific_heat_capacity_1': {},
+            # 'note_1': {}
+        },
+        'thermocouple': {
+            # 'type_1': {},
+            # 'location_1': {},
+            # 'surface_1': {},
+            # 'note_1': {}
+        },
+        'carrier_gas': {
+            'type': {},
+            'flow_rate': {},
+            'note': {}},
+        'calibration': {
+            'type': {},
+            'frequency': {},
+            'note': {}},
+        'instrument': {
+            'manufacturer': {},
+            'apparatus_and_model_number': {},
             'note': {}},
         'path': {}}
 }
