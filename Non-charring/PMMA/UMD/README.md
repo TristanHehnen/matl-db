@@ -29,7 +29,7 @@ A Netzsch F3 Jupiter was used to conduct Simultaneous Thermal Analysis (TGA + DS
 
 ###### Test Condition Summary
 
-| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
 |:----------:|:--------------------:|:------------------------:|:------------------------------:|
 | UMD\_TGA\_N2\_10K\_1 | 1 | [?] | 0 |
 
@@ -61,19 +61,19 @@ Reported errors represent two standard deviations of the mean of the respective 
 
 ore information is available at G.J. Fiola, D.M. Chaudhari, S.I. Stoliarov, Comparison of Pyrolysis properties of extruded and cast Poly (methyl methacrylate), submitted to IAFSS 2020.
 
-* Extraction flow rate (exhaust): 175L/s
+* Extraction flow rate (exhaust): 175 l/s
 * Nitrogen flow rate: 185 SLPM.
 * Sample Surface Area: 0.00385 m2 (nominal)
 * Sample holder dimensions:
-    - Circular pan: diameter = 0.08 m
-    - Insulation thickness around the sample 0.01m
+  - Circular pan: diameter = 0.08 m
+  - Insulation thickness around the sample 0.01m
 * Sample dimensions:
   - Diameter: 0.07 m
   - Thickness: 0.0058 m
 * Backing Insulation: None  
 Samples were epoxied to copper foil to reduce swelling, morphing and flowing; as well as to provide a substrate with good thermal contact to measure back surface temperatures. The exposed (back) side of the copper foil was painted with high emissivity paint (alpha = 0.95) allowing for temperature measurements on the backside of the sample using an IR camera.
 * Temperature Measurements:
-    Temperature measurements were made at 12 points representing 4 radial locations (r = 0, 0.01, 163 0.02 and 0.03 m from the center). However, since the temperature distribution was found to be radially uniform, average temperatures are reported here.
+  - Temperature measurements were made at 12 points representing 4 radial locations (r = 0, 0.01, 163 0.02 and 0.03 m from the center). However, since the temperature distribution was found to be radially uniform, average temperatures are reported here.
 
 ##### CAPA II Boundary Conditions
 The boundary conditions were averaged over the test duration for both heat fluxes. External radiation was measured by a Schmidt-Boelter heat flux gauge with a cooling water temperature of 290 K. The convective heat losses from the front and back sample surfaces were quantified through detailed simulations and further validated against experimental measurements.

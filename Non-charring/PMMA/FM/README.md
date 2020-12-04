@@ -1,28 +1,28 @@
-# FM Global
+# FM Global (FM)
 
-### Test Summary
+### Experimental Conditions: Gasification
+
 Three repeated pyrolysis tests were conducted to measure the mass loss and front surface temperature of pyrolysis tests in nitrogen environment at external heat flux of 25 and 65 kW/m2, respectively. The sample has a circular shape, with a diameter of 9.52 cm (3.75 in.) and thickness of 0.6 cm. The sample was insulated both on the side and bottom.
 [what type of apparatus? // heater type/temperature?]
 
-
-#### Experimental Conditions: Gasification
 * Extraction/N2 flow rate: [??] L/s
 * Sample Surface Area: 0.00712 m2 (nominal)
-* Sample holder dimensions:
-    - at least 9.5 cm... [??]
+* Sample holder dimensions
+  - at least 9.5 cm... [??]
 * Backing Insulation: [thickness? / type?]
 * Thermocouple locations
-    - Sample front surface temperature was measured with [TC, radiometer, IR camera?] at [location; center?]
+  - Sample front surface temperature was measured with [TC, radiometer, IR camera?] at [location; center?]
 
-###### Sample Mass and Test Heating Conditions  
-|Test Name | Initial sample mass (g)| Heat Flux (kW/m2)| Heater Temperature (K) |
-|----------|:------:| :---: | :---: |
-|FM\_Gasification\_25kW\_1 | 168.332879 | 25 | ? |
-|FM\_Gasification\_25kW\_2 | 168.479587 | 25 | ? |
-|FM\_Gasification\_25kW\_3 | 168.263386 | 25 | ? |
-|FM\_Gasification\_50kW\_1 | 168.009602 | 50 | ? |
-|FM\_Gasification\_50kW\_2 | 167.831299 | 50 | ? |
-|FM\_Gasification\_50kW\_3 | 167.404452 | 50 | ? |
-|FM\_Gasification\_65kW\_1 | 169.489286 | 65 | ? |
-|FM\_Gasification\_65kW\_2 | 166.066022 | 65 | ? |
-|FM\_Gasification\_65kW\_3 | 168.190993 | 65 | ? |
+###### Test Condition Summary
+
+| Test Name | Initial sample mass (g) | Heat Flux (kW/m2) | Heater Temperature (K) |
+|:----------:|:------:|:---:|:---:|
+| FM\_FPA\_25kW\_1 | 168.332879 | 25 | ? |
+| FM\_FPA\_25kW\_2 | 168.479587 | 25 | ? |
+| FM\_FPA\_25kW\_3 | 168.263386 | 25 | ? |
+| FM\_FPA\_50kW\_1 | 168.009602 | 50 | ? |
+| FM\_FPA\_50kW\_2 | 167.831299 | 50 | ? |
+| FM\_FPA\_50kW\_3 | 167.404452 | 50 | ? |
+| FM\_FPA\_65kW\_1 | 169.489286 | 65 | ? |
+| FM\_FPA\_65kW\_2 | 166.066022 | 65 | ? |
+| FM\_FPA\_65kW\_3 | 168.190993 | 65 | ? |

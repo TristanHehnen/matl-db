@@ -29,7 +29,7 @@ A TA Instruments SDT Q600 (V20.9 Build 20) was used to conduct Simultaneous Ther
 
 ###### Test Condition Summary
 
-| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
 |:----------:|:--------------------:|:------------------------:|:------------------------------:|
 | HKPolyU\_STA\_N2\_10K\_1    | 10 | 4.104  |  0     |  
 | HKPolyU\_STA\_N2\_10K\_2    | 10 | 4.1896 |  0     |  
@@ -37,19 +37,58 @@ A TA Instruments SDT Q600 (V20.9 Build 20) was used to conduct Simultaneous Ther
 | HKPolyU\_STA\_O2-21\_10K\_2 | 10 | 3.8808 | 21 [?] |  
 
 
-### Experimental Conditions: Cone Calorimeter
-* Extraction flow rate: 7.14L/s
-* Sample Surface Area: 0.01 m2 (nominal)
-* Sample holder dimensions:
-    - Insulation board with a dimension of 10 cm * 10 cm * 5 cm
-* Backing Insulation: thermal conductivity?0.1 W/m.K, density?800 kg/m3, heat capacity?0.5
-* Thermocouple location:
-    - Back surface [center?]
 
-###### Test Heating Conditions  
-|Test Name | Heat Flux (kW/m2)| Heater Temperature (K)
-|----------|:------:| :---: |
-|HKPolyU\_Cone\_25KW\_1 | 25| 900  |
-|HKPolyU\_Cone\_25KW\_2 | 25| 900  |
-|HKPolyU\_Cone\_65KW\_1 | 65| 1188 |
-|HKPolyU\_Cone\_65KW\_2 | 65| 1188 |
+### Experimental Conditions: Cone Calorimeter
+
+* Heat Flux: 25 and 65 kW/m²
+* Sample
+  - Material: Black PMMA
+  - Mass: None g
+  - Shape: square
+  - Diameter or edge length: 0.1 m [?]
+  - Exposed surface area (nominal): 0.01 m²
+  - Thickness: None m
+  - Note: None
+* Sample holder
+  - Shape: None [?]
+  - Retainer frame: None [?]
+  - Retaining grid: None [?]
+  - Note: None
+* Sample chamber
+  - Top opening: None [?]
+  - Doors/Windshield: None [?]
+  - Bottom opening: None [?]
+  - Note: None
+* Backing
+  - Material 1: Insulation board
+  - Thickness 1: 0.05 m
+  - Density 1: 800 kg/m³ [?]
+  - Conductivity 1: 0.1 W/(m K) [?]
+  - Specific heat capacity 1: 0.5 J/(kg K) [?]
+  - Note 1: In the original README there were some question marks, thus they are reproduced here as well - please check!
+* Thermocouple
+  - Type 1: None [?]
+  - Location 1: x=None m, y=None m, z=None m [?]
+  - Surface 1: Back [?]
+  - Note 1: None
+* Carrier gas
+  - Type: None [?]
+  - Flow rate: 7.14 l/s
+  - Note: None
+* Calibration
+  - Type: None [?]
+  - Frequency: None [?]
+  - Note: None
+* Instrument
+  - Manufacturer: None [?]
+  - Apparatus and model number: None [?]
+  - Note: None
+
+###### Test Condition Summary
+
+| Test Label | Initial Sample Mass (g) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Time to Ignition (s) |
+|:------:|:------:|:------:|:------:|:------:|
+| HKPolyU\_Cone\_25KW\_1 | None | 25 |  900 | None |
+| HKPolyU\_Cone\_25KW\_2 | None | 25 |  900 | None |
+| HKPolyU\_Cone\_65KW\_1 | None | 65 | 1188 | None |
+| HKPolyU\_Cone\_65KW\_2 | None | 65 | 1188 | None |

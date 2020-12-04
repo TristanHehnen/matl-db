@@ -30,7 +30,7 @@ Pleae note: TGA Measurements received from LCPP from tests conducted at 10 and 2
 
 ###### Test Condition Summary
 
-| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
 |:----------:|:--------------------:|:------------------------:|:------------------------------:|
 | LCPP\_STA\_N2\_2-5K\_1 |  2.5 | 3.00723 | 0 |  
 | LCPP\_STA\_N2\_2-5K\_2 |  2.5 | 3.12678 | 0 |  
@@ -50,25 +50,65 @@ Pleae note: TGA Measurements received from LCPP from tests conducted at 10 and 2
 
 
 
-### Experimental Conditions, Cone calorimeter
+### Experimental Conditions: Cone Calorimeter
 For three out of four samples for each heat flux, no mass information is available. Measurements of temperature and HRR for these 6 samples are however made available for estimation of HRR repeatability. A single thermocouple was used to measure temperature at the center of the sample back surface. Prior to testing, samples were wrapped with aluminum foil. Distance between sample side and the conical heater resistance = 25 mm.
 
-* Extraction flow rate: 24L/s
-* Sample holder dimensions:
-    - Square pan: 106mm x 106mm x 25mm [?]
-    - Retainer frame: None
-    - Retaining grid: None
-* Backing Insulation: Monolith substrates (3x, each 12 mm thick) [material type/thermal conductivity / thermophysical properties?]
-* Thermocouple location: Central on sample back surface
+Sample holder dimensions: Square pan, 106mm x 106mm x 25mm. [?]
 
-###### Test Heating Conditions  
-|Test Name | Heat Flux (kW/m2)| Heater Temperature (K)
-|----------|:------:| :---: |
-|LCCP\_Cone\_25kW\_1 | 25| 310?  |
-|LCCP\_Cone\_25kW\_2 | 25| 310?|
-|LCCP\_Cone\_25kW\_3 | 25| 310?|
-|LCCP\_Cone\_25kW\_4 | 25| 310?|
-|LCCP\_Cone\_65kW\_1 | 65| 559? |
-|LCCP\_Cone\_65kW\_2 | 65| 559?|
-|LCCP\_Cone\_65kW\_3 | 65| 558? |
-|LCCP\_Cone\_65kW\_4 | 65| 558?|
+
+* Heat Flux: 25 and 65 kW/m²
+* Sample
+  - Material: Black PMMA
+  - Mass: None g [?]
+  - Shape: square
+  - Diameter or edge length: None m [?]
+  - Exposed surface area (nominal): None m² [?]
+  - Thickness: None m [?]
+  - Note: None
+* Sample holder
+  - Shape: square [?]
+  - Retainer frame: None [?]
+  - Retaining grid: None [?]
+  - Note: Square pan 106mm x 106mm x 25mm [?]
+* Sample chamber
+  - Top opening: None [?]
+  - Doors/Windshield: None [?]
+  - Bottom opening: None [?]
+  - Note: None
+* Backing
+  - Material 1: Monolith substrates
+  - Thickness 1: 0.036 m
+  - Density 1: None kg/m³ [?]
+  - Conductivity 1: None W/(m K) [?]
+  - Specific heat capacity 1: None J/(kg K) [?]
+  - Note 1: Monolith substrates (3x, each 12 mm thick) [material type/thermal conductivity / thermophysical properties?]
+* Thermocouple
+  - Type 1: None [?]
+  - Location 1: x=0.0 m, y=0.0 m, z=0.0 m
+  - Surface 1: Back
+  - Note 1: None
+* Carrier gas
+  - Type: Air [?]
+  - Flow rate: 24 l/s
+  - Note: None
+* Calibration
+  - Type: None [?]
+  - Frequency: None [?]
+  - Note: None [?]
+* Instrument
+  - Manufacturer: None [?]
+  - Apparatus and model number: None [?]
+  - Note: None
+
+###### Test Condition Summary
+
+| Test Label | Initial Sample Mass (g) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Time to Ignition (s) |
+|:------:|:------:|:------:|:------:|:------:|
+| LCCP\_Cone\_25kW\_1 | None | 25 | 310 [?] | None |
+| LCCP\_Cone\_25kW\_2 | None | 25 | 310 [?] | None |
+| LCCP\_Cone\_25kW\_3 | None | 25 | 310 [?] | None |
+| LCCP\_Cone\_25kW\_4 | None | 25 | 310 [?] | None |
+| LCCP\_Cone\_65kW\_1 | None | 65 | 559 [?] | None |
+| LCCP\_Cone\_65kW\_2 | None | 65 | 559 [?] | None |
+| LCCP\_Cone\_65kW\_3 | None | 65 | 558 [?] | None |
+| LCCP\_Cone\_65kW\_4 | None | 65 | 558 [?] | None |

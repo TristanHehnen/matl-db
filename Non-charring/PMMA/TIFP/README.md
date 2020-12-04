@@ -51,12 +51,12 @@ The above heading is here to divide the README file for when it is automatically
 * Calibration type: air,  10 °C/min, material In
 * Crucible type: Al2O3, 70 microliters, no lid
 * Carrier Gas
-  - Air (vol % O2 = ambient)
+  - Air (vol. % O2 = ambient)
   - Flow rate = purge flow 50 ml/min + protective 10 ml/min
 
 ###### Test Condition Summary
 
-| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
+| Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
 |:----------:|:--------------------:|:------------------------:|:------------------------------:|
 | TIFP\_STA\_O2-21\_10K\_1 | 10 | 4.4790 | 21 (Ambient) |  
 | TIFP\_STA\_O2-21\_10K\_2 | 10 | 5.2040 | 21 (Ambient) |  
@@ -64,41 +64,86 @@ The above heading is here to divide the README file for when it is automatically
 
 
 ### Experimental Conditions: Cone Calorimeter
-* Radiant heat flux 25 and 65 kW/m2, three runs were performed for each heat flux. Backside temperature measured by K type thermocouples glued to the sample in the middle (x=0, y=0) and at location x=-25 mm, y=0.
-* Extraction flow rate: 24L/s
-* Sample Surface Area: 0.0084 m2
-* Sample holder dimensions:
-    - according to ISO 5660-1, stainless steel
-    - Retainer frame/grid: frame was used
-* Backing Insulation: earth-alkali silicate wool, [thickness?], thermal conductivity at 600K 0.16 kW/m/K
-* Thermocouple location:
-    - Temperature1: glued to back surface of sample, at center
-    - Temperature2: glued to back surface of sample, x=-25 mm, y=0
-* Note: For consistency with datasets submitted by other institutions, cone calorimeter HRR measurements submitted by Aalto have been normalized by sample surface area (nominal) to provide HRR per unit area [kW/m2]
+Three runs were performed for each heat flux. Backside temperature measured by K type thermocouples glued to the sample in the middle (x=0, y=0) and at location x=-25 mm, y=0.
 
-###### Test Heating Conditions [confirm units of Temperature ?]  
-|Test Name | Heat Flux (kW/m2)| Heater Temperature (K)
-|----------|:------:| :---: |
-|TIFP_Cone_25kW_1| 25 | 1134.65 |
-|TIFP_Cone_25kW_2| 25 | 1134.65 |
-|TIFP_Cone_25kW_3| 25 | 1134.65 |
-|TIFP_Cone_65kW_1| 65 | 1397.15 |
-|TIFP_Cone_65kW_2| 65 | 1397.15 |
-|TIFP_Cone_65kW_3| 65 | 1397.15 |
+Note: For consistency with datasets submitted by other institutions, cone calorimeter HRR measurements submitted by TIFP have been normalized by sample surface area (nominal) to provide HRR per unit area [kW/m2]
 
 
-### Experimental Conditions: Gasification Tests
+* Heat Flux: 25 and 65 kW/m²
+* Sample
+  - Material: Black PMMA
+  - Mass: None g [?]
+  - Shape: square
+  - Diameter or edge length: None m
+  - Exposed surface area (nominal): 0.0084 m²
+  - Thickness: None m
+  - Note: None
+* Sample holder
+  - Shape: square
+  - Retainer frame: True
+  - Retaining grid: False
+  - Note: according to ISO 5660-1, stainless steel
+* Sample chamber
+  - Top opening: None
+  - Doors/Windshield: None
+  - Bottom opening: None
+  - Note: None
+* Backing
+  - Material 1: Earth-alkali silicate wool
+  - Thickness 1: None m [?]
+  - Density 1: None kg/m³ [?]
+  - Conductivity 1: 0.16 W/(m K) @ 600K
+  - Specific heat capacity 1: None J/(kg K) [?]
+  - Note 1: None
+* Thermocouple
+  - Type 1: K type
+  - Location 1: x=0.0 m, y=0.0 m, z=0.0 m
+  - Surface 1: Back
+  - Note 1: glued to back surface of sample, at center
+  - Type 2: K type
+  - Location 2: x=-0.025 m, y=0.0 m, z=0.0 m
+  - Surface 2: Back
+  - Note 2: Glued to the sample
+* Carrier gas
+  - Type: Air [?]
+  - Flow rate: 24 l/s
+  - Note: None
+* Calibration
+  - Type: None [?]
+  - Frequency: None [?]
+  - Note: None
+* Instrument
+  - Manufacturer: None [?]
+  - Apparatus and model number: None [?]
+  - Note: None
+
+###### Test Condition Summary
+
+| Test Label | Initial Sample Mass (g) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Time to Ignition (s) |
+|:------:|:------:|:------:|:------:|:------:|
+| TIFP_Cone_25kW_1 | None [?] | 25 | 1134.65 | None [?] |
+| TIFP_Cone_25kW_2 | None [?] | 25 | 1134.65 | None [?] |
+| TIFP_Cone_25kW_3 | None [?] | 25 | 1134.65 | None [?] |
+| TIFP_Cone_65kW_1 | None [?] | 65 | 1397.15 | None [?] |
+| TIFP_Cone_65kW_2 | None [?] | 65 | 1397.15 | None [?] |
+| TIFP_Cone_65kW_3 | None [?] | 65 | 1397.15 | None [?] |
+
+
+
+### Experimental Conditions: Gasification Test
+
 * Radiant heat flux 65 kW/m2, two runs were performed in a cone calorimeter apparatus with vitiated atmosphere module, pure nitrogen.
 * Extraction flow rate: 24L/s
 * Sample Surface Area: 0.0084 m2
-* Sample holder dimensions:
-    - according to ISO 5660-1, stainless steel
-    - Retainer frame/grid: frame was used
+* Sample holder dimensions
+  - according to ISO 5660-1, stainless steel
+  - Retainer frame/grid: frame was used
 * Backing Insulation: earth-alkali silicate wool, [thickness?], thermal conductivity at 600K 0.16 kW/m/K
 * Thermocouple location: None
 
-###### Test Heating Conditions [confirm units of Temperature ?]  
-|Test Name | Heat Flux (kW/m2)| Heater Temperature (K)
-|----------|:------:| :---: |
-|TIFP_Gasification_65kW_1| 65 | 1403.15 |
-|TIFP_Gasification_65kW_2| 65 | 1403.15 |
+###### Test Condition Summary
+
+| Test Name | Heat Flux (kW/m2) | Heater Temperature (K) |
+|:----------:|:------:|:---:|
+| TIFP_Gasification_65kW_1 | 65 | 1403.15 |
+| TIFP_Gasification_65kW_2 | 65 | 1403.15 |
