@@ -40,13 +40,16 @@ for i = 1:N_files   % Loop through all of your data sets
         EVAL_DATA{k,L,m}(:,2)=interp1(EXP_DATA{k,L,m}(:,1),EXP_DATA{k,L,m}(:,2), EVAL_DATA{k,L,m}(:,1))/m0;     % interpolate mass, normalize by m0
         EVAL_DATA{k,L,m}(:,3)=interp1(EXP_DATA{k,L,m}(:,1),EXP_DATA{k,L,m}(:,3), EVAL_DATA{k,L,m}(:,1));        % interpolate HRR
         if k~=7
-            EVAL_DATA{k,L,m}(:,8)=sgolayfilt(EVAL_DATA{k,L,m}(:,3),2,5);                                        % Calculate smoothed HRR
+        frames=5;
+        order=2;            
+            EVAL_DATA{k,L,m}(:,8)=sgfilt(order,frames,EVAL_DATA{k,L,m}(:,3));                                   % Calculate smoothed HRR
+%             EVAL_DATA{k,L,m}(:,8)=sgolayfilt(EVAL_DATA{k,L,m}(:,3),2,5);                                      % Calculate smoothed HRR (MATLAB fctn)
         elseif k==7
             EVAL_DATA{k,L,m}(:,8)=(EVAL_DATA{k,L,m}(:,3));                                                      % Keep raw data for LCPP b/c of 0.2 Hz output
         end
-        TAB_DATA{m,1}(k,L)=min(find((EVAL_DATA{k,L,m}(:,3))>24));              %Calculate t_ignition as the first time when HRR_smooth>24 kW/m2
-        TAB_DATA{m,2}(k,L)=min(find((EVAL_DATA{k,L,m}(:,3))>240));             %Calculate t_100_0 as the first time when HRR_smooth>100 kW/m2
-        TAB_DATA{m,3}(k,L)=max(find((EVAL_DATA{k,L,m}(:,3))>240));             %Calculate t_100_0 as the last time when HRR_smooth>100 kW/m2
+        TAB_DATA{m,1}(k,L)=find((EVAL_DATA{k,L,m}(:,3))>24,1);              %Calculate t_ignition as the first time when HRR_smooth>24 kW/m2
+        TAB_DATA{m,2}(k,L)=find((EVAL_DATA{k,L,m}(:,3))>240,1);             %Calculate t_100_0 as the first time when HRR_smooth>100 kW/m2
+        TAB_DATA{m,3}(k,L)=find((EVAL_DATA{k,L,m}(:,3))>240,1,'last');             %Calculate t_100_0 as the last time when HRR_smooth>100 kW/m2
         TAB_DATA{m,4}(k,L)=m0;
         Ncols=size(EXP_DATA{k,L,m}(:,:),2);         % Find out how many TCs / temp measurements were provided in this test
         N_rows_i(i)=size(EXP_DATA{k,L,m}(:,:),1);
@@ -69,7 +72,7 @@ for i = 1:N_files   % Loop through all of your data sets
             end
         end
         EVAL_DATA{k,L,m}(:,9)=movmean(EVAL_DATA{k,L,m}(:,9),5);   % Calculate running average of d(HRR_smooth)/dt [5s interval, +/- 2 s]
-    %     EVAL_DATA{k,L,m}(:,9)=sgolayfilt(EVAL_DATA{k,L,m}(:,9),2,13);     %Savitzky Golay HRR, quadratic, 13s invtreval: smoothed d(HRR_smooth)/dt
+    %     EVAL_DATA{k,L,m}(:,9)=sgfilt(2,13,EVAL_DATA{k,L,m}(:,9));     %Savitzky Golay HRR, quadratic, 13s invtreval: smoothed d(HRR_smooth)/dt
 
             p_end=size(EVAL_DATA{k,L,m},1);
         for p=1:p_end                 %Calculate [4] total heat flow and [5] dT/dt (+/- one time step, delta_T=1k]
@@ -180,12 +183,12 @@ for i=1:N_files
 
 %             Calculate mean and stdeviation +/- 2 timesteps
             HRR25(ix,L+1,k)=nnz(HRR25((ix-2:ix+2),(1:L),k));
-            HRR25(ix,L+2,k)=nanmean(HRR25((ix-2:ix+2),(1:L),k),'all');
-            HRR25(ix,L+3,k)=nanstd(HRR25((ix-2:ix+2),(1:L),k),0,'all');
+            HRR25(ix,L+2,k)=mean_nonan(HRR25((ix-2:ix+2),(1:L),k));
+            HRR25(ix,L+3,k)=std_nonan(HRR25((ix-2:ix+2),(1:L),k));
             HRR25(ix,L+4,k)=HRR25(ix,L+3,k)/sqrt(HRR25(ix,L+1,k));
 
             end
-%             HRR25(1:last,L+2,k)=sgolayfilt(HRR25(1:last,L+2,k),3,15);,
+%             HRR25(1:last,L+2,k)=sgfilt(3,15,HRR25(1:last,L+2,k));,
             clear temp
             hold on
             for ix=1:L
@@ -249,8 +252,8 @@ HRR25_all(HRR25_all==0)=NaN;
 %Calculate mean and stdeviation +/- 0 timesteps
 for ix=1:900
     HRR25_all(ix,(Test_count(3,end)+1))=nnz(HRR25_all((ix-0:ix+0),[1:11 14:Test_count(3,end)]));          % Count, N
-    HRR25_all(ix,(Test_count(3,end)+2))=nanmean(HRR25_all((ix-0:ix+0),[1:11 14:Test_count(3,end)]),'all');        % mean
-    HRR25_all(ix,(Test_count(3,end)+3))=nanstd(HRR25_all((ix-0:ix+0),[1:11 14:Test_count(3,end)]),0,'all');         % stdmean (all data +/- 1 s
+    HRR25_all(ix,(Test_count(3,end)+2))=mean_nonan(HRR25_all((ix-0:ix+0),[1:11 14:Test_count(3,end)]));        % mean
+    HRR25_all(ix,(Test_count(3,end)+3))=std_nonan(HRR25_all((ix-0:ix+0),[1:11 14:Test_count(3,end)]));         % stdmean (all data +/- 1 s
     HRR25_all(ix,(Test_count(3,end)+4))=HRR25_all(ix,(Test_count(3,end)+3))/sqrt(HRR25_all(ix,Test_count(3,end)+1));  % stdev mean
 end
 
@@ -308,7 +311,7 @@ end
         axis([0 600 0 800]);
         xlabel('time [s]');
         ylabel('HRR [kW m^{-2}]');
-        legend(h,'Location','eastoutside');
+        legend(h,'Location','northeastoutside');
             h=6;                                  % height of plot in inches
             w=8;                                  % width of plot in inches
             set(gcf, 'PaperSize', [w h]);           % set size of PDF page
@@ -346,12 +349,12 @@ for i=1:N_files
 
 %             Calculate mean and stdeviation +/- 2 timesteps
             HRR50(ix,L+1,k)=nnz(HRR50((ix-2:ix+2),(1:L),k));
-            HRR50(ix,L+2,k)=nanmean(HRR50((ix-2:ix+2),(1:L),k),'all');
-            HRR50(ix,L+3,k)=nanstd(HRR50((ix-2:ix+2),(1:L),k),0,'all');
+            HRR50(ix,L+2,k)=mean_nonan(HRR50((ix-2:ix+2),(1:L),k));
+            HRR50(ix,L+3,k)=std_nonan(HRR50((ix-2:ix+2),(1:L),k));
             HRR50(ix,L+4,k)=HRR50(ix,L+3,k)/sqrt(HRR50(ix,L+1,k));
 
             end
-%             HRR50(1:last,L+2,k)=sgolayfilt(HRR50(1:last,L+2,k),3,15);,
+%             HRR50(1:last,L+2,k)=sgfilt(3,15,HRR50(1:last,L+2,k));,
             clear temp
             hold on
             for ix=1:L
@@ -416,13 +419,13 @@ HRR50_all(HRR50_all==0)=NaN;
 %Calculate mean and stdeviation +/- 0 timesteps [HERE, you actually do +/- 2 timesteps because we have data from only one lab; for most across-lab-averages, use +/-0]
 for ix=3:398
     HRR50_all(ix,(Test_count(4,end)+1))=nnz(HRR50_all((ix-2:ix+2),[1:Test_count(4,end)]));          % Count, N
-    HRR50_all(ix,(Test_count(4,end)+2))=nanmean(HRR50_all((ix-2:ix+2),[1:Test_count(4,end)]),'all');        % mean
-    HRR50_all(ix,(Test_count(4,end)+3))=nanstd(HRR50_all((ix-2:ix+2),[1:Test_count(4,end)]),0,'all');         % stdmean (all data +/- 1 s
+    HRR50_all(ix,(Test_count(4,end)+2))=mean_nonan(HRR50_all((ix-2:ix+2),[1:Test_count(4,end)]));        % mean
+    HRR50_all(ix,(Test_count(4,end)+3))=std_nonan(HRR50_all((ix-2:ix+2),[1:Test_count(4,end)]));         % stdmean (all data +/- 1 s
     HRR50_all(ix,(Test_count(4,end)+4))=HRR50_all(ix,(Test_count(4,end)+3))/sqrt(HRR50_all(ix,Test_count(4,end)+1));  % stdev mean
 end
 
 
-figure('Renderer', 'painters', 'Position', [100 100 500 350])
+figure('Renderer', 'painters', 'Position', [100 100 800 550])
 hold on
 i_legend=0;
 %plot Average with shaded errorbars WITH avg HRR curves from all Labs
@@ -440,9 +443,9 @@ i_legend=0;
 %         axis([0 300 0 1300]);
 %         xlabel('time [s]');
 %         ylabel('HRR [kW m^{-2}]');
-%         legend(QMJHL{legend_counter},'Location','Northwest');
-%             h=3;                                  % height of plot in inches
-%             w=5;                                  % width of plot in inches
+%         legend(QMJHL{legend_counter},'Location','northeastoutside');
+%             h=6;                                  % height of plot in inches
+%             w=8;                                  % width of plot in inches
 %             set(gcf, 'PaperSize', [w h]);           % set size of PDF page
 %             set(gcf, 'PaperPosition', [0 0 w h]);   % put plot in lower-left corner
 
@@ -453,7 +456,7 @@ i_legend=0;
 
 %plot Average with shaded errorbars WITH individual data points from all tests
 for k=1:Test_count(4,end)
-    if k<= 11 | k>=18
+    if k<= 11 || k>=18
         plot(time50(:),HRR50_all(:,k),'.');
     end
 end
@@ -462,9 +465,9 @@ end
         axis([0 300 0 1300]);
         xlabel('time [s]');
         ylabel('HRR [kW m^{-2}]');
-        legend({'Test 1', 'Test 2', 'Test 3'}, 'Location','Northwest');
-            h=3;                                  % height of plot in inches
-            w=5;                                  % width of plot in inches
+        legend({'Test 1', 'Test 2', 'Test 3'}, 'Location','northeastoutside');
+            h=6;                                  % height of plot in inches
+            w=8;                                  % width of plot in inches
             set(gcf, 'PaperSize', [w h]);           % set size of PDF page
             set(gcf, 'PaperPosition', [0 0 w h]);   % put plot in lower-left corner
         fig_filename=fullfile(char([Script_Figs_dir, Test_types{4}, '_indivHRR_noavg']));
@@ -501,13 +504,13 @@ for i=1:N_files
 
 %             Calculate mean and stdeviation +/- 2 timesteps
             HRR65(ix,L+1,k)=nnz(HRR65((ix-2:ix+2),(1:L),k));
-            HRR65(ix,L+2,k)=nanmean(HRR65((ix-2:ix+2),(1:L),k),'all');
-            HRR65(ix,L+3,k)=nanstd(HRR65((ix-2:ix+2),(1:L),k),0,'all');
+            HRR65(ix,L+2,k)=mean_nonan(HRR65((ix-2:ix+2),(1:L),k));
+            HRR65(ix,L+3,k)=std_nonan(HRR65((ix-2:ix+2),(1:L),k));
             HRR65(ix,L+4,k)=HRR65(ix,L+3,k)/sqrt(HRR65(ix,L+1,k));
 
 
             end
-%             HRR65(1:last,L+2,k)=sgolayfilt(HRR65(1:last,L+2,k),3,15);,
+%             HRR65(1:last,L+2,k)=sgfilt(3,15,HRR65(1:last,L+2,k));,
             clear temp
             hold on
             for ix=1:L
@@ -573,8 +576,8 @@ HRR65_all(HRR65_all==0)=NaN;
 %Calculate mean and stdeviation +/- 2 timesteps
 for ix=1:600
     HRR65_all(ix,(Test_count(5,end)+1))=nnz(HRR65_all((ix-0:ix+0),[1:11 18:Test_count(5,end)]));          % Count, N
-    HRR65_all(ix,(Test_count(5,end)+2))=nanmean(HRR65_all((ix-0:ix+0),[1:11 18:Test_count(5,end)]),'all');        % mean
-    HRR65_all(ix,(Test_count(5,end)+3))=nanstd(HRR65_all((ix-0:ix+0),[1:11 18:Test_count(5,end)]),0,'all');         % stdmean (all data +/- 1 s
+    HRR65_all(ix,(Test_count(5,end)+2))=mean_nonan(HRR65_all((ix-0:ix+0),[1:11 18:Test_count(5,end)]));        % mean
+    HRR65_all(ix,(Test_count(5,end)+3))=std_nonan(HRR65_all((ix-0:ix+0),[1:11 18:Test_count(5,end)]));         % stdmean (all data +/- 1 s
     HRR65_all(ix,(Test_count(5,end)+4))=HRR65_all(ix,(Test_count(5,end)+3))/sqrt(HRR65_all(ix,Test_count(5,end)+1));  % stdev mean
 end
 
@@ -694,12 +697,12 @@ for i=1:N_files
 
 %             Calculate mean and stdeviation +/- 2 timesteps
             TEMP25(ix,3*L+1,k)=nnz(TEMP25((ix-2:ix+2),(1:L),k));
-            TEMP25(ix,3*L+2,k)=nanmean(TEMP25((ix-2:ix+2),(1:3*L),k),'all');
-            TEMP25(ix,3*L+3,k)=nanstd(TEMP25((ix-2:ix+2),(1:3*L),k),0,'all');
+            TEMP25(ix,3*L+2,k)=mean_nonan(TEMP25((ix-2:ix+2),(1:3*L),k));
+            TEMP25(ix,3*L+3,k)=std_nonan(TEMP25((ix-2:ix+2),(1:3*L),k));
             TEMP25(ix,3*L+4,k)=TEMP25(ix,3*L+3,k)/sqrt(TEMP25(ix,3*L+1,k));
 
             end
-%             TEMP25(1:last,L+2,k)=sgolayfilt(TEMP25(1:last,L+2,k),3,15);,
+%             TEMP25(1:last,L+2,k)=sgfilt(3,15,TEMP25(1:last,L+2,k));,
             clear temp
             hold on
             for ix=1:3*L
@@ -764,15 +767,15 @@ TEMP25_all(TEMP25_all==0)=NaN;
 %Calculate mean and stdeviation +/- 0 timesteps
 for ix=1:900
     TEMP25_all(ix,(3*Test_count(3,end)+1))=nnz(TEMP25_all((ix-0:ix+0),[1:18 29 32 34:3*Test_count(3,end)]));          % Count, N | THIS WEIRD INDEXING: |1:18 29 32 34:3*Test_count(3,end)] skips Edinburgh (too low) and GIDAZE (not taken at the back surface)Temperature data
-    TEMP25_all(ix,(3*Test_count(3,end)+2))=nanmean(TEMP25_all((ix-0:ix+0),[1:18 29 32 34:3*Test_count(3,end)]),'all');        % mean
-    TEMP25_all(ix,(3*Test_count(3,end)+3))=nanstd(TEMP25_all((ix-0:ix+0),[1:18 29 32 34:3*Test_count(3,end)]),0,'all');         % stdmean (all data +/- 1 s
+    TEMP25_all(ix,(3*Test_count(3,end)+2))=mean_nonan(TEMP25_all((ix-0:ix+0),[1:18 29 32 34:3*Test_count(3,end)]));        % mean
+    TEMP25_all(ix,(3*Test_count(3,end)+3))=std_nonan(TEMP25_all((ix-0:ix+0),[1:18 29 32 34:3*Test_count(3,end)]));         % stdmean (all data +/- 1 s
     TEMP25_all(ix,(3*Test_count(3,end)+4))=TEMP25_all(ix,(3*Test_count(3,end)+3))/sqrt(TEMP25_all(ix,3*Test_count(3,end)+1));  % stdev mean
 end
 
 
 
 %plot Average with shaded errorbars WITH avg TEMP curves from all Labs
-figure('Renderer', 'painters', 'Position', [100 100 700 350])
+figure('Renderer', 'painters', 'Position', [100 100 800 550])
 hold on
 i_legend=0;
 for k=1:N_Labs %size(TEMP25_all_avg,2)
@@ -791,9 +794,9 @@ end
         xlabel('time [s]');
         ylabel('Back Surface Temperature [K]');
 %         legend(QMJHL{legend_counter},'Location','eastoutside');
-        legend(h,'Location','eastoutside');
-            h=4.5;                                  % height of plot in inches
-            w=6;                                  % width of plot in inches
+        legend(h,'Location','northeastoutside');
+            h=6;                                  % height of plot in inches
+            w=8;                                  % width of plot in inches
             set(gcf, 'PaperSize', [w h]);           % set size of PDF page
             set(gcf, 'PaperPosition', [0 0 w h]);   % put plot in lower-left corner
             fig_filename=fullfile(char([Script_Figs_dir, Test_types{3} '_avgTEMP']));
@@ -802,7 +805,7 @@ end
 
 
 % %plot Average with shaded errorbars WITH individual data points from all tests
-figure('Renderer', 'painters', 'Position', [100 100 700 550])
+figure('Renderer', 'painters', 'Position', [100 100 800 550])
 hold on
 i_legend=0;
 i_legend_old=0;
@@ -831,7 +834,7 @@ end
         axis([0 500 250 900]);
         xlabel('time [s]');
         ylabel('Back Surface Temperature [K]');
-        legend(h,'Location','eastoutside');
+        legend(h,'Location','northeastoutside');
             h=6;                                  % height of plot in inches
             w=8;                                  % width of plot in inches
             set(gcf, 'PaperSize', [w h]);           % set size of PDF page
@@ -848,7 +851,7 @@ close all
 %% Analyze Time Resolved Temperature Data with q"=50kWm-2
 % You only have one set of temperature data this heat flux, DBI_Lund_Test1.
 % Let's just plot that.
-figure('Renderer', 'painters', 'Position', [100 100 500 350])
+figure('Renderer', 'painters', 'Position', [100 100 800 550])
 TEMP50=EVAL_DATA{2,1,4}(:,4); % pull in TEMP data from DBI_Lund_Cone_50kW_1
 time50x=[0:size(TEMP50,1)-1]';
 plot(time50x,TEMP50,'.');
@@ -858,8 +861,9 @@ clear time50x
         axis([0 300 250 1100]);
         xlabel('time [s]');
         ylabel('Back Surface Temperature [K]');
-            h=3;                                  % height of plot in inches
-            w=5;                                  % width of plot in inches
+        legend('Test 1', 'Location','northeastoutside');
+            h=6;                                  % height of plot in inches
+            w=8;                                  % width of plot in inches
             set(gcf, 'PaperSize', [w h]);           % set size of PDF page
             set(gcf, 'PaperPosition', [0 0 w h]);   % put plot in lower-left corner
             fig_filename=fullfile(char([Script_Figs_dir, Test_types{4} '_Temp']));
@@ -895,12 +899,12 @@ for i=1:N_files
 
 %             Calculate mean and stdeviation +/- 2 timesteps
             TEMP65(ix,3*L+1,k)=nnz(TEMP65((ix-2:ix+2),(1:L),k));
-            TEMP65(ix,3*L+2,k)=nanmean(TEMP65((ix-2:ix+2),(1:3*L),k),'all');
-            TEMP65(ix,3*L+3,k)=nanstd(TEMP65((ix-2:ix+2),(1:3*L),k),0,'all');
+            TEMP65(ix,3*L+2,k)=mean_nonan(TEMP65((ix-2:ix+2),(1:3*L),k));
+            TEMP65(ix,3*L+3,k)=std_nonan(TEMP65((ix-2:ix+2),(1:3*L),k));
             TEMP65(ix,3*L+4,k)=TEMP65(ix,3*L+3,k)/sqrt(TEMP65(ix,3*L+1,k));
 
             end
-%             TEMP65(1:last,L+2,k)=sgolayfilt(TEMP65(1:last,L+2,k),3,15);,
+%             TEMP65(1:last,L+2,k)=sgfilt(3,15,TEMP65(1:last,L+2,k));,
             clear temp
             hold on
             for ix=1:3*L
@@ -922,7 +926,6 @@ for i=1:N_files
             set(gcf, 'PaperSize', [w h]);           % set size of PDF page
             set(gcf, 'PaperPosition', [0 0 w h]);   % put plot in lower-left corner
             fig_filename=fullfile(char([Script_Figs_dir, LabNames{k}, '_', Test_types{5} '_Temp']));
-            i
             print(fig_filename,'-dpdf')
             clear ix
             clf
@@ -957,15 +960,15 @@ TEMP65_all(TEMP65_all==0)=NaN;
 %Avoid [12,13 (HK Poly data is wrong] and [14-17 (LCPP is underresolved)]
 for ix=1:900
     TEMP65_all(ix,(3*Test_count(5,end)+1))=nnz(TEMP65_all((ix-0:ix+0),[1:18 34:42 47:3*Test_count(5,end)]));          % Count, N | THIS WEIRD INDEXING: |1:18 29 32 34:3*Test_count(3,end)] skips Edinburgh (too low) and GIDAZE (not taken at the back surface)Temperature data
-    TEMP65_all(ix,(3*Test_count(5,end)+2))=nanmean(TEMP65_all((ix-0:ix+0),[1:18 29 32 34:42 47:3*Test_count(5,end)]),'all');        % mean
-    TEMP65_all(ix,(3*Test_count(5,end)+3))=nanstd(TEMP65_all((ix-0:ix+0),[1:18 29 32 34:42 47:3*Test_count(5,end)]),0,'all');         % stdmean (all data +/- 1 s
+    TEMP65_all(ix,(3*Test_count(5,end)+2))=mean_nonan(TEMP65_all((ix-0:ix+0),[1:18 29 32 34:42 47:3*Test_count(5,end)]));        % mean
+    TEMP65_all(ix,(3*Test_count(5,end)+3))=std_nonan(TEMP65_all((ix-0:ix+0),[1:18 29 32 34:42 47:3*Test_count(5,end)]));         % stdmean (all data +/- 1 s
     TEMP65_all(ix,(3*Test_count(5,end)+4))=TEMP65_all(ix,(3*Test_count(5,end)+3))/sqrt(TEMP65_all(ix,3*Test_count(5,end)+1));  % stdev mean
 end
 
 
 %--------------new format, proper legend BELOW
 %plot Average with shaded errorbars WITH avg TEMP curves from all Labs
-figure('Renderer', 'painters', 'Position', [100 100 700 350])
+figure('Renderer', 'painters', 'Position', [100 100 800 550])
 hold on
 i_legend=0;
 for k=1:N_Labs %size(TEMP25_all_avg,2)
@@ -982,7 +985,7 @@ end
         xlabel('time [s]');
         ylabel('Back Surface Temperature [K]');
 %         legend(QMJHL{legend_counter},'Location','eastoutside');
-        legend(h,'Location','eastoutside');
+        legend(h,'Location','northeastoutside');
             h=6;                                  % height of plot in inches
             w=8;                                  % width of plot in inches
             set(gcf, 'PaperSize', [w h]);           % set size of PDF page

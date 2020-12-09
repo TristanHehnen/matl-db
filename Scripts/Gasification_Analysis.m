@@ -62,7 +62,9 @@ for i = 1:N_files   % Loop through all of your data sets
             end
         end
 %         EVAL_DATA{k,L,m}(:,8)=movmean(EVAL_DATA{k,L,m}(:,7),5);            %Calculate running average of d(m*)/dt
-        EVAL_DATA{k,L,m}(:,8)=sgolayfilt(EVAL_DATA{k,L,m}(:,7),3,21);     %Savitzky Golay HRR, quadratic, 13s invtreval: smoothed d(m*)/dt
+    frames=21;
+    order=3;
+    EVAL_DATA{k,L,m}(:,8)=sgfilt(order,frames,EVAL_DATA{k,L,m}(:,7));     %Savitzky Golay HRR, quadratic, 13s invtreval: smoothed d(m*)/dt
 
 %     TAB_DATA{m,1}(k,L)=find((EVAL_DATA{k,L,m}(:,5))>1,1);            %Calculate t_ignition as the first time when dm*dt_smooth>1 g/(s-m2)
 
@@ -110,18 +112,18 @@ for i=1:N_files
 %             Calculate mean and stdeviation +/- 2 timesteps
                 if k~=5
                     MLR25(ix,L+1,k)=nnz(MLR25((ix-2:ix+2),(1:L),k));
-                    MLR25(ix,L+2,k)=nanmean(MLR25((ix-2:ix+2),(1:L),k),'all');
-                    MLR25(ix,L+3,k)=nanstd(MLR25((ix-2:ix+2),(1:L),k),0,'all');
+                    MLR25(ix,L+2,k)=mean_nonan(MLR25((ix-2:ix+2),(1:L),k));
+                    MLR25(ix,L+3,k)=std_nonan(MLR25((ix-2:ix+2),(1:L),k));
                     MLR25(ix,L+4,k)=MLR25(ix,L+3,k)/sqrt(MLR25(ix,L+1,k));
                 elseif k==5 % GIDAZE data is reported at ~(1/5 Hz) so we shouldn't average +/-2s
                     MLR25(ix,L+1,k)=nnz(MLR25((ix-0:ix+0),(1:L),k));
-                    MLR25(ix,L+2,k)=nanmean(MLR25((ix-0:ix+0),(1:L),k),'all');
-                    MLR25(ix,L+3,k)=nanstd(MLR25((ix-0:ix+0),(1:L),k),0,'all');
+                    MLR25(ix,L+2,k)=mean_nonan(MLR25((ix-0:ix+0),(1:L),k));
+                    MLR25(ix,L+3,k)=std_nonan(MLR25((ix-0:ix+0),(1:L),k));
                     MLR25(ix,L+4,k)=MLR25(ix,L+3,k)/sqrt(MLR25(ix,L+1,k));
                 end
 
             end
-%             MLR25(1:last,L+2,k)=sgolayfilt(MLR25(1:last,L+2,k),3,15);,
+%             MLR25(1:last,L+2,k)=sgfilt(3,15,MLR25(1:last,L+2,k));,
             clear temp
             hold on
             for ix=1:L
@@ -218,18 +220,18 @@ for i=1:N_files
 %             Calculate mean and stdeviation +/- 2 timesteps
                 if k~=5
                     MLR50(ix,L+1,k)=nnz(MLR50((ix-2:ix+2),(1:L),k));
-                    MLR50(ix,L+2,k)=nanmean(MLR50((ix-2:ix+2),(1:L),k),'all');
-                    MLR50(ix,L+3,k)=nanstd(MLR50((ix-2:ix+2),(1:L),k),0,'all');
+                    MLR50(ix,L+2,k)=mean_nonan(MLR50((ix-2:ix+2),(1:L),k));
+                    MLR50(ix,L+3,k)=std_nonan(MLR50((ix-2:ix+2),(1:L),k));
                     MLR50(ix,L+4,k)=MLR50(ix,L+3,k)/sqrt(MLR50(ix,L+1,k));
                 elseif k==5 % GIDAZE data is reported at ~(1/5 Hz) so we shouldn't average +/-2s
                     MLR50(ix,L+1,k)=nnz(MLR50((ix-0:ix+0),(1:L),k));
-                    MLR50(ix,L+2,k)=nanmean(MLR50((ix-0:ix+0),(1:L),k),'all');
-                    MLR50(ix,L+3,k)=nanstd(MLR50((ix-0:ix+0),(1:L),k),0,'all');
+                    MLR50(ix,L+2,k)=mean_nonan(MLR50((ix-0:ix+0),(1:L),k));
+                    MLR50(ix,L+3,k)=std_nonan(MLR50((ix-0:ix+0),(1:L),k));
                     MLR50(ix,L+4,k)=MLR50(ix,L+3,k)/sqrt(MLR50(ix,L+1,k));
                 end
 
             end
-%             MLR50(1:last,L+2,k)=sgolayfilt(MLR50(1:last,L+2,k),3,15);,
+%             MLR50(1:last,L+2,k)=sgfilt(3,15,MLR50(1:last,L+2,k));,
             clear temp
             hold on
             for ix=1:L
@@ -326,18 +328,18 @@ for i=1:N_files
 %             Calculate mean and stdeviation +/- 2 timesteps
                 if k~=5
                     MLR65(ix,L+1,k)=nnz(MLR65((ix-2:ix+2),(1:L),k));
-                    MLR65(ix,L+2,k)=nanmean(MLR65((ix-2:ix+2),(1:L),k),'all');
-                    MLR65(ix,L+3,k)=nanstd(MLR65((ix-2:ix+2),(1:L),k),0,'all');
+                    MLR65(ix,L+2,k)=mean_nonan(MLR65((ix-2:ix+2),(1:L),k));
+                    MLR65(ix,L+3,k)=std_nonan(MLR65((ix-2:ix+2),(1:L),k));
                     MLR65(ix,L+4,k)=MLR65(ix,L+3,k)/sqrt(MLR65(ix,L+1,k));
                 elseif k==5 % GIDAZE data is reported at ~(1/5 Hz) so we shouldn't average +/-2s
                     MLR65(ix,L+1,k)=nnz(MLR65((ix-0:ix+0),(1:L),k));
-                    MLR65(ix,L+2,k)=nanmean(MLR65((ix-0:ix+0),(1:L),k),'all');
-                    MLR65(ix,L+3,k)=nanstd(MLR65((ix-0:ix+0),(1:L),k),0,'all');
+                    MLR65(ix,L+2,k)=mean_nonan(MLR65((ix-0:ix+0),(1:L),k));
+                    MLR65(ix,L+3,k)=std_nonan(MLR65((ix-0:ix+0),(1:L),k));
                     MLR65(ix,L+4,k)=MLR65(ix,L+3,k)/sqrt(MLR65(ix,L+1,k));
                 end
 
             end
-%             MLR65(1:last,L+2,k)=sgolayfilt(MLR65(1:last,L+2,k),3,15);,
+%             MLR65(1:last,L+2,k)=sgfilt(3,15,MLR65(1:last,L+2,k));,
             clear temp
             hold on
             for ix=1:L
@@ -434,15 +436,15 @@ for i=1:N_files
             for ix = 3:last-2 %1:last
 %             Calculate mean and stdeviation +/- 2 timesteps
 %                 TEMP25(ix,L+1,k)=nnz(TEMP25((ix-2:ix+2),(1:L),k));
-%                 TEMP25(ix,L+2,k)=nanmean(TEMP25((ix-2:ix+2),(1:L),k),'all');
-%                 TEMP25(ix,L+3,k)=nanstd(TEMP25((ix-2:ix+2),(1:L),k),0,'all');
+%                 TEMP25(ix,L+2,k)=mean_nonan(TEMP25((ix-2:ix+2),(1:L),k));
+%                 TEMP25(ix,L+3,k)=std_nonan(TEMP25((ix-2:ix+2),(1:L),k));
 %                 TEMP25(ix,L+4,k)=TEMP25(ix,L+3,k)/sqrt(TEMP25(ix,L+1,k));
                 TEMP25(ix,3*L+1,k)=nnz(TEMP25((ix-2:ix+2),(1:3*L),k));
-                TEMP25(ix,3*L+2,k)=nanmean(TEMP25((ix-2:ix+2),(1:3*L),k),'all');
-                TEMP25(ix,3*L+3,k)=nanstd(TEMP25((ix-2:ix+2),(1:3*L),k),0,'all');
+                TEMP25(ix,3*L+2,k)=mean_nonan(TEMP25((ix-2:ix+2),(1:3*L),k));
+                TEMP25(ix,3*L+3,k)=std_nonan(TEMP25((ix-2:ix+2),(1:3*L),k));
                 TEMP25(ix,3*L+4,k)=TEMP25(ix,3*L+3,k)/sqrt(TEMP25(ix,3*L+1,k));
             end
-%             TEMP25(1:last,L+2,k)=sgolayfilt(TEMP25(1:last,L+2,k),3,15);,
+%             TEMP25(1:last,L+2,k)=sgfilt(3,15,TEMP25(1:last,L+2,k));,
             clear temp
             hold on
             for ix=1:3*L
@@ -506,7 +508,7 @@ for i=1:length(legend_counter)
 end
 % Add in CAPA Data (custom error bars)
 shadedErrorBar(EXP_DATA{13,2,1}(:,1),EXP_DATA{13,2,1}(:,3),[EXP_DATA{13,2,1}(:,5) EXP_DATA{13,2,1}(:,5)],'lineprops', {'color', rgb(Colors{13}),'LineWidth',1}) % ADD in UMD CAPA DATA
-str{end+1,1}={QMJHL{13},Test_types{2}};
+str{end+1,1}={QMJHL{13},Test_types{1}};
 legend_final{end+1}=strjoin(str{end}, ', ');
 % legend(QMJHL{[legend_counter 13]},'Location','eastoutside');
 legend(legend_final,'Location','southeast', 'Interpreter','none');
@@ -542,15 +544,15 @@ for i=1:N_files
             for ix = 3:last-2 %1:last
 %             Calculate mean and stdeviation +/- 2 timesteps
 %             TEMP50(ix,L+1,k)=nnz(TEMP50((ix-2:ix+2),(1:L),k));
-%             TEMP50(ix,L+2,k)=nanmean(TEMP50((ix-2:ix+2),(1:L),k),'all');
-%             TEMP50(ix,L+3,k)=nanstd(TEMP50((ix-2:ix+2),(1:L),k),0,'all');
+%             TEMP50(ix,L+2,k)=mean_nonan(TEMP50((ix-2:ix+2),(1:L),k));
+%             TEMP50(ix,L+3,k)=std_nonan(TEMP50((ix-2:ix+2),(1:L),k));
 %             TEMP50(ix,L+4,k)=TEMP50(ix,L+3,k)/sqrt(TEMP50(ix,L+1,k));
             TEMP50(ix,3*L+1,k)=nnz(TEMP50((ix-2:ix+2),(1:3*L),k));
-            TEMP50(ix,3*L+2,k)=nanmean(TEMP50((ix-2:ix+2),(1:3*L),k),'all');
-            TEMP50(ix,3*L+3,k)=nanstd(TEMP50((ix-2:ix+2),(1:3*L),k),0,'all');
+            TEMP50(ix,3*L+2,k)=mean_nonan(TEMP50((ix-2:ix+2),(1:3*L),k));
+            TEMP50(ix,3*L+3,k)=std_nonan(TEMP50((ix-2:ix+2),(1:3*L),k));
             TEMP50(ix,3*L+4,k)=TEMP50(ix,3*L+3,k)/sqrt(TEMP50(ix,3*L+1,k));
             end
-%             TEMP50(1:last,L+2,k)=sgolayfilt(TEMP50(1:last,L+2,k),3,15);,
+%             TEMP50(1:last,L+2,k)=sgfilt(3,15,TEMP50(1:last,L+2,k));,
             clear temp
             hold on
             for ix=1:3*L
@@ -614,8 +616,8 @@ for i=1:length(legend_counter)
 end
 
 legend(legend_final,'Location','southeast', 'Interpreter','none');
-            h=3;                                  % height of plot in inches
-            w=5;                                  % width of plot in inches
+            h=3.75;                                  % height of plot in inches
+            w=6.5;                                  % width of plot in inches
             set(gcf, 'PaperSize', [w h]);           % set size of PDF page
             set(gcf, 'PaperPosition', [0 0 w h]);   % put plot in lower-left corner
         fig_filename=fullfile(char([Script_Figs_dir, 'Gasification_50kW_Temperature']));
@@ -644,15 +646,15 @@ for i=1:N_files
             for ix = 3:last-2 %1:last
 %             Calculate mean and stdeviation +/- 2 timesteps
             TEMP65(ix,3*L+1,k)=nnz(TEMP65((ix-2:ix+2),(1:3*L),k));
-            TEMP65(ix,3*L+2,k)=nanmean(TEMP65((ix-2:ix+2),(1:3*L),k),'all');
-            TEMP65(ix,3*L+3,k)=nanstd(TEMP65((ix-2:ix+2),(1:3*L),k),0,'all');
+            TEMP65(ix,3*L+2,k)=mean_nonan(TEMP65((ix-2:ix+2),(1:3*L),k));
+            TEMP65(ix,3*L+3,k)=std_nonan(TEMP65((ix-2:ix+2),(1:3*L),k));
             TEMP65(ix,3*L+4,k)=TEMP65(ix,3*L+3,k)/sqrt(TEMP65(ix,3*L+1,k));
 %             TEMP65(ix,L+1,k)=nnz(TEMP65((ix-2:ix+2),(1:L),k));
-%             TEMP65(ix,L+2,k)=nanmean(TEMP65((ix-2:ix+2),(1:L),k),'all');
-%             TEMP65(ix,L+3,k)=nanstd(TEMP65((ix-2:ix+2),(1:L),k),0,'all');
+%             TEMP65(ix,L+2,k)=mean_nonan(TEMP65((ix-2:ix+2),(1:L),k));
+%             TEMP65(ix,L+3,k)=std_nonan(TEMP65((ix-2:ix+2),(1:L),k));
 %             TEMP65(ix,L+4,k)=TEMP65(ix,L+3,k)/sqrt(TEMP65(ix,L+1,k));
             end
-%             TEMP65(1:last,L+2,k)=sgolayfilt(TEMP65(1:last,L+2,k),3,15);,
+%             TEMP65(1:last,L+2,k)=sgfilt(3,15,TEMP65(1:last,L+2,k));,
             clear temp
             hold on
             for ix=1:3*L
