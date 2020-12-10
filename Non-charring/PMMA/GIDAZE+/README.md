@@ -1,4 +1,4 @@
-# GIHAZE+ 
+# Imperial College London, Universidad de Cantabria and Reax Engineering (GIHAZE+)
 GIHAZE+ is made of three groups working together: Imperial College London, Universidad de Cantabria and Reax Engineering.
 
 ### Experimental Conditions: TGA, DSC
@@ -11,7 +11,7 @@ Note: DSC heat flow data was rescaled (multiplied by -1)such that endothermic he
   - Initial Isotherm: None
   - Maximum Temperature: 923 K
   - Final Isotherm: None
-* Sample mass: 2-6 mg
+* Sample mass: 2 to 6 mg
 * Sample geometry: powdered
 * Calibration type: Before each experiment, a baseline test was performed using an empty crucible. Internal mass calibration are performed before each experimental campaigns. [Heat/Temperature calibration?]
 * Crucible
@@ -32,7 +32,7 @@ Note: DSC heat flow data was rescaled (multiplied by -1)such that endothermic he
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+|:------:|:------:|:------:|:------:|
 |GIDAZE+\_STA\_N2\_10K\_1     | 10 | 2.015|  0   |  
 |GIDAZE+\_STA\_N2\_10K\_2     | 10 | 1.978|  0   |  
 |GIDAZE+\_STA\_O2\-10\_10K\_1 | 10 | 1.976| 10.5 |  

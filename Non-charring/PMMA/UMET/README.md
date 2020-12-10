@@ -1,6 +1,7 @@
 # University of Lille - ENSCL - Unite Materiaux et Transformations (UMET)
 
 ### Experimental Conditions: TGA
+NOTE: TGA time data was reported as [s] but appeared to be in units of [min]. Values were scaled by a factor of 60, accordingly.
 
 * Heating Rate: 1, 2, 5, 10, 20, 50 and 100 K/min
 * Temperature program
@@ -8,7 +9,7 @@
   - Initial Isotherm: None
   - Maximum Temperature: 1273.15 K
   - Final Isotherm: None
-* Sample mass: 3.93 – 5.98 mg
+* Sample mass: 3.93 to 5.98 mg
 * Sample geometry: powdered
 * Calibration type: Temperature calibration was performed every 6 months using a set of 5 reference materials with melting temperatures between 156.6 - 660 C
 * Crucible
@@ -29,7 +30,7 @@
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+|:------:|:------:|:------:|:------:|
 | UMET\_TGA\_N2\_1K\_1   |   1 | 4.336 | 0 |
 | UMET\_TGA\_N2\_2K\_1   |   2 | 4.845 | 0 |
 | UMET\_TGA\_N2\_5K\_1   |   5 | 4.093 | 0 |
@@ -38,7 +39,8 @@
 | UMET\_TGA\_N2\_50K\_1  |  50 | 5.980 | 0 |
 | UMET\_TGA\_N2\_100K\_1 | 100 | 5.364 | 0 |
 
-NOTE: TGA time data was reported as [s] but appeared to be in units of [min]. Values were scaled by a factor of 60, accordingly.
+
+
 
 ### Experimental Conditions: DSC
 Measurement of cp was made by comparison with sapphire and using modulation
@@ -70,27 +72,14 @@ Measurement of cp was made by comparison with sapphire and using modulation
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|  
+|:------:|:------:|:------:|:------:|
 | UMET\_DSC\_N2\_3K\_1  |  3 | 5 | 0 |
 | UMET\_DSC\_N2\_10K\_1 | 10 | 5 | 0 |
 | UMET\_DSC\_N2\_10K\_2 | 10 | 5 | 0 |
 | UMET\_DSC\_N2\_20K\_1 | 20 | 5 | 0 |
 | UMET\_DSC\_N2\_20K\_2 | 20 | 5 | 0 |
 
-###
-<!-- * Heating Rate: 3, 10 and 20 K/min
-* Temperature program
-  - Initial temperature 243.15 K
-  - Maximum Temperature 433.15 K
-* Sample mass: ~5 mg
-* Sample geometry: powdered
-* Calibration type: Cp, enthalpy, melting point; calibration was performed every 6 months using sapphire (Cp) and Indium (enthalpy, melting point)
-* Crucible type: Aluminum
-* Carrier Gas
-  - Nitrogen
-  - Flow rate = 50 ml/min
-* Instrument type: Discovery TA -->
-###
+
 
 
 ### Diffusivity (LFA 467 Hyperflash- Netzsch):

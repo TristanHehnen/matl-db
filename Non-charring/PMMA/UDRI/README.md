@@ -8,7 +8,7 @@
   - Initial Isotherm: None  
   - Maximum Temperature: 1123.15 K
   - Final Isotherm: None
-* Sample mass: 6.63 - 7.16 mg
+* Sample mass: 6.63 to 7.16 mg
 * Sample geometry: Powdered
 * Calibration type: None [?]
 * Crucible
@@ -29,7 +29,7 @@
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+|:------:|:------:|:------:|:------:|
 | UDRI\_TGA\_N2\_10K\_1 | 10 | 7.157 | 0 |  
 | UDRI\_TGA\_N2\_10K\_2 | 10 | 6.630 | 0 |  
 | UDRI\_TGA\_N2\_10K\_3 | 10 | 6.906 | 0 |  

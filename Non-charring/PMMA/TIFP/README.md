@@ -33,7 +33,7 @@ Note: DSC heat flow data was rescaled (multiplied by -1)such that endothermic he
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+|:------:|:------:|:------:|:------:|
 | TIFP\_STA\_N2\_10K\_1 | 10 | 5.4338| 0 |  
 | TIFP\_STA\_N2\_10K\_2 | 10 | 5.3668| 0 |  
 
@@ -57,7 +57,7 @@ The above heading is here to divide the README file for when it is automatically
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+|:------:|:------:|:------:|:------:|
 | TIFP\_STA\_O2-21\_10K\_1 | 10 | 4.4790 | 21 (Ambient) |  
 | TIFP\_STA\_O2-21\_10K\_2 | 10 | 5.2040 | 21 (Ambient) |  
 
@@ -92,9 +92,9 @@ Note: For consistency with datasets submitted by other institutions, cone calori
   - Material 1: Earth-alkali silicate wool
   - Thickness 1: None m [?]
   - Density 1: None kg/m³ [?]
-  - Conductivity 1: 0.16 W/(m K) @ 600K
+  - Conductivity 1: 0.16 W/(m K)
   - Specific heat capacity 1: None J/(kg K) [?]
-  - Note 1: None
+  - Note 1: 0.16 W/(m K) at 600K
 * Thermocouple
   - Type 1: K type
   - Location 1: x=0.0 m, y=0.0 m, z=0.0 m

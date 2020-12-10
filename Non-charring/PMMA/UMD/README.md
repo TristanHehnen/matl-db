@@ -3,13 +3,15 @@
 ### Experimental Conditions: TGA, DSC
 A Netzsch F3 Jupiter was used to conduct Simultaneous Thermal Analysis (TGA + DSC) experiments. Reported measurement data indicates an average of 7 repeated tests; errors are calculated as two standard deviations of the mean. More information is available at G.J. Fiola, D.M. Chaudhari, S.I. Stoliarov, "Comparison of Pyrolysis properties of extruded and cast Poly (methyl methacrylate)," Fire Safety Journal 2020. https://doi.org/10.1016/j.firesaf.2020.103083
 
+The initial isotherm was held at 313 K for 1200 s.
+
 * Heating Rate: 10 K/min
 * Temperature program
   - Initial Temperature: 313 K
-  - Initial Isotherm: 1200 s (hold at 313 K for 1200 s)  
+  - Initial Isotherm: 1200 s
   - Maximum Temperature: 850 K
   - Final Isotherm: None
-* Sample mass: 4-7 mg
+* Sample mass: 4 to 7 mg
 * Sample geometry: Powdered
 * Calibration type: Before each experiment, a baseline test was performed using an empty crucible. Temperature/Heat flow calibration were performed every 6 months using a set of 5 reference materials with melting temperatures between 60-820 C
 * Crucible
@@ -30,8 +32,8 @@ A Netzsch F3 Jupiter was used to conduct Simultaneous Thermal Analysis (TGA + DS
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|
-| UMD\_TGA\_N2\_10K\_1 | 1 | [?] | 0 |
+|:------:|:------:|:------:|:------:|
+| UMD\_TGA\_N2\_10K\_1 | 1 | None [?] | 0 |
 
 ### Experimental Conditions: MCC
 An FAA microscale combustion calorimeter was used to conduct MCC experiments.  At the end of each test, the residual solid yield was measured and found to be consistent with the TGA results. Reported measurement data indicates an average of four (4) repeated tests; errors are calculated as two standard deviations of the mean. More information is available at: [G.J. Fiola, et al., Fire Safety Journal 2020]

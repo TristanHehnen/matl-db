@@ -30,7 +30,7 @@ A TA Instruments SDT Q600 (V20.9 Build 20) was used to conduct Simultaneous Ther
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+|:------:|:------:|:------:|:------:|
 | HKPolyU\_STA\_N2\_10K\_1    | 10 | 4.104  |  0     |  
 | HKPolyU\_STA\_N2\_10K\_2    | 10 | 4.1896 |  0     |  
 | HKPolyU\_STA\_O2-21\_10K\_1 | 10 | 3.9309 | 21 [?] |  

@@ -2,7 +2,7 @@
 
 ### Experimental Conditions: TGA
 Four repeats were performed but only the best three were selected.
-Pleae note: TGA Measurements received from LCPP from tests conducted at 10 and 20 K/min appear to be identical. LCPP has been contacted in an effort to resolve this issue: when possible, the offending dataset will be edited accordingly.
+Please note: TGA Measurements received from LCPP from tests conducted at 10 and 20 K/min appear to be identical. LCPP has been contacted in an effort to resolve this issue: when possible, the offending dataset will be edited accordingly.
 
 * Heating Rate: 2.5, 5, 10, or 20 K/min
 * Temperature program
@@ -31,7 +31,7 @@ Pleae note: TGA Measurements received from LCPP from tests conducted at 10 and 2
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+|:------:|:------:|:------:|:------:|
 | LCPP\_STA\_N2\_2-5K\_1 |  2.5 | 3.00723 | 0 |  
 | LCPP\_STA\_N2\_2-5K\_2 |  2.5 | 3.12678 | 0 |  
 | LCPP\_STA\_N2\_2-5K\_3 |  2.5 | 3.18254 | 0 |  

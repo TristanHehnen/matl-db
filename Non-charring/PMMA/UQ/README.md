@@ -1,14 +1,15 @@
 # University of Queensland (UQ)
 
 ### Experimental Conditions: TGA
+The initial isotherm was held at 323.15 K for 60 s.
 
 * Heating Rate: 10 K/min
 * Temperature program
   - Initial Temperature: 323.15 K
-  - Initial Isotherm: 60 s (hold at 323.15 K for 60 s)  
+  - Initial Isotherm: 60 s
   - Maximum Temperature 1223.15 K
   - Final Isotherm: None
-* Sample mass: 5.1-5.6 mg
+* Sample mass: 5.1 to 5.6 mg
 * Sample geometry: powdered
 * Calibration type: Annual internal mass calibration  
 * Crucible
@@ -29,7 +30,7 @@
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+|:------:|:------:|:------:|:------:|
 | UQ\_TGA\_O2-21\_10K\_1 | 10 | 5.1 | 21 |
 | UQ\_TGA\_O2-21\_10K\_2 | 10 | 5.2 | 21 |
 | UQ\_TGA\_O2-21\_10K\_3 | 10 | 5.4 | 21 |

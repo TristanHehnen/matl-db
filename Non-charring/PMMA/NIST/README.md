@@ -2,11 +2,12 @@
 
 ### Experimental Conditions: TGA
 A Netzsch F1 Jupiter was used to conduct Thermogravimetric Analysis (TGA) experiments.
+The initial isotherm was held at 300 K for 1500 s.
 
 * Heating Rate: 10 K/min
 * Temperature program
   - Initial Temperature: 300 K
-  - Initial Isotherm: 1500 s (hold at 300 K for 1500 s)  
+  - Initial Isotherm: 1500 s
   - Maximum Temperature: 1000 K
   - Final Isotherm: None
 * Sample mass: 4.2 mg
@@ -30,16 +31,17 @@ A Netzsch F1 Jupiter was used to conduct Thermogravimetric Analysis (TGA) experi
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+|:------:|:------:|:------:|:------:|
 | NIST\_TGA\_N2\_10K\_1 | 10 | 4.2 | 0 |
 
 ### Experimental Conditions: MCC
 An FAA microscale combustion calorimeter was used to conduct MCC experiments.  At the end of each test, the residual solid yield was measured and found to be consistent with the TGA results.
+The initial isotherm was held at 348 K for 600 s.
 
 * Heating Rate: 60 K/min
 * Temperature program (Pyrolyzer)
  - Initial temperature 348 K
- - Isotherm: 600s (hold at 348K for 600s)  
+ - Isotherm: 600s 
  - Maximum Temperature 873 K
 * Combustor Temperature: 1173K
 * Sample mass: 4-7 mg

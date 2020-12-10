@@ -9,7 +9,7 @@ A Netzsch F3 Jupiter using a DSC sample carrier with S-type thermocouples, and a
   - Initial Isotherm: 20 minutes
   - Maximum Temperature: 873.15 K
   - Final Isotherm: None
-* Sample mass: 2-6 mg
+* Sample mass: 2 to 6 mg
 * Sample geometry: powdered
 * Calibration type: The instrument is calibrated at least once per 6 months, or sooner (as needed), using melting point standards for both temperature and DSC sensitivity.  The calibration standards used are In, Sn, Bi, Zn, Al, Ag, Au, and Ni.
 * Crucible
@@ -30,7 +30,7 @@ A Netzsch F3 Jupiter using a DSC sample carrier with S-type thermocouples, and a
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+|:------:|:------:|:------:|:------:|
 | SANDIA\_STA\_Ar\_1K\_1  |  1 | 4.903 | 0 |  
 | SANDIA\_STA\_Ar\_10K\_1 | 10 | 4.917 | 0 |  
 | SANDIA\_STA\_Ar\_10K\_2 | 10 | 4.828 | 0 |  
