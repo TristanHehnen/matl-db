@@ -1,4 +1,4 @@
-# Dansk Brand og Sikringsteknisk Institut, Lund University (DBI_Lund)
+# Dansk Brand og Sikringsteknisk Institut, Lund University (DBILund)
 
 A concise description of the tests done by the division of fire safety engineering at Lund University (Sweden) and DBI (Denmark), is presented here. For more information regarding specific tests please contact: Karlis Livkiss kal@dbigroup.dk
 
@@ -33,9 +33,9 @@ A Netzsch  STA 449 F3 Jupiter was used to conduct Simultaneous Thermal Analysis 
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
 |:----------:|:--------------------:|:------------------------:|:------------------------------:|
-| DBI_Lund\_STA\_N2\_20K\_1 | 20 | 5.8 | 0 |  
-| DBI_Lund\_STA\_N2\_20K\_2 | 20 | 4.9 | 0 |  
-| DBI_Lund\_STA\_N2\_20K\_3 | 20 | 5.5 | 0 |  
+| DBILund\_STA\_N2\_20K\_1 | 20 | 5.8 | 0 |  
+| DBILund\_STA\_N2\_20K\_2 | 20 | 4.9 | 0 |  
+| DBILund\_STA\_N2\_20K\_3 | 20 | 5.5 | 0 |  
 
 ### Experimental Conditions: Gasification Tests
 Slab gasification tests were performed in a controlled atmosphere cone calorimeter at the Lund University division of fire safety engineering using a cone calorimeter made by Fire Testing Technology. An enclosed compartment is added to the test setup for controlling the atmospheric environment around the test sample. The oxygen level inside the compartment is measured with O2 analyser PMA 10 by M&C.
