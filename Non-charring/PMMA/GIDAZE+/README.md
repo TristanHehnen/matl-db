@@ -1,4 +1,4 @@
-# Imperial College London, Universidad de Cantabria and Reax Engineering (GIHAZE+)
+# Imperial College London, Universidad de Cantabria and Reax Engineering (GIDAZE+)
 GIHAZE+ is made of three groups working together: Imperial College London, Universidad de Cantabria and Reax Engineering.
 
 ### Experimental Conditions: TGA, DSC
