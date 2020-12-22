@@ -93,5 +93,5 @@ Sample holder: steel frame 10 x 10 cm.
 
 | Test Label | Initial Sample Mass (g) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Time to Ignition (s) |
 |:------:|:------:|:------:|:------:|:------:|
-| UClan_Cone_25_1 | None [?] | 25 |  898 | None [?] |
-| UClan_Cone_65_1 | None [?] | 65 | 1083 | None [?] |
+| UClan_Cone_25kW_1 | None [?] | 25 |  898 | None [?] |
+| UClan_Cone_65kW_1 | None [?] | 65 | 1083 | None [?] |
