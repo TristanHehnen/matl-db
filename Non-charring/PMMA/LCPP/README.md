@@ -104,11 +104,11 @@ Sample holder dimensions: Square pan, 106mm x 106mm x 25mm. [?]
 
 | Test Label | Initial Sample Mass (g) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Time to Ignition (s) |
 |:------:|:------:|:------:|:------:|:------:|
-| LCCP\_Cone\_25kW\_1 | None | 25 | 310 [?] | None |
-| LCCP\_Cone\_25kW\_2 | None | 25 | 310 [?] | None |
-| LCCP\_Cone\_25kW\_3 | None | 25 | 310 [?] | None |
-| LCCP\_Cone\_25kW\_4 | None | 25 | 310 [?] | None |
-| LCCP\_Cone\_65kW\_1 | None | 65 | 559 [?] | None |
-| LCCP\_Cone\_65kW\_2 | None | 65 | 559 [?] | None |
-| LCCP\_Cone\_65kW\_3 | None | 65 | 558 [?] | None |
-| LCCP\_Cone\_65kW\_4 | None | 65 | 558 [?] | None |
+| LCPP\_Cone\_25kW\_1 | None | 25 | 310 [?] | None |
+| LCPP\_Cone\_25kW\_2 | None | 25 | 310 [?] | None |
+| LCPP\_Cone\_25kW\_3 | None | 25 | 310 [?] | None |
+| LCPP\_Cone\_25kW\_4 | None | 25 | 310 [?] | None |
+| LCPP\_Cone\_65kW\_1 | None | 65 | 559 [?] | None |
+| LCPP\_Cone\_65kW\_2 | None | 65 | 559 [?] | None |
+| LCPP\_Cone\_65kW\_3 | None | 65 | 558 [?] | None |
+| LCPP\_Cone\_65kW\_4 | None | 65 | 558 [?] | None |
