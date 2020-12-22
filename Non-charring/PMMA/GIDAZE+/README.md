@@ -33,14 +33,14 @@ Note: DSC heat flow data was rescaled (multiplied by -1)such that endothermic he
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
 |:------:|:------:|:------:|:------:|
-|GIDAZE+\_STA\_N2\_10K\_1     | 10 | 2.015|  0   |  
-|GIDAZE+\_STA\_N2\_10K\_2     | 10 | 1.978|  0   |  
-|GIDAZE+\_STA\_O2\-10\_10K\_1 | 10 | 1.976| 10.5 |  
-|GIDAZE+\_STA\_O2\-10\_10K\_2 | 10 | 1.993| 10.5 |  
-|GIDAZE+\_STA\_O2\-21\_10K\_1 | 10 | 2.04 | 21   |
-|GIDAZE+\_STA\_O2\-21\_10K\_2 | 10 | 2.039| 21   |  
-|GIDAZE+\_STA\_O2\-21\_10K\_3 | 10 | 6.044| 21   |  
-|GIDAZE+\_STA\_O2\-21\_10K\_4 | 10 | 6.019| 21   |   
+|GIDAZE+\_TGA\_N2\_10K\_1     | 10 | 2.015|  0   |  
+|GIDAZE+\_TGA\_N2\_10K\_2     | 10 | 1.978|  0   |  
+|GIDAZE+\_TGA\_O2\-10\_10K\_1 | 10 | 1.976| 10.5 |  
+|GIDAZE+\_TGA\_O2\-10\_10K\_2 | 10 | 1.993| 10.5 |  
+|GIDAZE+\_TGA\_O2\-21\_10K\_1 | 10 | 2.04 | 21   |
+|GIDAZE+\_TGA\_O2\-21\_10K\_2 | 10 | 2.039| 21   |  
+|GIDAZE+\_TGA\_O2\-21\_10K\_3 | 10 | 6.044| 21   |  
+|GIDAZE+\_TGA\_O2\-21\_10K\_4 | 10 | 6.019| 21   |   
 
 
 
