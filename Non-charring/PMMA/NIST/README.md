@@ -41,7 +41,7 @@ The initial isotherm was held at 348 K for 600 s.
 * Heating Rate: 60 K/min
 * Temperature program (Pyrolyzer)
  - Initial temperature 348 K
- - Isotherm: 600s 
+ - Isotherm: 600s
  - Maximum Temperature 873 K
 * Combustor Temperature: 1173K
 * Sample mass: 4-7 mg
@@ -109,6 +109,6 @@ Sample holder dimensions: Square pan, 106mm x 106mm x 25mm. [?]
 
 | Test Label | Initial Sample Mass (g) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Time to Ignition (s) |
 |:------:|:------:|:------:|:------:|:------:|
-| NIST\_Cone\_25KW\_1 | None [?] | 25 | 900 [?] | None [?] |
-| NIST\_Cone\_25KW\_2 | None [?] | 25 | 900 [?] | None [?] |
-| NIST\_Cone\_25KW\_3 | None [?] | 25 | 900 [?] | None [?] |
+| NIST\_Cone\_25kW\_1 | None [?] | 25 | 900 [?] | None [?] |
+| NIST\_Cone\_25kW\_2 | None [?] | 25 | 900 [?] | None [?] |
+| NIST\_Cone\_25kW\_3 | None [?] | 25 | 900 [?] | None [?] |

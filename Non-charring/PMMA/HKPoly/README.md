@@ -88,7 +88,7 @@ A TA Instruments SDT Q600 (V20.9 Build 20) was used to conduct Simultaneous Ther
 
 | Test Label | Initial Sample Mass (g) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Time to Ignition (s) |
 |:------:|:------:|:------:|:------:|:------:|
-| HKPolyU\_Cone\_25KW\_1 | None | 25 |  900 | None |
-| HKPolyU\_Cone\_25KW\_2 | None | 25 |  900 | None |
-| HKPolyU\_Cone\_65KW\_1 | None | 65 | 1188 | None |
-| HKPolyU\_Cone\_65KW\_2 | None | 65 | 1188 | None |
+| HKPolyU\_Cone\_25kW\_1 | None | 25 |  900 | None |
+| HKPolyU\_Cone\_25kW\_2 | None | 25 |  900 | None |
+| HKPolyU\_Cone\_65kW\_1 | None | 65 | 1188 | None |
+| HKPolyU\_Cone\_65kW\_2 | None | 65 | 1188 | None |

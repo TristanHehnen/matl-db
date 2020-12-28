@@ -103,7 +103,7 @@ Retaining grid: 2mm grid, 20mm spacing.
 
 | Test Label | Initial Sample Mass (g) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Time to Ignition (s) |
 |:------:|:------:|:------:|:------:|:------:|
-| UQ\_Cone\_25KW\_1 | None [?] | 25 |  856 | None [?] |
-| UQ\_Cone\_25KW\_2 | None [?] | 25 |  856 | None [?] |
-| UQ\_Cone\_65KW\_1 | None [?] | 65 | 1110 | None [?] |
-| UQ\_Cone\_65KW\_2 | None [?] | 65 | 1110 | None [?] |
+| UQ\_Cone\_25kW\_1 | None [?] | 25 |  856 | None [?] |
+| UQ\_Cone\_25kW\_2 | None [?] | 25 |  856 | None [?] |
+| UQ\_Cone\_65kW\_1 | None [?] | 65 | 1110 | None [?] |
+| UQ\_Cone\_65kW\_2 | None [?] | 65 | 1110 | None [?] |
