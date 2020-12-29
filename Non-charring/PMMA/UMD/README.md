@@ -56,29 +56,130 @@ An FAA microscale combustion calorimeter was used to conduct MCC experiments.  A
   - O2 Flow rate = 20 ml/min
 
 
-### Experimental Conditions: Gasification Tests (CAPA II)
+
+
+### Experimental Conditions: Gasification
 A custom-built [Controlled Atmosphere Pyrolysis Apparatus II (CAPA II)](https://www.sciencedirect.com/science/article/abs/pii/S0379711217300541) was used to perform anaerobic (02 concentration < 1 vol. %) gasification experiments of PMMA slabs in response to well-characterized radiant heating.
 
 Reported errors represent two standard deviations of the mean of the respective quantity. The temperature data were collected at 7.5 Hz and presented here without any data processing. The mass data were collected at a frequency of 2 Hz. The mass loss rate (MLR) was computed using a 5 s time differential and normalized by the initial top surface area of the sample. The data were subsequently grouped into 5 s bins for which mean MLR and mean time values were computed. The data is synchronized from the time when the sample is exposed to specific external heat flux. [2 repeat tests]. More information is available at: [G.J. Fiola, et al., Fire Safety Journal 2020]
 
-* Extraction flow rate (exhaust): 175 l/s
-* Nitrogen flow rate: 185 SLPM.
-* Sample Surface Area: 0.00385 m2 (nominal)
-* Sample holder dimensions:
-  - Circular pan: diameter = 0.08 m
-  - Insulation thickness around the sample 0.01m
-* Sample dimensions:
-  - Diameter: 0.07 m
-  - Thickness: 0.0058 m
-* Backing Insulation: None  
 Samples were epoxied to copper foil to reduce swelling, morphing and flowing; as well as to provide a substrate with good thermal contact to measure back surface temperatures. The exposed (back) side of the copper foil was painted with high emissivity paint (alpha = 0.95) allowing for temperature measurements on the backside of the sample using an IR camera.
-* Temperature Measurements:
-  - Temperature measurements were made at 12 points representing 4 radial locations (r = 0, 0.01, 163 0.02 and 0.03 m from the center). However, since the temperature distribution was found to be radially uniform, average temperatures are reported here.
 
-##### CAPA II Boundary Conditions
+CAPA II Boundary Conditions:\
 The boundary conditions were averaged over the test duration for both heat fluxes. External radiation was measured by a Schmidt-Boelter heat flux gauge with a cooling water temperature of 290 K. The convective heat losses from the front and back sample surfaces were quantified through detailed simulations and further validated against experimental measurements.
 
-###### External Heat Flux = 25 kW/m2
+External Heat Flux = 25 kW/m2:\
+_**Front surface**_  
+External Radiant Heat Flux = 25 kW/m2  
+Average convection coefficient = 8.6 W/(m^2  K)  
+Average outside gas temperature = 330 K  
+_**Back surface**_  
+Average convection coefficient = 4 W/(m^2 K)  
+Average outside gas temperature = 300 K  
+
+External Heat Flux = 60 kW/m2:\
+_**Front surface**_  
+External Radiant Heat Flux = 60 kW/m2  
+Average convection coefficient = 8.6 W/(m^2  K)  
+Average outside gas temperature = 365 K  
+_**Back surface**_  
+Average convection coefficient = 4 W/(m^2 K)  
+Average outside gas temperature = 303 K  
+
+
+
+Absorption Coefficient: \
+The density normalized absorption coefficient was found to be 2.38 m^2/kg with an error (two times the standard error of the mean) of 0.23 m^2/kg.
+
+
+
+* Heat Flux: 25 and 60 kW/m²
+* Sample
+  - Material: Black PMMA
+  - Mass: None [?] g
+  - Shape: circle
+  - Diameter or edge length: 0.07 m
+  - Exposed surface area (nominal): 0.00385 m²
+  - Thickness: 0.0058 m
+  - Density: None [?] kg/m³
+  - Conductivity: None [?] W/(m K)
+  - Specific heat capacity: None [?] J/(kg K)
+  - Note: None [?]
+* Sample holder
+  - Shape: circle
+  - Retainer frame: None [?]
+  - Retaining grid: None [?]
+  - Note: 0.08 m Diameter
+* Sample chamber
+  - Top opening: None [?]
+  - Doors/Windshield: None [?]
+  - Bottom opening: None [?]
+  - Note: None [?]
+* Backing
+  - Material 1: None [?]
+  - Thickness 1: 0.01 m
+  - Density 1: None [?] kg/m³
+  - Conductivity 1: None [?] W/(m K)
+  - Specific heat capacity 1: None [?] J/(kg K)
+  - Note 1: Insulation thickness around the sample 0.01 m; Samples were epoxied to copper foil to reduce swelling, morphing and flowing; as well as to provide a substrate with good thermal contact to measure back surface temperatures. The exposed (back) side of the copper foil was painted with high emissivity paint (alpha = 0.95) allowing for temperature measurements on the backside of the sample using an IR camera.
+* Temperature
+  - Type 1: IR camera
+  - Location 1: x=0.01 m, y=None m, z=None m
+  - Surface 1: back
+  - Note 1: The exposed (back) side of the copper foil, that was glued to the sample back surface, was painted with high emissivity paint (alpha = 0.95) allowing for temperature measurements on the backside of the sample using an IR camera. Temperature measurements were made at 12 points representing 4 radial locations (r = 0, 0.01, 163 0.02 and 0.03 m from the center). However, since the temperature distribution was found to be radially uniform, average temperatures are reported here.
+  - Type 2: IR camera
+  - Location 2: x=0.02 m, y=None m, z=None m
+  - Surface 2: back
+  - Note 2: The exposed (back) side of the copper foil, that was glued to the sample back surface, was painted with high emissivity paint (alpha = 0.95) allowing for temperature measurements on the backside of the sample using an IR camera. Temperature measurements were made at 12 points representing 4 radial locations (r = 0, 0.01, 163 0.02 and 0.03 m from the center). However, since the temperature distribution was found to be radially uniform, average temperatures are reported here.
+  - Type 3: IR camera
+  - Location 3: x=0.03 m, y=None m, z=None m
+  - Surface 3: back
+  - Note 3: The exposed (back) side of the copper foil, that was glued to the sample back surface, was painted with high emissivity paint (alpha = 0.95) allowing for temperature measurements on the backside of the sample using an IR camera. Temperature measurements were made at 12 points representing 4 radial locations (r = 0, 0.01, 163 0.02 and 0.03 m from the center). However, since the temperature distribution was found to be radially uniform, average temperatures are reported here.
+* Carrier gas
+  - Type: Nitrogen
+  - Flow rate: 175 l/s [?]
+  - Note: Nitrogen flow rate: 185 SLPM. [?]
+* Calibration
+  - Type: None [?]
+  - Frequency: None [?]
+  - Note: None [?]
+* Instrument
+  - Manufacturer: Custom-built
+  - Apparatus and model number: Controlled Atmosphere Pyrolysis Apparatus II (CAPA II)
+  - Note: https://www.sciencedirect.com/science/article/abs/pii/S0379711217300541
+
+###### Test Condition Summary
+
+| Test Label | Initial Sample Mass (g) | Residual Mass (g) | Sample Thickness (m) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Oxygen Concentration (vol. %) |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| UMD_Gasification_25kW_1 | None [?] | None [?] | 0.0058 | 25 | None [?] | None [?] |
+| UMD_Gasification_60kW_1 | None [?] | None [?] | 0.0058 | 60 | None [?] | None [?] |
+
+
+
+<!-- ### Experimental Conditions: Gasi fication Tests (CAPA II) -->
+<!-- A custom-built [Controlled Atmosphere Pyrolysis Apparatus II (CAPA II)](https://www.sciencedirect.com/science/article/abs/pii/S0379711217300541) was used to perform anaerobic (02 concentration < 1 vol. %) gasification experiments of PMMA slabs in response to well-characterized radiant heating.
+
+Reported errors represent two standard deviations of the mean of the respective quantity. The temperature data were collected at 7.5 Hz and presented here without any data processing. The mass data were collected at a frequency of 2 Hz. The mass loss rate (MLR) was computed using a 5 s time differential and normalized by the initial top surface area of the sample. The data were subsequently grouped into 5 s bins for which mean MLR and mean time values were computed. The data is synchronized from the time when the sample is exposed to specific external heat flux. [2 repeat tests]. More information is available at: [G.J. Fiola, et al., Fire Safety Journal 2020] -->
+
+<!-- * Extraction flow rate (exhaust): 175 l/s -->
+<!-- * Nitrogen flow rate: 185 SLPM. -->
+<!-- * Sample Surface Area: 0.00385 m2 (nominal) -->
+<!-- * Sample holder dimensions:
+  - Circular pan: diameter = 0.08 m -->
+  <!-- - Insulation thickness around the sample 0.01m -->
+<!-- * Sample dimensions: -->
+  <!-- - Diameter: 0.07 m -->
+  <!-- - Thickness: 0.0058 m -->
+<!-- * Backing Insulation: None   -->
+<!-- Samples were epoxied to copper foil to reduce swelling, morphing and flowing; as well as to provide a substrate with good thermal contact to measure back surface temperatures. The exposed (back) side of the copper foil was painted with high emissivity paint (alpha = 0.95) allowing for temperature measurements on the backside of the sample using an IR camera. -->
+<!-- * Temperature Measurements:
+  - Temperature measurements were made at 12 points representing 4 radial locations (r = 0, 0.01, 163 0.02 and 0.03 m from the center). However, since the temperature distribution was found to be radially uniform, average temperatures are reported here. -->
+
+<!-- ##### CAPA II Boundary Conditions
+The boundary conditions were averaged over the test duration for both heat fluxes. External radiation was measured by a Schmidt-Boelter heat flux gauge with a cooling water temperature of 290 K. The convective heat losses from the front and back sample surfaces were quantified through detailed simulations and further validated against experimental measurements. -->
+
+<!-- ###### External Heat Flux = 25 kW/m2
 _**Front surface**_  
 External Radiant Heat Flux = 25 kW/m2  
 Average convection coefficient = 8.6 W/(m^2  K)  
@@ -99,4 +200,4 @@ Average outside gas temperature = 303 K
 
 
 ### Absorption Coefficient  
-The density normalized absorption coefficient was found to be 2.38 m^2/kg with an error (two times the standard error of the mean) of 0.23 m^2/kg.
+The density normalized absorption coefficient was found to be 2.38 m^2/kg with an error (two times the standard error of the mean) of 0.23 m^2/kg. -->

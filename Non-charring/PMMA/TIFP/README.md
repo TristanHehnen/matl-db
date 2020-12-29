@@ -130,20 +130,79 @@ Note: For consistency with datasets submitted by other institutions, cone calori
 
 
 
-### Experimental Conditions: Gasification Test
 
-* Radiant heat flux 65 kW/m2, two runs were performed in a cone calorimeter apparatus with vitiated atmosphere module, pure nitrogen.
-* Extraction flow rate: 24L/s
-* Sample Surface Area: 0.0084 m2
-* Sample holder dimensions
-  - according to ISO 5660-1, stainless steel
-  - Retainer frame/grid: frame was used
-* Backing Insulation: earth-alkali silicate wool, [thickness?], thermal conductivity at 600K 0.16 kW/m/K
-* Thermocouple location: None
+### Experimental Conditions: Gasification
+Radiant heat flux 65 kW/m2, two runs were performed in a cone calorimeter apparatus with vitiated atmosphere module, pure nitrogen.
+
+
+* Heat Flux: 65 kW/m²
+* Sample
+  - Material: Black PMMA
+  - Mass: None [?] g
+  - Shape: square [?]
+  - Diameter or edge length: None [?] m
+  - Exposed surface area (nominal): 0.0084 m²
+  - Thickness: None [?] m
+  - Note: None [?]
+* Sample holder
+  - Shape: square
+  - Retainer frame: True
+  - Retaining grid: False
+  - Note: according to ISO 5660-1, stainless steel; frame was used
+* Sample chamber
+  - Top opening: None [?]
+  - Doors/Windshield: None [?]
+  - Bottom opening: None [?]
+  - Note: None [?]
+* Backing
+  - Material 1: earth-alkali silicate wool
+  - Thickness 1: None [?] m
+  - Density 1: None [?] kg/m³
+  - Conductivity 1: 0.16 W/(m K)
+  - Specific heat capacity 1: None [?] J/(kg K)
+  - Note 1: Backing Insulation: earth-alkali silicate wool, [thickness?], thermal conductivity at 600K 0.16 kW/m/K
+* Temperature
+  - Type 1: None [?]
+  - Location 1: x=None [?] m, y=None [?] m, z=None [?] m
+  - Surface 1: None [?]
+  - Note 1: None [?]
+* Carrier gas
+  - Type: None [?]
+  - Flow rate: 24 l/s
+  - Note: None [?]
+* Calibration
+  - Type: None [?]
+  - Frequency: None [?]
+  - Note: None [?]
+* Instrument
+  - Manufacturer: None [?]
+  - Apparatus and model number: None [?]
+  - Note: None [?]
 
 ###### Test Condition Summary
+
+| Test Label | Initial Sample Mass (g) | Residual Mass (g) | Sample Thickness (m) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Oxygen Concentration (vol. %) |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| TIFP_Gasification_65kW_1 | None [?] | None [?] | None [?] | 65 | 1403.15 | None [?] |
+| TIFP_Gasification_65kW_2 | None [?] | None [?] | None [?] | 65 | 1403.15 | None [?] |
+
+
+
+
+<!-- ### Experimental Conditions: Gasi fication Test -->
+
+<!-- * Radiant heat flux 65 kW/m2, two runs were performed in a cone calorimeter apparatus with vitiated atmosphere module, pure nitrogen. -->
+<!-- * Extraction flow rate: 24L/s -->
+<!-- * Sample Surface Area: 0.0084 m2 -->
+<!-- * Sample holder dimensions -->
+  <!-- - according to ISO 5660-1, stainless steel -->
+  <!-- - Retainer frame/grid: frame was used -->
+<!-- * Backing Insulation: earth-alkali silicate wool, [thickness?], thermal conductivity at 600K 0.16 kW/m/K -->
+<!-- * Thermocouple location: None -->
+
+<!-- ###### Test Condition Summary
 
 | Test Name | Heat Flux (kW/m2) | Heater Temperature (K) |
 |:----------:|:------:|:---:|
 | TIFP_Gasification_65kW_1 | 65 | 1403.15 |
-| TIFP_Gasification_65kW_2 | 65 | 1403.15 |
+| TIFP_Gasification_65kW_2 | 65 | 1403.15 | -->

@@ -76,26 +76,93 @@ Note: For consistency with datasets submitted by other institutions, cone calori
 
 
 
-### Experimental Conditions: Gasification Tests
-* Sample Surface Area: 0.01 m2 (nominal)
-* Sample holder dimensions
+
+### Experimental Conditions: Gasification
+Some description can be put here...
+
+
+* Heat Flux: 65 kW/m²
+* Sample
+  - Material: Black PMMA
+  - Mass: 69.76 to 73.89 g
+  - Shape: square [?]
+  - Diameter or edge length: 0.1 [?] m
+  - Exposed surface area (nominal): 0.01 m²
+  - Thickness: None [?] m
+  - Note: None [?]
+* Sample holder
+  - Shape: square
+  - Retainer frame: None
+  - Retaining grid: None [?]
+  - Note: Square pan otherwise complying with specifications of standard ISO 5660-1, except for a 1 cm hole drilled in a corner next to the handle to allow for the passage of thermocouples below the sample.
+* Sample chamber
+  - Top opening: closed
+  - Doors/Windshield: closed
+  - Bottom opening: closed [?]
+  - Note: Sample chamber doors were closed. Air intake grilles were closed and sealed; only outlet was through the cone heater to the chimney. Chamber was purged with nitrogen before the test and during the tests (4 l/s). Oxygen concentration inside the chamber was measured to be < 1 % vol.
+* Backing
+  - Material 1: Ceramic wool
+  - Thickness 1: 0.02 m
+  - Density 1: 65 kg/m³
+  - Conductivity 1: None [?] W/(m K)
+  - Specific heat capacity 1: None [?] J/(kg K)
+  - Note 1: Backing Insulation: two layers (each ~1 cm thick) of ceramic wool with a density of 65 kg/m3 as specified in standard ISO 5660-1 [1]; its other thermal properties are not known.
+* Temperature
+  - Type 1: K-type Thermocouple
+  - Location 1: x=0.015 m, y=0.0 m, z=0.0 m
+  - Surface 1: Back
+  - Note 1: Sample back surface temperature was measured with three K-type thermocouples. Thermocouples were run between the wool layers to the measurement locations, where they were punctured through the upper wool layer to its top surface.
+  - Type 2: K-type Thermocouple
+  - Location 2: x=0.0 m, y=0.0 m, z=0.0 m
+  - Surface 2: Back
+  - Note 2: Sample back surface temperature was measured with three K-type thermocouples. Thermocouples were run between the wool layers to the measurement locations, where they were punctured through the upper wool layer to its top surface.
+  - Type 3: K-type Thermocouple
+  - Location 3: x=-0.015 m, y=0.0 m, z=0.0 m
+  - Surface 3: Back
+  - Note 3: Sample back surface temperature was measured with three K-type thermocouples. Thermocouples were run between the wool layers to the measurement locations, where they were punctured through the upper wool layer to its top surface.
+* Carrier gas
+  - Type: Nitrogen
+  - Flow rate: None 7.7 l/s
+  - Note: Chamber was purged with nitrogen before the test and during the tests (4 l/s). Oxygen concentration inside the chamber was measured to be < 1 % vol.
+* Calibration
+  - Type: None [?]
+  - Frequency: None [?]
+  - Note: None [?]
+* Instrument
+  - Manufacturer: Concept Equipment (UK) [?]
+  - Apparatus and model number: Controlled atmosphere cone calorimeter [?]
+  - Note: None [?]
+
+###### Test Condition Summary
+
+| Test Label | Initial Sample Mass (g) | Residual Mass (g) | Sample Thickness (m)  Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Oxygen Concentration (vol. %) |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| Aalto\_Gasification\_65kW\_1 | 71.08 | 0.0 [?] | 0.006 [?] | 65 | 739 | < 1 [?] |
+| Aalto\_Gasification\_65kW\_2 | 73.89 | 0.0 [?] | 0.006 [?] | 65 | 739 | < 1 [?] |
+| Aalto\_Gasification\_65kW\_3 | 69.76 | 0.0 [?] | 0.006 [?] | 65 | 739 | < 1 [?] |
+
+
+
+<!-- ### Experimental Conditions: Gasi fication Tests -->
+<!-- * Sample Surface Area: 0.01 m2 (nominal) -->
+<!-- * Sample holder dimensions
   - Square pan otherwise complying with specifications of standard ISO 5660-1, except for a 1 cm hole drilled in a corner next to the handle to allow for the passage of thermocouples below the sample.
-  - Retainer frame: False
-* Backing Insulation: two layers (each ~1 cm thick) of ceramic wool with a density of 65 kg/m3 as specified in standard ISO 5660-1 [1]; its other thermal properties are not known.
-* Thermocouple locations
+  - Retainer frame: False -->
+<!-- * Backing Insulation: two layers (each ~1 cm thick) of ceramic wool with a density of 65 kg/m3 as specified in standard ISO 5660-1 [1]; its other thermal properties are not known. -->
+<!-- * Thermocouple locations
   - Sample back surface temperature was measured with three K-type thermocouples. Thermocouples were run between the wool layers to the measurement locations, where they were punctured through the upper wool layer to its top surface.
   - Back Surface Temperature 1: 15 mm away from center
   - Back Surface Temperature 2: sample center point
-  - Back Surface Temperature 3: 15 mm away from center (opposite direction of TC1)
-* Extraction flow rate: 7.7 L/s
-* Sample chamber doors were closed
+  - Back Surface Temperature 3: 15 mm away from center (opposite direction of TC1) -->
+<!-- * Extraction flow rate: 7.7 L/s -->
+<!-- * Sample chamber doors were closed
 * Air intake grilles were closed and sealed; only outlet was through the cone heater to the chimney.
-* Chamber was purged with nitrogen before the test and during the tests (4 l/s). Oxygen concentration inside the chamber was measured to be < 1 % vol.
+* Chamber was purged with nitrogen before the test and during the tests (4 l/s). Oxygen concentration inside the chamber was measured to be < 1 % vol. -->
 
-###### Test Condition Summary
+<!-- ###### Test Condition Summary
 
 | Test Name | Initial sample mass (g) | Heat Flux (kW/m2) | Heater Temperature (K) |
 |:----------:|:------:|:----------:|:----------:|
 | Aalto\_Gasification\_65kW\_1 | 71.08 | 65 | 739 |
 | Aalto\_Gasification\_65kW\_2 | 73.89 | 65 | 739 |
-| Aalto\_Gasification\_65kW\_3 | 69.76 | 65 | 739 |
+| Aalto\_Gasification\_65kW\_3 | 69.76 | 65 | 739 | -->

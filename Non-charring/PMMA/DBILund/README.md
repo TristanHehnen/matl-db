@@ -32,51 +32,22 @@ A Netzsch  STA 449 F3 Jupiter was used to conduct Simultaneous Thermal Analysis 
 ###### Test Condition Summary
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol. %] |
-|:----------:|:--------------------:|:------------------------:|:------------------------------:|
+|:------:|:------:|:------:|:------:|
 | DBILund\_STA\_N2\_20K\_1 | 20 | 5.8 | 0 |  
 | DBILund\_STA\_N2\_20K\_2 | 20 | 4.9 | 0 |  
 | DBILund\_STA\_N2\_20K\_3 | 20 | 5.5 | 0 |  
 
-### Experimental Conditions: Gasification Tests
+
+
+
+### Experimental Conditions: Gasification
 Slab gasification tests were performed in a controlled atmosphere cone calorimeter at the Lund University division of fire safety engineering using a cone calorimeter made by Fire Testing Technology. An enclosed compartment is added to the test setup for controlling the atmospheric environment around the test sample. The oxygen level inside the compartment is measured with O2 analyser PMA 10 by M&C.
 
-* Extraction flow rate: 24L/s
-* Sample Surface Area: 0.01 m2 (nominal)
-* Sample holder dimensions:
-  - Square pan: 106mm x 106mm x 25mm [?]
-  - Retainer frame: None
-  - Retaining grid: None
-* Backing Insulation:  Morgan Thermal Ceramics Superwool SW Plus was used as the backing material (Density 64 kg/m3, thickness 13 mm; thermal conductivity: see end of README, ~0.0375 [W/(m-K)])
-* Thermocouple location: None
-
-###### Test Heating Conditions  
-| Test Name | Heat Flux [kW/m2]| Avg. Heater Temperature [K]| O2 vol. %|
-|----------|:------:| :---: |:---: |
-| DBILund\_Gasification\_25kW\_1 | 25 |  913 | 2.5-3.4 |
-| DBILund\_Gasification\_25kW\_2 | 25 |  913 | 3.5-4.0 |
-| DBILund\_Gasification\_25kW\_3 | 25 |  913 | 2.2-3.3 |
-| DBILund\_Gasification\_50kW\_1 | 50 | 1093 | 2.2-3.0 |
-| DBILund\_Gasification\_50kW\_2 | 50 | 1093 | 2.4-3.2 |
+Heater calibration was performed before setting up a new irradiance level in accordance with ISO 5660-1:2019 section 10.2.5. Operating analyser calibration zeroed with nitrogen and adjusted for a response of 20.95 % ± 0.01 % with dried ambient air (ISO-1:2019 5660 section 10.2.3). The distance from the conical heater to the specimen surface is set 25 mm in the start of the day.
 
 It must be noted that the heater temperature may not be regarded as a ‘real’ temperature of the heater. It is a reference value for maintaining and controlling the heat flux. It should be assumed that the thermocouples on the heater coil are not fixed properly.
 
-###### Test Calibration
-Heater calibration was performed before setting up a new irradiance level in accordance with ISO 5660-1:2019 section 10.2.5. Operating analyser calibration zeroed with nitrogen and adjusted for a response of 20.95 % ± 0.01 % with dried ambient air (ISO-1:2019 5660 section 10.2.3). The distance from the conical heater to the specimen surface is set 25 mm in the start of the day.
-
-
-
-###### Sample Preparation
-PMMA specimens were weighed and measured, then wrapped (bottom and sides) in aluminium foil, and placed on top of a 13 mm thick layer of Morgan Thermal Ceramics Superwool SW Plus (Density 64 kg/m3; nominally 100 x 100 mm square).
-
-| Test Name | Initial Sample Mass [g] | Sample Thickness [mm] | Final Sample mass [g]
-|:----------:|:------:|:---:|:---:|
-| DBILund\_Gasification\_25kW\_1 | 69.1 | 5.85 | 0.7 |
-| DBILund\_Gasification\_25kW\_2 | 73.8 | 6.24 | 0.4 |
-| DBILund\_Gasification\_25kW\_3 | 70.1 | 5.92 | 0.1 |
-| DBILund\_Gasification\_50kW\_1 | 68.6 | 5.78 | 0   |
-| DBILund\_Gasification\_50kW\_2 | 67.7 | 5.71 | 0   |
-
-###### Test Procedure
+Test Procedure:
 1) Test calibrations are performed as described above
 2) The load cell is set to an arbitrary level for ensuring that it in the measurement range. As a result the mass in raw data files does not correspond to the specimen nor to the prepared test specimen, but is rather an arbitrary mass fitting the measurement range of the equipment
 3) A baseline is done with the atmosphere controlling camber opened
@@ -87,6 +58,124 @@ PMMA specimens were weighed and measured, then wrapped (bottom and sides) in alu
 8) The shield is opened and the test is started
 9) After the test, the remains of the PMMA and the aluminium are weighed
 measured Irradiance to the specimen with a closed shield
+
+Sample masses reported in .csv files indicate that the specimen mass dropped below 0 at the end of the test. This can be interpreted considering the test procedure and the test data managing and is most likely suggested to be due to the:
+1) Scale accuracy when exposed to heat in the chamber
+2) Combustion of the organic content from the backing insulation
+3) Moisture loss from the backing insulation.
+
+* Heat Flux: 25 and 50 kW/m²
+* Sample
+  - Material: Black PMMA
+  - Mass: 69.1 to 73.8 g
+  - Shape: square [?]
+  - Diameter or edge length: 0.1 [?] m
+  - Exposed surface area (nominal): 0.01 m²
+  - Thickness: 0.00571 to 0.00624 m
+  - Note: sample wrapped (bottom and sides) in aluminium foil
+* Sample holder
+  - Shape: square [?]
+  - Retainer frame: None [?]
+  - Retaining grid: None [?]
+  - Note: 106mm x 106mm x 25mm [?]
+* Sample chamber
+  - Top opening: None [?]
+  - Doors/Windshield: None [?]
+  - Bottom opening: None [?]
+  - Note: None [?]
+* Backing
+  - Material 1: Morgan Thermal Ceramics Superwool SW Plus
+  - Thickness 1: 0.013 m
+  - Density 1: 64 kg/m³
+  - Conductivity 1: 0.0375 W/(m K)
+  - Specific heat capacity 1: None [?] J/(kg K)
+  - Note 1: Backing Insulation:  Morgan Thermal Ceramics Superwool SW Plus was used as the backing material (Density 64 kg/m3, thickness 13 mm; thermal conductivity: see end of README, ~0.0375 [W/(m-K)])
+* Thermocouple
+  - Type 1: None
+  - Location 1: x=None m, y=None m, z=None m
+  - Surface 1: None
+  - Note 1: None
+* Carrier gas
+  - Type: Nitrogen [?]
+  - Flow rate: 24 l/s
+  - Note: None [?]
+* Calibration
+  - Type: Heater calibration in accordance with ISO 5660-1:2019 section 10.2.5.
+  - Frequency: Before each new irradiance level
+  - Note: Heater calibration was performed before setting up a new irradiance level in accordance with ISO 5660-1:2019 section 10.2.5. Operating analyser calibration zeroed with nitrogen and adjusted for a response of 20.95 % ± 0.01 % with dried ambient air (ISO-1:2019 5660 section 10.2.3). The distance from the conical heater to the specimen surface is set 25 mm in the start of the day.
+* Instrument
+  - Manufacturer: None [?]
+  - Apparatus and model number: None [?]
+  - Note: None [?]
+
+###### Test Condition Summary
+
+| Test Label | Initial Sample Mass (g) | Residual Mass (g) | Sample Thickness (m) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Oxygen Concentration (vol. %) |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| DBILund\_Gasification\_25kW\_1 | 69.1 | 0.7 | 0.00585 | 25 |  913 | 2.5 - 3.4 |
+| DBILund\_Gasification\_25kW\_2 | 73.8 | 0.4 | 0.00624 | 25 |  913 | 3.5 - 4.0 |
+| DBILund\_Gasification\_25kW\_3 | 70.1 | 0.1 | 0.00592 | 25 |  913 | 2.2 - 3.3 |
+| DBILund\_Gasification\_50kW\_1 | 68.6 | 0   | 0.00578 | 50 | 1093 | 2.2 - 3.0 |
+| DBILund\_Gasification\_50kW\_2 | 67.7 | 0   | 0.00571 | 50 | 1093 | 2.4 - 3.2 |
+
+
+
+
+
+
+
+
+
+<!-- ### Experimental Conditions: Gasi fication Tests
+Slab gasification tests were performed in a controlled atmosphere cone calorimeter at the Lund University division of fire safety engineering using a cone calorimeter made by Fire Testing Technology. An enclosed compartment is added to the test setup for controlling the atmospheric environment around the test sample. The oxygen level inside the compartment is measured with O2 analyser PMA 10 by M&C. -->
+
+<!-- * Extraction flow rate: 24L/s -->
+<!-- * Sample Surface Area: 0.01 m2 (nominal) -->
+<!-- * Sample holder dimensions:
+  - Square pan: 106mm x 106mm x 25mm [?]
+  - Retainer frame: None
+  - Retaining grid: None -->
+<!-- * Backing Insulation:  Morgan Thermal Ceramics Superwool SW Plus was used as the backing material (Density 64 kg/m3, thickness 13 mm; thermal conductivity: see end of README, ~0.0375 [W/(m-K)]) -->
+<!-- * Thermocouple location: None -->
+
+<!-- ###### Test Heating Conditions  
+| Test Name | Heat Flux [kW/m2]| Avg. Heater Temperature [K]| O2 vol. %|
+|----------|:------:| :---: |:---: |
+| DBILund\_Gasification\_25kW\_1 | 25 |  913 | 2.5-3.4 |
+| DBILund\_Gasification\_25kW\_2 | 25 |  913 | 3.5-4.0 |
+| DBILund\_Gasification\_25kW\_3 | 25 |  913 | 2.2-3.3 |
+| DBILund\_Gasification\_50kW\_1 | 50 | 1093 | 2.2-3.0 |
+| DBILund\_Gasification\_50kW\_2 | 50 | 1093 | 2.4-3.2 | -->
+
+<!-- It must be noted that the heater temperature may not be regarded as a ‘real’ temperature of the heater. It is a reference value for maintaining and controlling the heat flux. It should be assumed that the thermocouples on the heater coil are not fixed properly. -->
+
+<!-- ###### Test Calibration
+Heater calibration was performed before setting up a new irradiance level in accordance with ISO 5660-1:2019 section 10.2.5. Operating analyser calibration zeroed with nitrogen and adjusted for a response of 20.95 % ± 0.01 % with dried ambient air (ISO-1:2019 5660 section 10.2.3). The distance from the conical heater to the specimen surface is set 25 mm in the start of the day. -->
+
+
+
+<!-- ###### Sample Preparation
+PMMA specimens were weighed and measured, then wrapped (bottom and sides) in aluminium foil, and placed on top of a 13 mm thick layer of Morgan Thermal Ceramics Superwool SW Plus (Density 64 kg/m3; nominally 100 x 100 mm square).
+
+| Test Name | Initial Sample Mass [g] | Sample Thickness [mm] | Final Sample mass [g]
+|:----------:|:------:|:---:|:---:|
+| DBILund\_Gasification\_25kW\_1 | 69.1 | 5.85 | 0.7 |
+| DBILund\_Gasification\_25kW\_2 | 73.8 | 6.24 | 0.4 |
+| DBILund\_Gasification\_25kW\_3 | 70.1 | 5.92 | 0.1 |
+| DBILund\_Gasification\_50kW\_1 | 68.6 | 5.78 | 0   |
+| DBILund\_Gasification\_50kW\_2 | 67.7 | 5.71 | 0   | -->
+
+<!-- ###### Test Procedure
+1) Test calibrations are performed as described above
+2) The load cell is set to an arbitrary level for ensuring that it in the measurement range. As a result the mass in raw data files does not correspond to the specimen nor to the prepared test specimen, but is rather an arbitrary mass fitting the measurement range of the equipment
+3) A baseline is done with the atmosphere controlling camber opened
+4) The chamber is closed and the Nitrogen flow in the chamber is started. 0.85 l/s is performed until the oxygen level stabilise. Typically it was around 3 – 3.5 %
+5) A second baseline is performed for 60 seconds. The start time of the second baseline is written in comments section after the test
+6) The shield covering the conical heater is closed. The specimen is placed inside the chamber. This action requires opening the chamber and the atmosphere inside the chamber is with oxygen
+7) 90 seconds are taken before starting the test to ensure that the atmosphere inside the chamber stabilizes (Measured irradiance to the specimen surface while the shield is closed are provided below
+8) The shield is opened and the test is started
+9) After the test, the remains of the PMMA and the aluminium are weighed
+measured Irradiance to the specimen with a closed shield -->
 
 |Time [s] | Irradiance, cone set to 25 kW/m2 | Irradiance, cone set to 65 kW/m2 |
 |:---:|:---:|:---:|
@@ -101,10 +190,10 @@ measured Irradiance to the specimen with a closed shield
 | 80 |  3.7 |  8.6 |
 | 90 |  3.7 |  8.7 |
 
-Sample masses reported in .csv files indicate that the specimen mass dropped below 0 at the end of the test. This can be interpreted considering the test procedure and the test data managing and is most likely suggested to be due to the:
+<!-- Sample masses reported in .csv files indicate that the specimen mass dropped below 0 at the end of the test. This can be interpreted considering the test procedure and the test data managing and is most likely suggested to be due to the:
 1) Scale accuracy when exposed to heat in the chamber
 2) Combustion of the organic content from the backing insulation
-3) Moisture loss from the backing insulation.
+3) Moisture loss from the backing insulation. -->
 
 
 
