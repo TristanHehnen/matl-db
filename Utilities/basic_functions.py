@@ -162,15 +162,21 @@ def read_test_condition_table(experiment_lines):
                 # after the number, thus the number is the first
                 # element in the returned list.
                 cell_content = line[col_id].split()[0]
-                # Check if the cell can be transformed to a float
-                # otherwise set it to None.
-                try:
-                    cell_content = float(cell_content)
-                except:
-                    print(
-                        "* An exception occurred: '{}' will be set to 'None'.\n".format(
-                            cell_content))
-                    cell_content = None
+
+                # TODO: find a better solution for the "<" ">".
+                # Check if as less/greater than symbol is part of the content.
+                if "<" in cell_content or ">" in cell_content:
+                    cell_content = line[col_id]
+                else:
+                    # Check if the cell can be transformed to a float
+                    # otherwise set it to None.
+                    try:
+                        cell_content = float(cell_content)
+                    except ValueError:
+                        msg = "* An exception occurred: " \
+                              "'{}' will be set to 'None'.\n"
+                        print(msg.format(cell_content))
+                        cell_content = None
 
                 col_content.append(cell_content)
             else:
@@ -196,6 +202,7 @@ def get_value_unit(exp_info, missing_info="[?]"):
 
     :return: value and unit
     """
+
     if "None" not in exp_info:
         # Split the entry to separate value, unit and missing_info marker,
         # store them in an list.
@@ -224,6 +231,7 @@ def get_value(exp_info, missing_info="[?]"):
 
     :return: value
     """
+
     if "None" not in exp_info:
         # Remove missing_info marker and the leading space.
         if missing_info in exp_info:
@@ -640,6 +648,254 @@ def fill_cone_dict(experiment_lines, institute_name_info,
         new_unit = "g"
         test_info["sample_mass"] = {'value': new_val,
                                     'unit': new_unit}
+
+        repetition_info[test_label] = test_info
+
+    experiment_info[institute_label] = repetition_info
+
+    return repetition_info
+
+
+def get_gasi_items(md_lines, items,
+                   multi_set=["backing", "temperature"]):
+    """
+
+    :param md_lines: list of strings (markdown file lines)
+    :param items: dictionary with expected bullet points as keys.
+    :param multi_set: list of keywords that spawn multiple parameter sets.
+
+    """
+
+    # The parent is used to sort the individual items
+    # into the dictionary.
+    parent = None
+
+    # List of items that are not of the value-unit type (e.g. 5 kg).
+    text_items = ["note", "material", "shape", "retainer_frame",
+                  "retaining_grid", "top_opening", "doors_windshield",
+                  "bottom_opening", "carrier_gas", "type", "frequency",
+                  "manufacturer", "apparatus_and_model_number", "surface"]
+
+    # Read bullet points of markdown list and transform them
+    # to dictionary keys.
+    for line in md_lines:
+        # Get medium items.
+        if "* " in line and ": " in line:
+            new_key = line[2:].split(': ')[0].replace(' ', '_').lower()
+            new_info = line[4:].split(': ')[1]
+            # Reset parent.
+            parent = None
+
+        # Get major items.
+        elif "* " in line and ": " not in line:
+            # Set parent.
+            parent = line[2:].replace(' ', '_').lower()
+
+        # Get minor items.
+        elif "  - " in line and ": " in line:
+            new_key = line[4:].split(': ')[0].replace(' ', '_').lower()
+            new_key = new_key.replace("/", "_")
+            new_info = line[4:].split(': ')[1]
+
+        else:
+            # Catch cases that aren't expected keywords, e.g. empty lines.
+            new_key = None
+
+        if parent is not None:
+            if parent in multi_set and new_key is not None:
+                # Process special cases with multiple parameter sets
+                # of the same kind, like thermocouple locations.
+
+                # Find integer before ':' to determine to which
+                # set the parameter belongs.
+                keyword_number_res = re.findall(r'[0-9]+$',
+                                                new_key)
+
+                # Determine if only a single number is in the string.
+                if len(keyword_number_res) == 1:
+                    # Build new parent key word for the new parameter set.
+                    parent_keyword = '{}_{}'.format(parent,
+                                                    keyword_number_res[0])
+
+                    # Create new dictionary, if the parent key word doesn't
+                    # exist.
+                    if parent_keyword not in items[parent]:
+                        items[parent][parent_keyword] = dict()
+
+                # Remove trailing number from key and check against
+                # the text items.
+                if "location" in new_key:
+                    # Get the coordinate information for the thermocouples.
+                    coordinates_raw = new_info.split(',')
+
+                    # Initialise dictionary to store the coordinate information.
+                    coordinates = dict()
+
+                    # Iterate over the coordinate and split the letter from
+                    # the value.
+                    for coordinate_raw in coordinates_raw:
+                        c_letter = coordinate_raw.split('=')[0]
+                        c_value = coordinate_raw.split('=')[1]
+
+                        # Get value and unit from the coordinate value.
+                        new_val, new_unit = get_value_unit(c_value,
+                                                           missing_info="[?]")
+
+                        # Remove spaces.
+                        c_letter = c_letter.replace(' ', '')
+
+                        # Store the individual coordinates in their dictionary.
+                        coordinates[c_letter] = {"value": new_val,
+                                                 "unit": new_unit}
+
+                    # Store the combined coordinates.
+                    items[parent][parent_keyword][new_key[:-2]] = coordinates
+
+                elif new_key.split('_')[0] not in text_items:
+                    # Process items that are of the value-unit type.
+                    new_val, new_unit = get_value_unit(new_info,
+                                                       missing_info="[?]")
+
+                    # Store value-unit pair in the appropriate dictionary.
+                    items[parent][parent_keyword][new_key[:-2]] = {
+                        "value": new_val,
+                        "unit": new_unit}
+
+                else:
+                    # Process items that are basically text, like notes.
+                    new_val = get_value(new_info,
+                                        missing_info="[?]")
+
+                    # Store information in the appropriate dictionary.
+                    items[parent][parent_keyword][new_key[:-2]] = new_val
+
+            elif new_key is not None:
+                # Process regular items.
+
+                # Check if a number is part of new_key.
+                last_element = new_key.split('_')[-1]
+                try:
+                    # The last element would be an integer when
+                    # reading backing or temperature items.
+                    int(last_element)  # == int():
+                    # Remove trailing number and underscore to check
+                    # against the text_items list.
+                    new_item_key = new_key[: -(len(last_element) + 1)]
+                except ValueError:
+                    # Last element was not a number, thus the key
+                    # can stay as it is.
+                    new_item_key = new_key
+
+                # if new_key.split('_')[0] not in text_items:
+                if new_item_key not in text_items:
+                    # Process items that are of the value-unit type.
+                    new_val, new_unit = get_value_unit(new_info,
+                                                       missing_info="[?]")
+
+                    # Store value-unit pair in the appropriate dictionary.
+                    items[parent][new_key] = {"value": new_val,
+                                              "unit": new_unit}
+                else:
+                    # Process items that are basically text, like notes.
+                    new_val = get_value(new_info,
+                                        missing_info="[?]")
+
+                    # Store information in the appropriate dictionary.
+                    items[parent][new_key] = new_val
+
+        # Reset new_key.
+        new_key = None
+
+
+def fill_gasi_dict(experiment_lines, institute_name_info,
+                   exp_table_df, base_dict, material_path):
+    """
+
+
+    :param experiment_lines:
+    :param institute_name_info:
+    :param exp_table_df:
+    :param base_dict:
+    :param material_path:
+
+    :return:
+    """
+
+    #
+    experiment_type = "Gasification"
+    experiment_info = dict()
+    repetition_info = dict()
+    institute_label = institute_name_info[0]
+    institute_name = institute_name_info[1]
+
+    for test_label in exp_table_df["Test Label"][:]:
+        # Remove unnecessary spaces.
+        test_label = test_label.replace(" ", "")
+
+        # Get line number of test.
+        test_idx = exp_table_df[exp_table_df['Test Label'] == test_label].index[
+            0]
+
+        # Initialise experiment dictionary and fill in a copy of
+        # the experiment description template.
+        test_info = copy.deepcopy(base_dict)
+
+        # Set institute name and label.
+        test_info['laboratory']['label'] = institute_label
+        test_info['laboratory']['name'] = institute_name
+
+        # Get test label to build file name.
+        data_file_name = exp_table_df['Test Label'][test_idx] + ".csv"
+        print(data_file_name)
+
+        # Build data file path.
+        data_file_path = os.path.join(material_path.split("\\")[-2],
+                                      material_path.split("\\")[-1],
+                                      institute_label,
+                                      data_file_name)
+        # Store relative data file path.
+        test_info['path'] = data_file_path
+
+        # Set experiment description items from README.
+        get_gasi_items(md_lines=experiment_lines,
+                       items=test_info,
+                       multi_set=["backing", "temperature"])
+
+        # Set heating rate.
+        new_val = exp_table_df['Heat Flux (kW/m²)'][test_idx]
+        new_unit = "kW/m²"
+        test_info["heat_flux"] = {'value': new_val,
+                                  'unit': new_unit}
+
+        # Set initial sample mass.
+        new_val = exp_table_df['Initial Sample Mass (g)'][test_idx]
+        new_unit = "g"
+        test_info["sample"]["initial_mass"]["value"] = new_val
+        test_info["sample"]["initial_mass"]["unit"] = new_unit
+
+        # Set residual sample mass.
+        new_val = exp_table_df['Residual Mass (g)'][test_idx]
+        new_unit = "g"
+        test_info["sample"]["residual_mass"] = {"value": new_val,
+                                                "unit": new_unit}
+
+        # Set sample thickness.
+        new_val = exp_table_df['Sample Thickness (m)'][test_idx]
+        new_unit = "m"
+        test_info["sample"]["thickness"]["value"] = new_val
+        test_info["sample"]["thickness"]["unit"] = new_unit
+
+        # Set average heater temperature.
+        new_val = exp_table_df['Avg. Heater Temperature (K)'][test_idx]
+        new_unit = "K"
+        test_info["avg_heater_temp"] = {"value": new_val,
+                                        "unit": new_unit}
+
+        # Set oxygen concentration.
+        new_val = exp_table_df['Oxygen Concentration (vol. %)'][test_idx]
+        new_unit = "vol. %"
+        test_info["o2_concentration"] = {"value": new_val,
+                                         "unit": new_unit}
 
         repetition_info[test_label] = test_info
 
@@ -1928,6 +2184,57 @@ experiment_template = {
             # 'note_1': {}
         },
         'thermocouple': {
+            # 'type_1': {},
+            # 'location_1': {},
+            # 'surface_1': {},
+            # 'note_1': {}
+        },
+        'carrier_gas': {
+            'type': {},
+            'flow_rate': {},
+            'note': {}},
+        'calibration': {
+            'type': {},
+            'frequency': {},
+            'note': {}},
+        'instrument': {
+            'manufacturer': {},
+            'apparatus_and_model_number': {},
+            'note': {}},
+        'path': {}},
+    "Gasification_base": {
+        'laboratory': {},
+        'heat_flux': {},
+        'avg_heater_temp': {},
+        'o2_concentration': {},
+        'sample': {
+            'material': {},
+            'initial_mass': {},
+            'residual_mass': {},
+            'shape': {},
+            'diameter_or_edge_length': {},
+            'exposed_surface_area': {},
+            'thickness': {},
+            'note': {}},
+        'sample_holder': {
+            'shape': {},
+            'retainer_frame': {},
+            'retaining_grid': {},
+            'note': {}},
+        'sample_chamber': {
+            'top_opening': {},
+            'doors_windshield': {},
+            'bottom_opening': {},
+            'note': {}},
+        'backing': {
+            # 'material_1': {},
+            # 'thickness_1': {},
+            # 'density_1': {},
+            # 'conductivity_1': {},
+            # 'specific_heat_capacity_1': {},
+            # 'note_1': {}
+        },
+        'temperature': {
             # 'type_1': {},
             # 'location_1': {},
             # 'surface_1': {},
