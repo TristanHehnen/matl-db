@@ -90,7 +90,7 @@ Sample masses reported in .csv files indicate that the specimen mass dropped bel
   - Conductivity 1: 0.0375 W/(m K)
   - Specific heat capacity 1: None [?] J/(kg K)
   - Note 1: Backing Insulation:  Morgan Thermal Ceramics Superwool SW Plus was used as the backing material (Density 64 kg/m3, thickness 13 mm; thermal conductivity: see end of README, ~0.0375 [W/(m-K)])
-* Thermocouple
+* Temperature
   - Type 1: None
   - Location 1: x=None m, y=None m, z=None m
   - Surface 1: None

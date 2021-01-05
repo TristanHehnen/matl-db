@@ -135,7 +135,7 @@ Some description can be put here...
 
 ###### Test Condition Summary
 
-| Test Label | Initial Sample Mass (g) | Residual Mass (g) | Sample Thickness (m)  Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Oxygen Concentration (vol. %) |
+| Test Label | Initial Sample Mass (g) | Residual Mass (g) | Sample Thickness (m) | Heat Flux (kW/m²) | Avg. Heater Temperature (K) | Oxygen Concentration (vol. %) |
 |:------:|:------:|:------:|:------:|:------:|:------:|:------:|
 | Aalto\_Gasification\_65kW\_1 | 71.08 | 0.0 [?] | 0.006 [?] | 65 | 739 | < 1 [?] |
 | Aalto\_Gasification\_65kW\_2 | 73.89 | 0.0 [?] | 0.006 [?] | 65 | 739 | < 1 [?] |
