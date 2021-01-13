@@ -1,4 +1,4 @@
-# Sandia National Laboratories (SANDIA)
+# Sandia National Laboratories (Sandia)
 
 ### Experimental Conditions: TGA, DSC
 A Netzsch F3 Jupiter using a DSC sample carrier with S-type thermocouples, and a Silicon Carbide furnace was used to conduct Simultaneous Thermal Analysis (TGA + DSC) experiments. Although tests were conducted simultaneously, TGA and DSC measurement data presented here are separated into two files, for consistency with other datasets.
@@ -31,9 +31,9 @@ A Netzsch F3 Jupiter using a DSC sample carrier with S-type thermocouples, and a
 
 | Test Label | Heating Rate [K/min] | Initial Sample Mass [mg] | Oxygen Concentration [vol %] |
 |:------:|:------:|:------:|:------:|
-| SANDIA\_STA\_Ar\_1K\_1  |  1 | 4.903 | 0 |  
-| SANDIA\_STA\_Ar\_10K\_1 | 10 | 4.917 | 0 |  
-| SANDIA\_STA\_Ar\_10K\_2 | 10 | 4.828 | 0 |  
-| SANDIA\_STA\_Ar\_50K\_1 | 50 | 5.376 | 0 |  
-| SANDIA\_STA\_Ar\_50K\_2 | 50 | 4.835 | 0 |
-| SANDIA\_STA\_Ar\_50K\_3 | 50 | 4.682 | 0 |
+| Sandia\_STA\_Ar\_1K\_1  |  1 | 4.903 | 0 |  
+| Sandia\_STA\_Ar\_10K\_1 | 10 | 4.917 | 0 |  
+| Sandia\_STA\_Ar\_10K\_2 | 10 | 4.828 | 0 |  
+| Sandia\_STA\_Ar\_50K\_1 | 50 | 5.376 | 0 |  
+| Sandia\_STA\_Ar\_50K\_2 | 50 | 4.835 | 0 |
+| Sandia\_STA\_Ar\_50K\_3 | 50 | 4.682 | 0 |
